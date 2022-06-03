@@ -1,8 +1,9 @@
 import CustomLink from "./CustomLink"
+import './Navbar.css';
 
 const NavBar: React.FC = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <CustomLink to="/">Home</CustomLink>
       <CustomLink to="/about">About</CustomLink>
     </nav>

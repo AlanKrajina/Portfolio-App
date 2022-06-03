@@ -1,6 +1,8 @@
+import MainPage from '../components/MainPage';
+
 const Home: React.FC = () => {
   return (
-    <p>Home text</p>
+    <MainPage />
   )
 }
 

@@ -1,6 +1,10 @@
+import Layout from './Layout';
+
 const About: React.FC = () => {
   return (
-    <p>About text</p>
+    <Layout>
+      <p>About text</p>      
+    </Layout>
   )
 }
 
