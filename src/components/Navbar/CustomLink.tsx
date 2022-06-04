@@ -10,19 +10,21 @@ const CustomLink: React.FC<RouteProps> = ({
         children
     }) => {
 
-    let activeStyle1 = {
-        textDecoration: "underline",
+    let activeStyle = {
+        textDecoration: "none",
+        color: "#08fdd8"
     };
 
-    let activeStyle2 = {
+    let nonactiveStyle = {
         textDecoration: "none",
+        color: "#909096"
     };
     
     return (
         <NavLink 
         to={to} 
         style={({ isActive }) =>
-            isActive ? activeStyle1 : activeStyle2
+            isActive ? activeStyle : nonactiveStyle
         }
         >
             {children}

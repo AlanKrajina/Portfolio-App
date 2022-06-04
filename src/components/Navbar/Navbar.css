@@ -1,9 +1,57 @@
 .navbar {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    position: fixed;
-    background-color: blue;
-    left: 0;
-    width: 8rem;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: fixed;
+  background-color: #181818;
+  left: 0;
+  width: 9rem;
+  justify-content: space-between;
+}
+
+header {
+  height: 17vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.name {
+  font-size: x-large;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: small;
+}
+
+.logo {
+  width: 8rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer {
+  height: 17vh;
+  align-self: center;
+}
+
+.footerIcons {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+}
+
+hr {
+  background-color: #383838;
+  border: 0.1px solid #383838;
+  width: 8rem;
+}
