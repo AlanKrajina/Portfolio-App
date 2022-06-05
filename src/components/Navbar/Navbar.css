@@ -3,14 +3,14 @@
   flex-direction: column;
   height: 100vh;
   position: fixed;
-  background-color: #181818;
+  background-color: #151515;
   left: 0;
   width: 9rem;
   justify-content: space-between;
 }
 
 header {
-  height: 17vh;
+  height: 19vh;
   background-color: black;
   color: white;
   display: flex;
