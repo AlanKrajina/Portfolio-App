@@ -7,6 +7,7 @@
   left: 0;
   width: 9rem;
   justify-content: space-between;
+  z-index: 21;
 }
 
 header {
@@ -25,12 +26,19 @@ header {
   margin-bottom: 1rem;
 }
 
+.titleDiv {
+  margin-top: 11vh;
+  text-align: center;
+}
+
 .title {
   font-size: small;
 }
 
 .logo {
-  width: 8rem;
+  width: 6.8rem;
+  margin-top: 1.5vh;
+  margin-left: 1.3vh;
 }
 
 nav {
@@ -54,4 +62,14 @@ hr {
   background-color: #383838;
   border: 0.1px solid #383838;
   width: 8rem;
+}
+
+#wrap {
+  position:absolute;
+  left: 0;
+  top: 0; 
+}
+
+nav {
+  z-index: 21;
 }

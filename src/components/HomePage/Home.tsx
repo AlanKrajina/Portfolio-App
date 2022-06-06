@@ -6,7 +6,7 @@ const Home: React.FC = () => {
   return (
     <main className='home'>
       <IntroSection />
-      <ExperienceSection />    
+      <ExperienceSection />
     </main>
 
 /*    <BlogSection />
