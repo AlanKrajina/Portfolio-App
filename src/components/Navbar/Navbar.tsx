@@ -31,7 +31,7 @@ const NavBar: React.FC = () => {
         </div>
         <div className="titleDiv">
           <p className="name">Alan</p>
-          <span className="title">Frontend Developer</span>          
+          <span className="title">Portfolio App</span>          
         </div>
       </header>
       <nav>

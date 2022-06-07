@@ -3,10 +3,17 @@ import './IntroSection.css';
 import './canvas.css';
 import { ParticleNetwork } from './canvas.js';
 
-const IntroSection: React.FC = () => {
+interface Options {
+    particleColor: string;
+    background: string;
+    interactive: boolean;
+    speed: string;
+    density: string;
+};
 
-    var options = {
-        particleColor: '#fff',
+const IntroSection: React.FC = () => {
+    const options: Options = {
+        particleColor: '#08fdd8',
         background: '#1d1d1d',
         interactive: true,
         speed: 'fast',
@@ -15,43 +22,46 @@ const IntroSection: React.FC = () => {
 
     useEffect(() => {
         new ParticleNetwork(document.getElementById('particle-canvas'), options);
+        showIntro();
       }, []);
+
+    const intro: string[] = [
+        'H','i',',',
+        'I',`'`,'m','&nbsp','A','l','a','n',
+        ',','w','e','l','c','o','m','e','&nbsp', 't','o','&nbsp','m','y','&nbsp','P','o','r','t','f','o','l','i','o','&nbsp','A','p','p','&nbsp'];
+
+    const showIntro = (): void => {
+        let delay = 100;
+        let firstSection = document.getElementById('firstSection');
+        let secondSection = document.getElementById('secondSection');
+        let thirdSection = document.getElementById('thirdSection');
+
+        intro.forEach((el, index) => {
+            setTimeout(function(){
+                let span = document.createElement("span");
+                span.className = 'hoverBounce';
+                span.innerHTML = el;
+                if (index < 3) {
+                    firstSection?.append(span);
+                } else if (index > 2 && index < 12) {
+                    secondSection?.append(span);
+                } else if (index > 11 && index < 39) {
+                    thirdSection?.append(span);
+                } else {
+                    let p = document.createElement("p");
+                    p.innerHTML = 'Front End Developer / React || Svelte';
+                    thirdSection?.append(p);
+                }
+            }, delay);
+            delay += 60;
+        })
+    }
 
     return (
         <div id="particle-canvas">
-            <div className='introSection' style={{top: '16rem'}}>
-                <span className='hoverBounce'>H</span>
-                <span className='hoverBounce'>i</span>
-                <span className='hoverBounce'>,</span>
-            </div>
-            <div className='introSection' style={{top: '22rem'}}>
-                <span className='hoverBounce'>I</span>
-                <span className='hoverBounce'>'</span>
-                <span className='hoverBounce'>m</span>
-                <span> </span>
-                <span className='hoverBounce'>A</span>
-                <span className='hoverBounce'>l</span>
-                <span className='hoverBounce'>a</span>
-                <span className='hoverBounce'>n</span>
-            </div>
-            <div className='introSection' style={{top: '28rem'}}>
-                <span className='hoverBounce'>W</span>
-                <span className='hoverBounce'>e</span>
-                <span className='hoverBounce'>b</span>
-                <span> </span>
-                <span className='hoverBounce'>d</span>
-                <span className='hoverBounce'>e</span>
-                <span className='hoverBounce'>v</span>                    
-                <span className='hoverBounce'>e</span>
-                <span className='hoverBounce'>l</span>
-                <span className='hoverBounce'>o</span>
-                <span className='hoverBounce'>p</span>
-                <span className='hoverBounce'>e</span>
-                <span className='hoverBounce'>r</span>
-            </div>
-            <div className='introSection' style={{top: '36rem'}}>
-                <p>Front End Developer / React || Svelte</p> 
-            </div>
+            <div id='firstSection' className='introSection'/>
+            <div id='secondSection' className='introSection' style={{top: '37vh'}}/>
+            <div id='thirdSection' className='introSection' style={{top: '45vh'}}/>
         </div>
     )
   }
