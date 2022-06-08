@@ -9,6 +9,7 @@
 }
 
 .hoverBounce {
+    font-size: 5.5rem;
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -18,7 +19,7 @@
     transition-duration: 0.5s;
 }
 
-.hoverBounce:hover, .hoverBounce:focus, .hoverBounce:active {
+.hoverBounce:hover {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
     -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
@@ -29,4 +30,18 @@
 p {
     font-size: 18px;
     color: rgb(144, 144, 150);
+}
+
+.initialBounce {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    color: #08fdd8;
+}
+
+.firstLetter {
+    font-size: larger;
+    color: #08fdd8;
+    margin-bottom: 12px;
 }
