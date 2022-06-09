@@ -1,5 +1,5 @@
 import CustomLink from "./CustomLink"
-import './Navbar.css';
+import { styles } from "./navbarStyles";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import React, { useEffect } from 'react';
@@ -24,25 +24,25 @@ const NavBar: React.FC = () => {
   }, []);
 
   return (
-    <main className="navbar">
-      <header>
-        <div id="wrap">
-          <img className="logo" id="logo" src='/images/reactIcon.jpg' alt="logo" />
+    <main style={styles.Navbar}>
+      <header style={styles.Header}>
+        <div id="wrap" style={styles.Wrap}>
+          <img style={styles.Logo} id="logo" src='/images/reactIcon.jpg' alt="logo" />
         </div>
-        <div className="titleDiv">
-          <p className="name">Alan</p>
-          <span className="title">Portfolio App</span>          
+        <div style={styles.TitleDiv}>
+          <p style={styles.Name}>Alan</p>
+          <span style={styles.Title}>Portfolio App</span>          
         </div>
       </header>
-      <nav>
-        <hr/>
+      <nav style={styles.Nav}>
+        <hr style={styles.Hr}/>
         <CustomLink to="/">Home</CustomLink>
-        <hr/>
+        <hr style={styles.Hr}/>
         <CustomLink to="/about">About</CustomLink>  
-        <hr/>      
+        <hr style={styles.Hr}/>      
       </nav>
-      <footer>
-        <img className="footerIcons"src='/images/linkedin.svg' alt="linkedin"/>
+      <footer style={styles.Footer}>
+        <img style={styles.FooterIcons} src='/images/linkedin.svg' alt="linkedin"/>
       </footer>
     </main>
   )

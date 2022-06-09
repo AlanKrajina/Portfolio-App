@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import './IntroSection.css';
-import './canvas.css';
+import '../Home.css';
+import { styles } from "./introStyles";
 import { ParticleNetwork } from './canvas.js';
 
 interface Options {
@@ -58,13 +58,14 @@ const IntroSection: React.FC = () => {
                     const span = document.createElement('span');
                     span.className = 'hoverBounce';
                     if (e.elementId === 'firstSection' && index === 0) {
-                        span.classList.add('firstLetter'); 
+                        span.classList.add('introSectionTitle'); 
                     }
                     span.innerHTML = el;
                     initialBounce(span);
                     section?.append(span);
                     if (e.elementId === 'thirdSection' && index === (e.title.length - 1)) {
                         const p = document.createElement('p');
+                        p.className = 'introSectionParagraph';
                         p.innerHTML = 'Front End Developer / React || Svelte';
                         section?.append(p);
                     }
@@ -75,10 +76,10 @@ const IntroSection: React.FC = () => {
     }
 
     return (
-        <div id="particle-canvas">
-            <div id='firstSection' className='introSection'/>
-            <div id='secondSection' className='introSection' style={{top: '38vh'}}/>
-            <div id='thirdSection' className='introSection' style={{top: '46vh'}}/>
+        <div id="particle-canvas" style={styles.ParticleCanvas}>
+            <div id='firstSection' style={styles.IntroSection}/>
+            <div id='secondSection' style={{...styles.IntroSection, top: '38vh'}}/>
+            <div id='thirdSection' style={{...styles.IntroSection, top: '46vh'}}/>
         </div>
     )
   }

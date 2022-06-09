@@ -1,12 +1,12 @@
 import './Home.css';
 import IntroSection from './Intro/IntroSection';
-import ExperienceSection from './Experience/ExperienceSection';
+import PortfolioSection from './Portfolio/PortfolioSection';
 
 const Home: React.FC = () => {
   return (
-    <main className='home'>
+    <main className='homeMain'>
       <IntroSection />
-      <ExperienceSection />
+      <PortfolioSection />
     </main>
 
 /*    <BlogSection />
