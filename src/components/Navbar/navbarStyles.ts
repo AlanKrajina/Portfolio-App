@@ -48,7 +48,8 @@ const Nav = {
     flexDirection: 'column' as 'column',
     alignItems: 'center',
     fontSize: 'larger',
-    zIndex: 21
+    zIndex: 21,
+    textAlign: 'center' as 'center'
 }
 
 const Footer = {

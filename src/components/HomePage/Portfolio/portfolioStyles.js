@@ -2,12 +2,15 @@ const Section = {
   height: '100vh',
   backgroundColor: '#1d1d1d',
   marginLeft: '9rem',
-  padding: '5rem'
+  padding: '5rem',
+  color: '#FFFFFF',
+  fontSize: 'x-large'
 }
 
 const Title = {
   fontSize: '4rem',
-  color: '#08fdd8'
+  color: '#08fdd8',
+  marginBottom: '3rem'
 }
 
 const ImagesGallery = {
@@ -15,7 +18,8 @@ const ImagesGallery = {
   display: 'grid',
   gap: '1rem',
   gridTemplateColumns: 'repeat(auto-fill, 28rem)',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  marginTop: '3rem'
 }
 
 export const styles = {
