@@ -1,5 +1,5 @@
 const Section = {
-  height: '100vh',
+  minHeight: '100vh',
   backgroundColor: '#1d1d1d',
   marginLeft: '9rem',
   padding: '5rem',
@@ -18,7 +18,6 @@ const ImagesGallery = {
   display: 'grid',
   gap: '1rem',
   gridTemplateColumns: 'repeat(auto-fill, 28rem)',
-  justifyContent: 'center',
   marginTop: '3rem'
 }
 

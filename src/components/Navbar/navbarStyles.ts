@@ -22,8 +22,7 @@ const Header = {
 
 const Name = {
     fontSize: 'x-large',
-    marginTop: '7.5rem',
-    marginBottom: '1rem',
+    marginTop: '6.5rem',
     textAlign: 'center' as 'center'
 }
 
