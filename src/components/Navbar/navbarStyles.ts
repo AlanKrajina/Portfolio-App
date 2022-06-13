@@ -46,7 +46,6 @@ const Nav = {
     display: 'flex',
     flexDirection: 'column' as 'column',
     alignItems: 'center',
-    fontSize: 'larger',
     zIndex: 21,
     textAlign: 'center' as 'center'
 }

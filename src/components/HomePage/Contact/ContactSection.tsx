@@ -1,7 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import '../Home.css';
-import { styles } from "./aboutStyles";
-import sendEmail from "./sendEmail"
+import { styles } from "./contactStyles";
+import sendEmail from "../../../helpers/sendEmail"
 
 interface EmailResponse {
     sent: boolean, 
@@ -48,7 +48,7 @@ const reducer = (state: InitialFormState, action: { type: string; payload: strin
     }
 }
 
-const AboutSection: React.FC = () => {
+const ContactSection: React.FC = () => {
 
     const [formState, dispatch] = useReducer(reducer, initialFormState);
     const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
@@ -123,4 +123,4 @@ const AboutSection: React.FC = () => {
     )
   }
   
-  export default AboutSection;
+  export default ContactSection;

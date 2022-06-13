@@ -9,18 +9,12 @@ const Section = {
 const Title = {
     fontSize: '4rem',
     color: '#08fdd8',
-    marginBottom: '3rem'
-}
-
-const ButtonDisabled = {
-/*     pointerEvents: 'none',
- */    cursor: 'not-allowed',
-    backgroundColor: 'gray !important'
+    marginBottom: '3rem',
+    fontWeight: 'bold'
 }
     
 export const styles = {
     Section: Section,
     Title: Title,
-    ButtonDisabled: ButtonDisabled
 }
     

@@ -1,6 +1,6 @@
 const App = {
   display: 'flex' as 'flex',
-  fontFamily: 'monospace',
+  fontFamily: 'Fjalla One',
   position: 'relative' as 'relative'
 }
   

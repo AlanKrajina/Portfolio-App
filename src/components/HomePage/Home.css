@@ -43,7 +43,7 @@
     animation: fadein .3s linear forwards;
     width: 28rem;
     height: 20rem;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 @-webkit-keyframes fadein {

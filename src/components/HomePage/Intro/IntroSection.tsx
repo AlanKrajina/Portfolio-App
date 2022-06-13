@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../Home.css';
 import { styles } from "./introStyles";
-import { ParticleNetwork } from './canvas.js';
+import { ParticleNetwork } from '../../../helpers/canvas.js';
 
 interface Options {
     particleColor: string;
@@ -78,8 +78,8 @@ const IntroSection: React.FC = () => {
     return (
         <div id="particle-canvas" style={styles.ParticleCanvas}>
             <div id='firstSection' style={styles.IntroSection}/>
-            <div id='secondSection' style={{...styles.IntroSection, top: '38vh'}}/>
-            <div id='thirdSection' style={{...styles.IntroSection, top: '46vh'}}/>
+            <div id='secondSection' style={{...styles.IntroSection, top: '40vh'}}/>
+            <div id='thirdSection' style={{...styles.IntroSection, top: '49vh'}}/>
         </div>
     )
   }
