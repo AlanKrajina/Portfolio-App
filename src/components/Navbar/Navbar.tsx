@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
           <img style={styles.Logo} id="logo" src='/images/reactIcon.jpg' alt="logo" />
         </div>
         <div style={styles.TitleDiv}>
-          <p style={styles.Name}>Alan</p>
+          <p style={styles.Name}>React</p>
           <span style={styles.Title}>Portfolio App</span>          
         </div>
       </header>
