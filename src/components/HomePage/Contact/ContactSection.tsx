@@ -90,7 +90,7 @@ const ContactSection: React.FC = () => {
       <p>For any questions or enquiries feel free drop me an email.</p>
       <div style={styles.FormAndGloveDiv}>
         <div style={styles.FormDiv}>
-          <form className="w-full max-w-xl">
+          <form className="w-full max-w-xxl">
             <div
               className="flex flex-wrap -mx-3 mb-6"
               style={{ minHeight: "6.5rem" }}

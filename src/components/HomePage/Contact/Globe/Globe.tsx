@@ -16,14 +16,15 @@ const Globe: React.FC = () => {
   return (
     <ReactGlobe
       backgroundColor="#1d1d1d"
-      width={600}
-      height={600}
+      width={650}
+      height={620}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       arcsData={arcsData}
       arcColor={"color"}
       arcDashLength={() => Math.random()}
       arcDashGap={() => Math.random()}
       arcDashAnimateTime={() => Math.random() * 4000 + 1500}
+      showGraticules={true}
     />
   );
 };
