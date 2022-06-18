@@ -1,31 +1,28 @@
-const IntroSection = {
-    position: 'absolute' as 'absolute',
-    top: '29vh',
-    left: '14rem',
-    zIndex: 21,
-    color: 'white',
-    fontSize: '5.5rem',
-    fontWeight: 'bold'
-}
+const MainDiv = {
+  width: "100%",
+  height: "100vh",
+  backgroundColor: "#1d1d1d",
+};
 
-const ButtonSection = {
-    position: 'absolute' as 'absolute',
-    left: '14rem',
-    zIndex: 21,
-    color: 'white',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    top: '64vh'
-}
+const IntroSection = {
+  position: "absolute" as "absolute",
+  top: "28vh",
+  zIndex: 2,
+  color: "white",
+  fontSize: "5.5rem",
+  fontWeight: "bold",
+  left: "50%",
+  transform: "translate(-50%, 0)",
+};
 
 const ParticleCanvas = {
-    width: '100%',
-    height: '100vh'
-}
-    
+  width: "100%",
+  height: "60vh",
+  paddingTop: "20vh",
+};
+
 export const styles = {
-    IntroSection: IntroSection,
-    ParticleCanvas: ParticleCanvas,
-    ButtonSection: ButtonSection
-}
-    
+  IntroSection: IntroSection,
+  ParticleCanvas: ParticleCanvas,
+  MainDiv: MainDiv,
+};

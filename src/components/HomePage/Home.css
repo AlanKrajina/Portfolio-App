@@ -1,13 +1,7 @@
 /* IntroSection */
-.initialBounce {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
-  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  color: #08fdd8;
-}
-
 .hoverBounce {
+  -webkit-transform: scale(1);
+  transform: scale(1);
   font-size: 5.5rem;
   display: inline-block;
   vertical-align: middle;
@@ -29,6 +23,7 @@
 .introSectionParagraph {
   font-size: 18px;
   color: rgb(144, 144, 150);
+  text-align: center;
 }
 
 .introSectionTitle {
@@ -69,4 +64,25 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #f1f1f1;
 }
