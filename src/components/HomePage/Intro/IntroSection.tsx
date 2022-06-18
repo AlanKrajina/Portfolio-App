@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../Home.css";
 import { styles } from "./introStyles";
 import { ParticleNetwork } from "../../../helpers/canvas.js";
+import MouseScroll from "./MouseScroll/MouseScroll";
 
 interface Options {
   particleColor: string;
@@ -92,7 +93,7 @@ const IntroSection: React.FC = () => {
         setTimeout(function () {
           const span = document.createElement("span");
           span.className = "hoverBounce";
-          if (e.elementId === "firstSection" && index === 0) {
+          if (e.elementId === "secondSection" && index === 4) {
             span.classList.add("introSectionTitle");
           }
           span.innerHTML = el;
@@ -105,7 +106,7 @@ const IntroSection: React.FC = () => {
             section?.append(p);
           }
         }, delay);
-        delay += 100;
+        delay += 90;
       });
     });
   };
@@ -116,13 +117,14 @@ const IntroSection: React.FC = () => {
         <div id="firstSection" style={styles.IntroSection} />
         <div
           id="secondSection"
-          style={{ ...styles.IntroSection, top: "41vh" }}
+          style={{ ...styles.IntroSection, top: "39vh" }}
         />
         <div
           id="thirdSection"
           style={{ ...styles.IntroSection, top: "52vh" }}
         />
       </div>
+      <MouseScroll />
     </div>
   );
 };
