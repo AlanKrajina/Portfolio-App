@@ -32,6 +32,25 @@
   margin-bottom: 12px;
 }
 
+.contactButton {
+  width: 100px;
+  color: #000;
+  font-weight: 600;
+  font-size: large;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #08fdd8;
+  background-image: -moz-linear-gradient(top, #fff 100%, #1d1d1d 100%);
+  background-image: -webkit-linear-gradient(top, #fff 100%, #1d1d1d 100%);
+  background-image: linear-gradient(to bottom, #fff 100%, #1d1d1d 100%);
+  background-size: 300px;
+  background-repeat: no-repeat;
+}
+.contactButton:hover {
+  background-position: -200%;
+  transition: background 300ms ease-in-out;
+}
+
 /* PortfolioSection */
 .photoEffect {
   -webkit-animation: fadein 0.3s linear forwards;

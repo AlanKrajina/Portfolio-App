@@ -22,7 +22,7 @@ const IntroSection: React.FC = () => {
     new ParticleNetwork(document.getElementById("particle-canvas"), options);
     setTimeout(function () {
       showIntro();
-    }, 200);
+    }, 400);
   }, []);
 
   const options: Options = {
@@ -91,24 +91,51 @@ const IntroSection: React.FC = () => {
       const section = document.getElementById(e.elementId);
       e.title.forEach((el, index) => {
         setTimeout(function () {
-          const span = document.createElement("span");
-          span.className = "hoverBounce";
-          if (e.elementId === "secondSection" && index === 4) {
-            span.classList.add("introSectionTitle");
-          }
-          span.innerHTML = el;
-          initialBounce(span);
-          section?.append(span);
+          appendSpan(e, el, section, index);
           if (e.elementId === "thirdSection" && index === e.title.length - 1) {
-            const p = document.createElement("p");
-            p.className = "introSectionParagraph";
-            p.innerHTML = "Front End Developer / React || Svelte";
-            section?.append(p);
+            appendParagraph();
+            appendButton();
           }
         }, delay);
-        delay += 90;
+        delay += 80;
       });
     });
+  };
+
+  const appendSpan = (
+    e: Intro,
+    el: string,
+    section: HTMLElement | null,
+    index: number
+  ) => {
+    const span = document.createElement("span");
+    span.className = "hoverBounce";
+    if (e.elementId === "secondSection" && index === 4) {
+      span.classList.add("introSectionTitle");
+    }
+    span.innerHTML = el;
+    initialBounce(span);
+    section?.append(span);
+  };
+
+  const appendButton = () => {
+    const buttonSection = document.getElementById("fourthSection");
+    const b = document.createElement("button");
+    b.className = "contactButton";
+    b.textContent = "Contact Me";
+    b.onclick = function () {
+      window.scrollTo(0, document.body.scrollHeight);
+    };
+
+    buttonSection?.append(b);
+  };
+
+  const appendParagraph = () => {
+    const section = document.getElementById("thirdSection");
+    const p = document.createElement("p");
+    p.className = "introSectionParagraph";
+    p.innerHTML = "Front End Developer / React || Svelte";
+    section?.append(p);
   };
 
   return (
@@ -117,11 +144,15 @@ const IntroSection: React.FC = () => {
         <div id="firstSection" style={styles.IntroSection} />
         <div
           id="secondSection"
-          style={{ ...styles.IntroSection, top: "39vh" }}
+          style={{ ...styles.IntroSection, top: "35vh" }}
         />
         <div
           id="thirdSection"
-          style={{ ...styles.IntroSection, top: "52vh" }}
+          style={{ ...styles.IntroSection, top: "47vh" }}
+        />
+        <div
+          id="fourthSection"
+          style={{ ...styles.IntroSection, top: "60vh" }}
         />
       </div>
       <MouseScroll />
