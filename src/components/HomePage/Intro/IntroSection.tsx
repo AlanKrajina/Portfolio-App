@@ -150,11 +150,8 @@ const IntroSection: React.FC = () => {
           id="thirdSection"
           style={{ ...styles.IntroSection, top: "47vh" }}
         />
-        <div
-          id="fourthSection"
-          style={{ ...styles.IntroSection, top: "60vh" }}
-        />
       </div>
+      <div id="fourthSection" style={{ ...styles.IntroSection, top: "77vh" }} />
       <MouseScroll />
     </div>
   );

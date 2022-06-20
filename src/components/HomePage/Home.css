@@ -7,9 +7,10 @@
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  text-shadow: 1px 1px 1px #0f6356, 1px 2px 1px #0f6356, 1px 3px 1px #0f6356,
+    1px 4px 1px #0f6356, 1px 5px 1px #0f6356, 1px 6px 1px #0f6356;
 }
 
 .hoverBounce:hover {
@@ -34,21 +35,24 @@
 
 .contactButton {
   width: 100px;
-  color: #000;
+  color: #ffffff;
   font-weight: 600;
   font-size: large;
   height: 50px;
   border-radius: 5px;
+  border: 1px #08fdd8 solid;
   background-color: #08fdd8;
-  background-image: -moz-linear-gradient(top, #fff 100%, #1d1d1d 100%);
-  background-image: -webkit-linear-gradient(top, #fff 100%, #1d1d1d 100%);
-  background-image: linear-gradient(to bottom, #fff 100%, #1d1d1d 100%);
+  background-image: -moz-linear-gradient(top, #1d1d1d 100%, #1d1d1d 100%);
+  background-image: -webkit-linear-gradient(top, #1d1d1d 100%, #1d1d1d 100%);
+  background-image: linear-gradient(to bottom, #1d1d1d 100%, #1d1d1d 100%);
   background-size: 300px;
   background-repeat: no-repeat;
+  -webkit-animation: fadein 0.9s linear forwards;
+  animation: fadein 0.9s linear forwards;
 }
 .contactButton:hover {
   background-position: -200%;
-  transition: background 300ms ease-in-out;
+  transition: background 900ms ease-in-out;
 }
 
 /* PortfolioSection */

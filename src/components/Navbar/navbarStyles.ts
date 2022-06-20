@@ -52,6 +52,9 @@ const Nav = {
 const Footer = {
   height: "17vh",
   alignSelf: "center",
+  display: "flex",
+  gap: "10px",
+  zIndex: 21,
 };
 
 const FooterIcons = {

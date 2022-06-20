@@ -7,9 +7,9 @@ const MouseScroll: React.FC = () => {
         <div className="wheel"></div>
       </div>
       <div>
-        <span className="m_scroll_arrows unu"></span>
-        <span className="m_scroll_arrows doi"></span>
-        <span className="m_scroll_arrows trei"></span>
+        <span className="m_scroll_arrows one"></span>
+        <span className="m_scroll_arrows two"></span>
+        <span className="m_scroll_arrows three"></span>
       </div>
     </div>
   );

@@ -18,11 +18,12 @@ const Title = {
 
 const FormAndGloveDiv = {
   display: "flex",
-  justifyContent: "space-around",
+  gap: "24rem",
+  alignItems: "center",
 };
 
 const FormDiv = {
-  margin: "4rem 0rem 2rem 0rem",
+  margin: "2rem 0rem 2rem 0rem",
   width: "35%",
 };
 

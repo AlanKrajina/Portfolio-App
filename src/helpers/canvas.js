@@ -108,6 +108,7 @@ ParticleNetwork.prototype.init = function () {
     "z-index": "1",
     position: "relative",
     "border-radius": "50%",
+    animation: "fadein 0.9s linear forwards",
   });
 
   // Add resize listener to canvas

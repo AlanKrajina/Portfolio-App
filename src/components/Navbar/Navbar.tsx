@@ -56,11 +56,29 @@ const NavBar: React.FC = () => {
         <hr style={styles.Hr} />
       </nav>
       <footer style={styles.Footer}>
-        <img
-          style={styles.FooterIcons}
-          src="/images/linkedin.svg"
-          alt="linkedin"
-        />
+        <a
+          href="https://www.linkedin.com/in/alankrajina/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            style={styles.FooterIcons}
+            src="/images/linkedin.svg"
+            alt="linkedin"
+          />
+        </a>
+
+        <a
+          href="https://github.com/AlanKrajina"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img
+            style={styles.FooterIcons}
+            src="/images/github.svg"
+            alt="github"
+          />
+        </a>
       </footer>
     </main>
   );
