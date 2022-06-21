@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { styles } from "./portfolioStyles";
-import "../Home.css";
+import "./images/Images.css";
 import hubFront from "./images/hubFront.png";
 import hubFront2 from "./images/hubFront2.png";
 import guessANumberFront from "./images/guessANumberFront.png";
@@ -12,18 +12,68 @@ import sosellBrowserFront from "./images/sosellBrowserFront.png";
 import sosellMobileFront from "./images/sosellMobileFront.png";
 import visualCVFront from "./images/visualCVFront.png";
 
+interface initialImagesState {
+  youTubeSource: string;
+  gitHubSource: string;
+  image: string;
+  name: string;
+}
+
 const PortfolioSection: React.FC = () => {
-  const initialImages: string[] = [
-    hubFront,
-    hubFront2,
-    sosellBrowserFront,
-    sosellMobileFront,
-    guessANumberFront,
-    pizzaOnRailsFront,
-    visualCVFront,
-    learnfullstackFront,
+  const initialImages = [
+    {
+      youTubeSource: "https://youtu.be/28mV6BxiXJw",
+      gitHubSource: "",
+      image: hubFront,
+      name: "Hub App Main Page",
+    },
+    {
+      youTubeSource: "https://youtu.be/28mV6BxiXJw",
+      gitHubSource: "",
+      image: hubFront2,
+      name: "Hub App Asset Creation",
+    },
+    {
+      youTubeSource: "",
+      gitHubSource: "",
+      image: sosellBrowserFront,
+      name: "SoSell Browser App",
+    },
+    {
+      youTubeSource: "",
+      gitHubSource: "",
+      image: sosellMobileFront,
+      name: "SoSell Mobile App",
+    },
+    {
+      youTubeSource: "https://youtu.be/41MN6aUOUsM",
+      gitHubSource:
+        "https://github.com/AlanKrajina/React_Native_Guess-A-Number-App",
+      image: guessANumberFront,
+      name: "Guess A Number App Mobile",
+    },
+    {
+      youTubeSource: "",
+      gitHubSource: "https://github.com/AlanKrajina/PizzaOnRailsApp",
+      image: pizzaOnRailsFront,
+      name: "Pizza On Rails App",
+    },
+    {
+      youTubeSource: "",
+      gitHubSource:
+        "https://github.com/AlanKrajina/VisualCV_Final_Project_frontend",
+      image: visualCVFront,
+      name: "Visual CV App",
+    },
+    {
+      youTubeSource: "",
+      gitHubSource: "https://github.com/AlanKrajina/learn_fullstack.app",
+      image: learnfullstackFront,
+      name: "Learn Full Stack App",
+    },
   ];
-  const [imagesState, setImagesState] = useState<string[]>([]);
+
+  const [imagesState, setImagesState] = useState<initialImagesState[]>([]);
   let loadImages: boolean = true;
 
   const renderImages = useCallback(() => {
@@ -46,17 +96,6 @@ const PortfolioSection: React.FC = () => {
     });
   }, [renderImages]);
 
-  const mouseOver = (event: any) => {
-    event.target.style.zIndex = 2;
-    event.target.style.transform = "scale(1.2)";
-    event.target.style.transitionDuration = "0.5s";
-  };
-
-  const mouseOut = (event: any) => {
-    event.target.style.transform = "scale(1)";
-    event.target.style.zIndex = 1;
-  };
-
   return (
     <div style={styles.Section}>
       <h1 style={styles.Title}>My Portfolio</h1>
@@ -75,14 +114,41 @@ const PortfolioSection: React.FC = () => {
       <div id="section" style={styles.ImagesGallery}>
         {imagesState.map((elem, key) => {
           return (
-            <img
+            <section
+              className="wrapper-full effectTab-header"
+              id="style_11"
               key={key}
-              src={elem}
-              className="photoEffect"
-              alt="portfolioImage"
-              onMouseOver={mouseOver}
-              onMouseOut={mouseOut}
-            />
+            >
+              <div className="column-12 column-xs-12 tab">
+                <div className="column-4 column-xs-12 column-sm-6 column-md-6 box-tab">
+                  <div className="effect effect-portfolio">
+                    <img
+                      src={elem.image}
+                      className="photoEffect"
+                      alt="portfolioImage"
+                    />
+                    <div className="tab-text">
+                      <p>{elem.name}</p>
+                      <div className="icons-block">
+                        {elem.youTubeSource !== "" && (
+                          <a
+                            href={elem.youTubeSource}
+                            className="social-icon-1"
+                          >
+                            <i className="fa fa-youtube-square"></i>
+                          </a>
+                        )}
+                        {elem.gitHubSource !== "" && (
+                          <a href={elem.gitHubSource} className="social-icon-2">
+                            <i className="fa fa-github"></i>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           );
         })}
       </div>

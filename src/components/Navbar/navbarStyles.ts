@@ -39,6 +39,7 @@ const Logo = {
   width: "6rem",
   marginTop: "1.5vh",
   marginLeft: "1.7vh",
+  backgroundColor: "black",
 };
 
 const Nav = {

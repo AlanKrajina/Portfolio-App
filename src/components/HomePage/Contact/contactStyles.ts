@@ -18,8 +18,8 @@ const Title = {
 
 const FormAndGloveDiv = {
   display: "flex",
-  gap: "24rem",
-  alignItems: "center",
+  gap: "22rem",
+  alignItems: "end",
 };
 
 const FormDiv = {

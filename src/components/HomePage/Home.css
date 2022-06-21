@@ -55,33 +55,6 @@
   transition: background 900ms ease-in-out;
 }
 
-/* PortfolioSection */
-.photoEffect {
-  -webkit-animation: fadein 0.3s linear forwards;
-  animation: fadein 0.3s linear forwards;
-  width: 28rem;
-  height: 20rem;
-  border-radius: 10px;
-}
-
-@-webkit-keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 /* Home */
 .homeMain {
   display: flex;

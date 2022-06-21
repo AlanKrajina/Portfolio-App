@@ -90,7 +90,7 @@ const ContactSection: React.FC = () => {
       <p>For any questions or enquiries feel free drop me an email.</p>
       <div style={styles.FormAndGloveDiv}>
         <div style={styles.FormDiv}>
-          <form className="w-full max-w-xxl">
+          <form className="w-full max-w-xxl" style={{ minHeight: "35rem" }}>
             <div
               className="flex flex-wrap -mx-3 mb-6"
               style={{ minHeight: "6.5rem" }}
@@ -105,12 +105,10 @@ const ContactSection: React.FC = () => {
                   id="grid-first-name"
                   type="text"
                 />
-                {formState.name === "" ? (
+                {formState.name === "" && (
                   <p className="text-red-100 text-xs italic">
                     Name field required.
                   </p>
-                ) : (
-                  ""
                 )}
               </div>
             </div>
@@ -128,12 +126,10 @@ const ContactSection: React.FC = () => {
                   id="email"
                   type="email"
                 />
-                {formState.email === "" ? (
+                {formState.email === "" && (
                   <p className="text-red-100 text-xs italic">
                     Email field required.
                   </p>
-                ) : (
-                  ""
                 )}
               </div>
             </div>
@@ -147,33 +143,29 @@ const ContactSection: React.FC = () => {
                   className="text-gray-700 no-resize appearance-none block w-full bg-gray-200 border border-gray-100 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
                   id="message"
                 ></textarea>
-                {formState.message === "" ? (
+                {formState.message === "" && (
                   <p className="text-red-100 text-xs italic">
                     Message field required.
                   </p>
-                ) : (
-                  ""
                 )}
               </div>
             </div>
             <div className="md:flex md:items-center">
               <div className="md:w-1/3">
                 {formState.name !== "" &&
-                formState.email !== "" &&
-                formState.message !== "" ? (
-                  <button
-                    onClick={handleEmail}
-                    className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                    type="button"
-                  >
-                    Send
-                  </button>
-                ) : (
-                  ""
-                )}
+                  formState.email !== "" &&
+                  formState.message !== "" && (
+                    <button
+                      onClick={handleEmail}
+                      className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                      type="button"
+                    >
+                      Send
+                    </button>
+                  )}
               </div>
             </div>
-            {showEmailResponse ? emailResponse?.message : ""}
+            {showEmailResponse && emailResponse?.message}
           </form>
         </div>
         <Globe />
