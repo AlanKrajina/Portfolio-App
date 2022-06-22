@@ -59,7 +59,7 @@
 }
 
 .tab-text p {
-  color: #fff;
+  color: #08fdd8;
   margin: 0;
   font-size: 1rem;
 }
@@ -83,7 +83,7 @@
   line-height: 1.2;
   padding-top: 34px;
   padding-left: 1px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   transform: translate3d(15px, 0, 0);
   -webkit-transform: translate3d(15px, 0, 0);
   opacity: 0;
@@ -91,7 +91,7 @@
   z-index: 5;
   position: absolute;
   word-spacing: 3px;
-  top: 65px;
+  top: 55px;
   width: calc(100% - 4em);
   text-shadow: 1px 1px 1px #0f6356, 1px 2px 1px #0f6356;
 }
@@ -109,9 +109,9 @@
   position: absolute;
   right: 0;
   top: 0;
-  border-top: 200px solid rgba(72, 64, 64, 0.3);
+  border-top: 200px solid rgba(32, 28, 28, 0.3);
   border-right: 450px solid transparent;
-  border-bottom: 125px solid rgba(72, 64, 64, 0.3);
+  border-bottom: 125px solid rgba(32, 28, 28, 0.3);
   transform: translate3d(-100%, 0, 0);
   transition: all 0.35s;
   -webkit-transform: translate3d(-100%, 0, 0);
@@ -124,7 +124,7 @@
   right: 0;
   top: 0;
   border-top: 200px solid transparent;
-  border-right: 450px solid rgba(72, 64, 64, 0.3);
+  border-right: 450px solid rgba(32, 28, 28, 0.3);
   border-bottom: 125px solid transparent;
   transform: translate3d(100%, 0, 0);
   transition: all 0.35s;
@@ -167,7 +167,7 @@
 }
 
 .effect.effect-portfolio .icons-block i {
-  color: rgba(255, 255, 255, 1);
-  padding-left: 10px;
+  color: #08fdd8;
+  padding-left: 27px;
   font-size: 2rem;
 }

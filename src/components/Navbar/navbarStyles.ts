@@ -20,15 +20,11 @@ const Header = {
   paddingTop: "1rem",
 };
 
-const Name = {
-  fontSize: "x-large",
-  marginTop: "6.5rem",
-  textAlign: "center" as "center",
-};
-
 const TitleDiv = {
   fontSize: "x-large",
-  marginTop: "0.5rem",
+  zIndex: 2,
+  marginTop: "0.8rem",
+  textAlign: "center" as "center",
 };
 
 const Title = {
@@ -37,8 +33,6 @@ const Title = {
 
 const Logo = {
   width: "6rem",
-  marginTop: "1.5vh",
-  marginLeft: "1.7vh",
   backgroundColor: "black",
 };
 
@@ -70,16 +64,9 @@ const Hr = {
   width: "8rem",
 };
 
-const Wrap = {
-  position: "absolute" as "absolute",
-  left: 0,
-  top: 0,
-};
-
 export const styles = {
   Navbar: Navbar,
   Header: Header,
-  Name: Name,
   TitleDiv: TitleDiv,
   Title: Title,
   Logo: Logo,
@@ -87,5 +74,4 @@ export const styles = {
   Footer: Footer,
   FooterIcons: FooterIcons,
   Hr: Hr,
-  Wrap: Wrap,
 };

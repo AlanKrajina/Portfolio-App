@@ -22,6 +22,13 @@ interface initialImagesState {
 const PortfolioSection: React.FC = () => {
   const initialImages = [
     {
+      youTubeSource: "https://youtu.be/41MN6aUOUsM",
+      gitHubSource:
+        "https://github.com/AlanKrajina/React_Native_Guess-A-Number-App",
+      image: guessANumberFront,
+      name: "Guess A Number App Mobile",
+    },
+    {
       youTubeSource: "https://youtu.be/28mV6BxiXJw",
       gitHubSource: "",
       image: hubFront,
@@ -44,13 +51,6 @@ const PortfolioSection: React.FC = () => {
       gitHubSource: "",
       image: sosellMobileFront,
       name: "SoSell Mobile App",
-    },
-    {
-      youTubeSource: "https://youtu.be/41MN6aUOUsM",
-      gitHubSource:
-        "https://github.com/AlanKrajina/React_Native_Guess-A-Number-App",
-      image: guessANumberFront,
-      name: "Guess A Number App Mobile",
     },
     {
       youTubeSource: "",

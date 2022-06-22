@@ -27,16 +27,14 @@ const NavBar: React.FC = () => {
   return (
     <main style={styles.Navbar}>
       <header style={styles.Header}>
-        <div id="wrap" style={styles.Wrap}>
-          <img
-            style={styles.Logo}
-            id="logo"
-            src="/images/reactIcon.jpg"
-            alt="logo"
-          />
-        </div>
+        <img
+          style={styles.Logo}
+          id="logo"
+          src="/images/reactIcon.jpg"
+          alt="logo"
+        />
         <div style={styles.TitleDiv}>
-          <p style={styles.Name}>React</p>
+          <p>React</p>
           <span style={styles.Title}>Portfolio App</span>
         </div>
       </header>
