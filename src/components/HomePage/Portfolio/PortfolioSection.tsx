@@ -134,12 +134,19 @@ const PortfolioSection: React.FC = () => {
                           <a
                             href={elem.youTubeSource}
                             className="social-icon-1"
+                            target="_blank"
+                            rel="noreferrer"
                           >
                             <i className="fa fa-youtube-square"></i>
                           </a>
                         )}
                         {elem.gitHubSource !== "" && (
-                          <a href={elem.gitHubSource} className="social-icon-2">
+                          <a
+                            href={elem.gitHubSource}
+                            className="social-icon-2"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
                             <i className="fa fa-github"></i>
                           </a>
                         )}

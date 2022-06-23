@@ -7,7 +7,7 @@ const MainDiv = {
 
 const IntroSection = {
   position: "absolute" as "absolute",
-  top: "25vh",
+  top: "27vh",
   zIndex: 2,
   color: "white",
   fontSize: "5.5rem",
@@ -17,9 +17,9 @@ const IntroSection = {
 };
 
 const ParticleCanvas = {
-  width: "100%",
-  height: "60vh",
-  paddingTop: "18vh",
+  width: "70vw",
+  height: "53vh",
+  paddingTop: "20vh",
 };
 
 export const styles = {

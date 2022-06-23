@@ -140,18 +140,11 @@ const IntroSection: React.FC = () => {
 
   return (
     <div style={styles.MainDiv}>
-      <div id="particle-canvas" style={styles.ParticleCanvas}>
-        <div id="firstSection" style={styles.IntroSection} />
-        <div
-          id="secondSection"
-          style={{ ...styles.IntroSection, top: "35vh" }}
-        />
-        <div
-          id="thirdSection"
-          style={{ ...styles.IntroSection, top: "47vh" }}
-        />
-      </div>
-      <div id="fourthSection" style={{ ...styles.IntroSection, top: "77vh" }} />
+      <div id="particle-canvas" style={styles.ParticleCanvas} />
+      <div id="firstSection" style={styles.IntroSection} />
+      <div id="secondSection" style={{ ...styles.IntroSection, top: "37vh" }} />
+      <div id="thirdSection" style={{ ...styles.IntroSection, top: "49vh" }} />
+      <div id="fourthSection" style={{ ...styles.IntroSection, top: "75vh" }} />
       <MouseScroll />
     </div>
   );

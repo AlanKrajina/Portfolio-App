@@ -10,8 +10,7 @@ const NavBar: React.FC = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: "#wrap",
-          pin: true,
+          trigger: "#logo",
           scrub: 0.2,
           start: "top top",
           end: "+=10000",
@@ -59,11 +58,7 @@ const NavBar: React.FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            style={styles.FooterIcons}
-            src="/images/linkedin.svg"
-            alt="linkedin"
-          />
+          <i className="fa fa-linkedin" style={styles.FooterIcons}></i>
         </a>
 
         <a
@@ -71,11 +66,7 @@ const NavBar: React.FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            style={styles.FooterIcons}
-            src="/images/github.svg"
-            alt="github"
-          />
+          <i className="fa fa-github" style={styles.FooterIcons}></i>
         </a>
       </footer>
     </main>

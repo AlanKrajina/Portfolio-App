@@ -42,20 +42,21 @@ const Nav = {
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
+  fontSize: "larger",
 };
 
 const Footer = {
-  height: "17vh",
+  height: "10vh",
   alignSelf: "center",
   display: "flex",
-  gap: "10px",
+  gap: "15px",
   zIndex: 21,
+  alignItems: "center",
 };
 
 const FooterIcons = {
-  width: "25px",
-  height: "25px",
-  backgroundColor: "white",
+  color: "#ffffff",
+  fontSize: "x-large",
 };
 
 const Hr = {

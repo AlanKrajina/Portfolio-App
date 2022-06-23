@@ -106,9 +106,10 @@ ParticleNetwork.prototype.init = function () {
   this.setStyles(this.canvasDiv, { position: "relative" });
   this.setStyles(this.canvas, {
     "z-index": "1",
-    position: "relative",
     "border-radius": "50%",
     animation: "fadein 0.9s linear forwards",
+    position: "absolute",
+    left: "16vw",
   });
 
   // Add resize listener to canvas
