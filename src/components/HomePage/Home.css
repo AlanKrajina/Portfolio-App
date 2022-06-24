@@ -10,7 +10,7 @@
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
   text-shadow: 1px 1px 1px #0f6356, 1px 2px 1px #0f6356, 1px 3px 1px #0f6356,
-    1px 4px 1px #0f6356, 1px 5px 1px #0f6356, 1px 6px 1px #0f6356;
+    1px 4px 1px #0f6356, 1px 5px 1px #0f6356;
 }
 
 .hoverBounce:hover {
