@@ -3,7 +3,7 @@ import imagesReducer from "./imagesSlice";
 
 export const store = configureStore({
   reducer: {
-    images: imagesReducer,
+    gameState: imagesReducer,
   },
 });
 

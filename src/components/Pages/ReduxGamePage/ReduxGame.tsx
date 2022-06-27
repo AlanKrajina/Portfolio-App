@@ -3,24 +3,27 @@ import { styles } from "./reduxGameStyles";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getImages,
+  getImagesAndResetState,
   ImagesMainState,
   imageIsClicked,
   clearSelectedImages,
-  resetReduxStates,
 } from "../../../app/imagesSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./ReduxGameDashboard";
 import ReduxGameStatistics from "./ReduxGameStatistics";
+import GameOverModal from "./GameModal/GameOverModal";
 
 const ReduxGame: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const imagesResponse = useSelector((state: ImagesMainState) => state.images);
+  const imagesResponse = useSelector(
+    (state: ImagesMainState) => state.gameState
+  );
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [timerRunning, setTimerRunning] = useState(false);
 
   useEffect(() => {
-    dispatch(resetReduxStates());
-    dispatch(getImages());
+    dispatch(getImagesAndResetState());
   }, [dispatch]);
 
   useEffect(() => {
@@ -28,20 +31,30 @@ const ReduxGame: React.FC = () => {
       setTimeout(function () {
         dispatch(clearSelectedImages());
       }, 1000);
+
+      if (
+        imagesResponse.matchedImages.length ===
+        imagesResponse.imagesData.length / 2
+      ) {
+        setShowModal(true);
+        // add reset option in modal
+        //dispatch(getImagesAndResetState());
+      }
     }
   }, [dispatch, imagesResponse]);
 
   const toggleStatistics = () => {
     setShowStatistics((prevState) => !prevState);
-    console.log(showStatistics);
   };
 
   return (
     <Layout>
       <ReduxGameDashboard
-        resetReduxStates={resetReduxStates}
-        getImages={getImages}
+        getImagesAndResetState={getImagesAndResetState}
         toggleStatistics={toggleStatistics}
+        setTimerRunning={setTimerRunning}
+        timerRunning={timerRunning}
+        showStatistics={showStatistics}
       />
       {showStatistics ? (
         <ReduxGameStatistics />
@@ -54,14 +67,18 @@ const ReduxGame: React.FC = () => {
                 src={img.selected ? img.url : img.urlBack}
                 style={styles.Image}
                 alt={img.name}
+                className="photoEffect"
                 onClick={() => {
                   dispatch(imageIsClicked(img));
+                  setTimerRunning(true);
                 }}
               />
             );
           })}
         </div>
       )}
+
+      {showModal && <GameOverModal setShowModal={setShowModal} />}
     </Layout>
   );
 };

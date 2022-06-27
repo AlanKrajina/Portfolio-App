@@ -9,32 +9,49 @@ interface Meme {
 }
 
 export interface ImagesMainState {
-  images: ImagesState;
+  gameState: ImagesState;
 }
+
+export interface UserStatsState {
+  stepCount: number;
+  timer: string;
+  wrongMatches: number;
+  openCardTimer: string;
+}
+
+const userStatsState: UserStatsState = {
+  stepCount: 0,
+  timer: "",
+  wrongMatches: 0,
+  openCardTimer: "",
+};
 
 export interface ImagesState {
   imagesData: Meme[];
   isLoading: boolean;
-  count: number;
   matchedImages: string[];
   selectedImages: string[];
   error: string;
+  gameStats: UserStatsState;
 }
 
 const initialState: ImagesState = {
   imagesData: [],
   isLoading: false,
-  count: 0,
   matchedImages: [],
   selectedImages: [],
   error: "",
+  gameStats: userStatsState,
 };
 
-export const getImages = createAsyncThunk("images/fetchImages", async () => {
-  const response = await fetch("https://api.imgflip.com/get_memes");
-  const formattedResponse = await response.json();
-  return formattedResponse;
-});
+export const getImagesAndResetState = createAsyncThunk(
+  "images/fetchImages",
+  async () => {
+    const response = await fetch("https://api.imgflip.com/get_memes");
+    const formattedResponse = await response.json();
+    return formattedResponse;
+  }
+);
 
 export const imagesSlice = createSlice({
   name: "images",
@@ -54,10 +71,12 @@ export const imagesSlice = createSlice({
       ) {
         state.matchedImages = [...state.matchedImages, state.selectedImages[0]];
       }
+
+      // update user stats
     },
 
     clearSelectedImages: (state) => {
-      state.count += 1;
+      state.gameStats.stepCount += 1;
       state.imagesData = state.imagesData.map((meme) =>
         !state.matchedImages.includes(meme.name)
           ? {
@@ -69,20 +88,14 @@ export const imagesSlice = createSlice({
 
       state.selectedImages = [];
     },
-
-    resetReduxStates: (state) => {
-      state.count = 0;
-      state.selectedImages = [];
-      state.matchedImages = [];
-    },
   },
 
   extraReducers: (builder) => {
-    builder.addCase(getImages.pending, (state) => {
+    builder.addCase(getImagesAndResetState.pending, (state) => {
       state.isLoading = true;
     });
 
-    builder.addCase(getImages.fulfilled, (state, action) => {
+    builder.addCase(getImagesAndResetState.fulfilled, (state, action) => {
       const randomMemes = action.payload.data.memes
         .filter((meme: Meme) => meme.name !== "Blank Transparent Square")
         .sort(() => 0.5 - Math.random())
@@ -107,15 +120,17 @@ export const imagesSlice = createSlice({
         () => 0.5 - Math.random()
       );
       state.isLoading = false;
+      state.gameStats.stepCount = 0;
+      state.selectedImages = [];
+      state.matchedImages = [];
     });
 
-    builder.addCase(getImages.rejected, (state) => {
+    builder.addCase(getImagesAndResetState.rejected, (state) => {
       state.error = "Unable to fetch images";
       state.isLoading = false;
     });
   },
 });
 
-export const { imageIsClicked, clearSelectedImages, resetReduxStates } =
-  imagesSlice.actions;
+export const { imageIsClicked, clearSelectedImages } = imagesSlice.actions;
 export default imagesSlice.reducer;

@@ -1,32 +1,45 @@
+import React, { useState } from "react";
 import { styles } from "./reduxGameStyles";
-import { useDispatch, useSelector } from "react-redux";
-import { ImagesMainState } from "../../../app/imagesSlice";
 import { AppDispatch } from "../../../app/store";
+import Timer from "./StatsComponents/Timer";
+import { useDispatch } from "react-redux";
 
 interface DashboardProps {
-  resetReduxStates: any;
-  getImages: any;
-  toggleStatistics: any;
+  getImagesAndResetState: any;
+  toggleStatistics: () => void;
+  setTimerRunning: React.Dispatch<React.SetStateAction<boolean>>;
+  timerRunning: boolean;
+  showStatistics: boolean;
 }
 
 const ReduxGameDashboard: React.FC<DashboardProps> = ({
-  resetReduxStates,
-  getImages,
+  getImagesAndResetState,
   toggleStatistics,
+  setTimerRunning,
+  timerRunning,
+  showStatistics,
 }) => {
-  const counter = useSelector((state: ImagesMainState) => state.images.count);
   const dispatch = useDispatch<AppDispatch>();
+  const [time, setTime] = useState(0);
 
   const resetGame = () => {
-    dispatch(resetReduxStates());
-    dispatch(getImages());
+    dispatch(getImagesAndResetState());
+    setTimerRunning(false);
+    setTime(0);
+  };
+
+  const checkStatistics = () => {
+    toggleStatistics();
+    setTimerRunning(false);
+    // update redux state with current data
   };
 
   return (
     <div style={styles.DashboardMainDiv}>
-      <p>Dashboard</p>
-      <p>Counter: {counter}</p>
-
+      <p style={styles.DashboardP}>Dashboard</p>
+      {!showStatistics && (
+        <Timer timerRunning={timerRunning} time={time} setTime={setTime} />
+      )}
       <div style={styles.DashboardButtonsDiv}>
         <button
           className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
@@ -38,9 +51,9 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
         <button
           className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
           type="button"
-          onClick={toggleStatistics}
+          onClick={checkStatistics}
         >
-          Check Statistics
+          {showStatistics ? "Close" : "Show"} Statistics
         </button>
       </div>
     </div>
