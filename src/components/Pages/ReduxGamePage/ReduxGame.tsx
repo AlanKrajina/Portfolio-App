@@ -7,6 +7,7 @@ import {
   ImagesMainState,
   imageIsClicked,
   clearSelectedImages,
+  updateTimer,
 } from "../../../app/imagesSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./ReduxGameDashboard";
@@ -20,7 +21,9 @@ const ReduxGame: React.FC = () => {
   );
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [timerRunning, setTimerRunning] = useState(false);
+  const [timerRunning, setTimerRunning] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(0);
+  const [disabledCard, setDisableCard] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
@@ -28,8 +31,10 @@ const ReduxGame: React.FC = () => {
 
   useEffect(() => {
     if (imagesResponse.selectedImages.length === 2) {
+      setDisableCard(true);
       setTimeout(function () {
         dispatch(clearSelectedImages());
+        setDisableCard(false);
       }, 1000);
 
       if (
@@ -37,8 +42,7 @@ const ReduxGame: React.FC = () => {
         imagesResponse.imagesData.length / 2
       ) {
         setShowModal(true);
-        // add reset option in modal
-        //dispatch(getImagesAndResetState());
+        setTimerRunning(false);
       }
     }
   }, [dispatch, imagesResponse]);
@@ -55,6 +59,8 @@ const ReduxGame: React.FC = () => {
         setTimerRunning={setTimerRunning}
         timerRunning={timerRunning}
         showStatistics={showStatistics}
+        time={time}
+        setTime={setTime}
       />
       {showStatistics ? (
         <ReduxGameStatistics />
@@ -67,10 +73,13 @@ const ReduxGame: React.FC = () => {
                 src={img.selected ? img.url : img.urlBack}
                 style={styles.Image}
                 alt={img.name}
-                className="photoEffect"
+                className={img.selected ? "" : "gameImageEffect"}
                 onClick={() => {
-                  dispatch(imageIsClicked(img));
                   setTimerRunning(true);
+                  if (!disabledCard) {
+                    dispatch(updateTimer(time));
+                    dispatch(imageIsClicked(img));
+                  }
                 }}
               />
             );
@@ -78,7 +87,12 @@ const ReduxGame: React.FC = () => {
         </div>
       )}
 
-      {showModal && <GameOverModal setShowModal={setShowModal} />}
+      {showModal && (
+        <GameOverModal
+          setShowModal={setShowModal}
+          toggleStatistics={toggleStatistics}
+        />
+      )}
     </Layout>
   );
 };

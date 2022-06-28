@@ -1,14 +1,16 @@
 const ImagesGallery = {
-  width: "100%",
+  width: "60%",
   display: "grid",
   gap: "0.5rem",
-  gridTemplateColumns: "repeat(6, 12rem)",
+  gridTemplateColumns: "repeat(auto-fit, 12rem)",
   justifyContent: "center",
+  margin: "auto",
 };
 
 const Image = {
   width: "12rem",
   height: "12rem",
+  borderRadius: "10px",
 };
 
 const DashboardMainDiv = {

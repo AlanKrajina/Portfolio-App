@@ -1,17 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { ImagesMainState } from "../../../../app/imagesSlice";
 
 interface Props {
-  text?: string;
-  setShowModal: any;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleStatistics: () => void;
 }
 
-const GameOverModal: React.FC<Props> = ({ text, setShowModal }) => {
-  const counter = useSelector(
-    (state: ImagesMainState) => state.gameState.gameStats.stepCount
-  );
-
+const GameOverModal: React.FC<Props> = ({ setShowModal, toggleStatistics }) => {
   return (
     <div
       className="relative z-10 "
@@ -35,14 +29,24 @@ const GameOverModal: React.FC<Props> = ({ text, setShowModal }) => {
                   </h3>
                   <div className="mt-10">
                     <p className="text-sm text-gray-500">
-                      These are this games stats:
-                      <p>Counter: {counter}</p>
+                      For more information make sure to check out game
+                      statistics before reseting.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <button
+                type="button"
+                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                onClick={() => {
+                  setShowModal(false);
+                  toggleStatistics();
+                }}
+              >
+                Open Statistics
+              </button>
               <button
                 type="button"
                 className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"

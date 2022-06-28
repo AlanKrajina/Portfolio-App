@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { WritableDraft } from "immer/dist/internal";
 
 interface Meme {
   id: string;
@@ -8,22 +9,27 @@ interface Meme {
   selected: boolean;
 }
 
+interface GameTime {
+  start: string;
+  end: string;
+}
+
 export interface ImagesMainState {
   gameState: ImagesState;
 }
 
 export interface UserStatsState {
   stepCount: number;
+  gameTimes: GameTime[];
   timer: string;
   wrongMatches: number;
-  openCardTimer: string;
 }
 
 const userStatsState: UserStatsState = {
   stepCount: 0,
+  gameTimes: [],
   timer: "",
   wrongMatches: 0,
-  openCardTimer: "",
 };
 
 export interface ImagesState {
@@ -58,21 +64,13 @@ export const imagesSlice = createSlice({
   initialState,
   reducers: {
     imageIsClicked: (state, action) => {
-      if (state.selectedImages.length < 2 && !action.payload.selected) {
-        state.selectedImages = [...state.selectedImages, action.payload.name];
+      updateImagesData(state, action);
+      updateWrongMatches(state);
+      updateGameTimes(state);
+    },
 
-        state.imagesData = state.imagesData.map((meme) =>
-          meme.id === action.payload.id ? { ...meme, selected: true } : meme
-        );
-      }
-      if (
-        state.selectedImages.length === 2 &&
-        state.selectedImages[0] === state.selectedImages[1]
-      ) {
-        state.matchedImages = [...state.matchedImages, state.selectedImages[0]];
-      }
-
-      // update user stats
+    updateTimer: (state, action) => {
+      state.gameStats.timer = action.payload;
     },
 
     clearSelectedImages: (state) => {
@@ -120,9 +118,14 @@ export const imagesSlice = createSlice({
         () => 0.5 - Math.random()
       );
       state.isLoading = false;
-      state.gameStats.stepCount = 0;
       state.selectedImages = [];
       state.matchedImages = [];
+      state.gameStats = {
+        stepCount: 0,
+        gameTimes: [],
+        timer: "",
+        wrongMatches: 0,
+      };
     });
 
     builder.addCase(getImagesAndResetState.rejected, (state) => {
@@ -132,5 +135,57 @@ export const imagesSlice = createSlice({
   },
 });
 
-export const { imageIsClicked, clearSelectedImages } = imagesSlice.actions;
+export const { imageIsClicked, clearSelectedImages, updateTimer } =
+  imagesSlice.actions;
 export default imagesSlice.reducer;
+
+const updateImagesData = (
+  state: WritableDraft<ImagesState>,
+  action: { payload: Meme; type?: string }
+) => {
+  if (state.selectedImages.length < 2 && !action.payload.selected) {
+    state.selectedImages = [...state.selectedImages, action.payload.name];
+
+    state.imagesData = state.imagesData.map((meme: Meme) =>
+      meme.id === action.payload.id ? { ...meme, selected: true } : meme
+    );
+  }
+  if (
+    state.selectedImages.length === 2 &&
+    state.selectedImages[0] === state.selectedImages[1]
+  ) {
+    state.matchedImages = [...state.matchedImages, state.selectedImages[0]];
+  }
+};
+
+const updateWrongMatches = (state: WritableDraft<ImagesState>) => {
+  if (
+    state.selectedImages.length === 2 &&
+    state.selectedImages[0] !== state.selectedImages[1]
+  ) {
+    state.gameStats.wrongMatches += 1;
+  }
+};
+
+const updateGameTimes = (state: WritableDraft<ImagesState>) => {
+  if (state.selectedImages.length < 2) {
+    state.gameStats.gameTimes = [
+      ...state.gameStats.gameTimes,
+      {
+        start: state.gameStats.timer,
+        end: "",
+      },
+    ];
+  } else {
+    const oldState =
+      state.gameStats.gameTimes[state.gameStats.gameTimes.length - 1];
+
+    state.gameStats.gameTimes = [
+      ...state.gameStats.gameTimes.filter((el) => el.end !== ""),
+      {
+        start: oldState.start,
+        end: state.gameStats.timer,
+      },
+    ];
+  }
+};

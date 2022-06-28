@@ -10,6 +10,8 @@ interface DashboardProps {
   setTimerRunning: React.Dispatch<React.SetStateAction<boolean>>;
   timerRunning: boolean;
   showStatistics: boolean;
+  setTime: React.Dispatch<React.SetStateAction<number>>;
+  time: number;
 }
 
 const ReduxGameDashboard: React.FC<DashboardProps> = ({
@@ -18,9 +20,10 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   setTimerRunning,
   timerRunning,
   showStatistics,
+  setTime,
+  time,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const [time, setTime] = useState(0);
 
   const resetGame = () => {
     dispatch(getImagesAndResetState());

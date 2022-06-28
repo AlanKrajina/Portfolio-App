@@ -24,6 +24,17 @@
   }
 }
 
+.gameImageEffect {
+  -webkit-animation: fadein 0.3s linear forwards;
+  animation: fadein 0.3s linear forwards;
+  border-radius: 10px;
+}
+
+.gameImageEffect:hover {
+  padding: 10px;
+  background-color: rgba(34, 34, 34, 255);
+}
+
 .wrapper {
   max-width: 1140px;
   margin: 0 auto;
@@ -79,7 +90,7 @@
 }
 
 .effect.effect-portfolio p {
-  color: black;
+  color: rgb(32, 32, 32);
   line-height: 1.2;
   padding-top: 30px;
   font-size: 1.1rem;
