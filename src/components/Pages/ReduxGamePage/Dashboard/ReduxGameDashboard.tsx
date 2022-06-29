@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { styles } from "./reduxGameStyles";
-import { AppDispatch } from "../../../app/store";
-import Timer from "./StatsComponents/Timer";
+import React from "react";
+import { styles } from "../reduxGameStyles";
+import { AppDispatch } from "../../../../app/store";
+import Timer from "../StatsComponents/Timer";
 import { useDispatch } from "react-redux";
 
 interface DashboardProps {
@@ -34,7 +34,6 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   const checkStatistics = () => {
     toggleStatistics();
     setTimerRunning(false);
-    // update redux state with current data
   };
 
   return (

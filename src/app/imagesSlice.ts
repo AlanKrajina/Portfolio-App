@@ -1,6 +1,22 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
 
+const userStatsState: UserStatsState = {
+  stepCount: 0,
+  gameTimes: [],
+  timer: "",
+  wrongMatches: 0,
+};
+
+const initialState: ImagesState = {
+  imagesData: [],
+  isLoading: false,
+  matchedImages: [],
+  selectedImages: [],
+  error: "",
+  gameStats: userStatsState,
+};
+
 interface Meme {
   id: string;
   name: string;
@@ -9,7 +25,7 @@ interface Meme {
   selected: boolean;
 }
 
-interface GameTime {
+export interface GameTime {
   start: string;
   end: string;
 }
@@ -25,13 +41,6 @@ export interface UserStatsState {
   wrongMatches: number;
 }
 
-const userStatsState: UserStatsState = {
-  stepCount: 0,
-  gameTimes: [],
-  timer: "",
-  wrongMatches: 0,
-};
-
 export interface ImagesState {
   imagesData: Meme[];
   isLoading: boolean;
@@ -40,15 +49,6 @@ export interface ImagesState {
   error: string;
   gameStats: UserStatsState;
 }
-
-const initialState: ImagesState = {
-  imagesData: [],
-  isLoading: false,
-  matchedImages: [],
-  selectedImages: [],
-  error: "",
-  gameStats: userStatsState,
-};
 
 export const getImagesAndResetState = createAsyncThunk(
   "images/fetchImages",
@@ -97,7 +97,7 @@ export const imagesSlice = createSlice({
       const randomMemes = action.payload.data.memes
         .filter((meme: Meme) => meme.name !== "Blank Transparent Square")
         .sort(() => 0.5 - Math.random())
-        .slice(0, 12);
+        .slice(0, 9);
 
       const createCopies = (indexNumber: number) => {
         return randomMemes.map((meme: Meme, index: number) => {
@@ -112,7 +112,7 @@ export const imagesSlice = createSlice({
       };
 
       const memesCopy1 = createCopies(1);
-      const memesCopy2 = createCopies(13);
+      const memesCopy2 = createCopies(10);
 
       state.imagesData = [...memesCopy1, ...memesCopy2].sort(
         () => 0.5 - Math.random()

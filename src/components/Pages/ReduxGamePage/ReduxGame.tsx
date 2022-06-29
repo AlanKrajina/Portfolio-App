@@ -10,8 +10,8 @@ import {
   updateTimer,
 } from "../../../app/imagesSlice";
 import { AppDispatch } from "../../../app/store";
-import ReduxGameDashboard from "./ReduxGameDashboard";
-import ReduxGameStatistics from "./ReduxGameStatistics";
+import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
+import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";
 import GameOverModal from "./GameModal/GameOverModal";
 
 const ReduxGame: React.FC = () => {
@@ -65,7 +65,13 @@ const ReduxGame: React.FC = () => {
       {showStatistics ? (
         <ReduxGameStatistics />
       ) : (
-        <div id="section" style={styles.ImagesGallery}>
+        <div
+          style={{
+            ...styles.ImagesGallery,
+            marginTop: "5vh",
+            maxWidth: "80rem",
+          }}
+        >
           {imagesResponse.imagesData.map((img) => {
             return (
               <img
