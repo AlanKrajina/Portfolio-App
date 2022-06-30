@@ -3,6 +3,8 @@ import { styles } from "../reduxGameStyles";
 import { AppDispatch } from "../../../../app/store";
 import Timer from "../StatsComponents/Timer";
 import { useDispatch } from "react-redux";
+import Games from "../AllGames/Games";
+import { SingleGameState } from "../../../../app/gameSlice";
 
 interface DashboardProps {
   getImagesAndResetState: any;
@@ -12,6 +14,8 @@ interface DashboardProps {
   showStatistics: boolean;
   setTime: React.Dispatch<React.SetStateAction<number>>;
   time: number;
+  gameCopies: SingleGameState[];
+  setCopiedStatistics: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ReduxGameDashboard: React.FC<DashboardProps> = ({
@@ -22,6 +26,8 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   showStatistics,
   setTime,
   time,
+  gameCopies,
+  setCopiedStatistics,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -29,6 +35,7 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
     dispatch(getImagesAndResetState());
     setTimerRunning(false);
     setTime(0);
+    setCopiedStatistics(false);
   };
 
   const checkStatistics = () => {
@@ -58,6 +65,11 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
           {showStatistics ? "Close" : "Show"} Statistics
         </button>
       </div>
+      <Games
+        gameCopies={gameCopies}
+        setCopiedStatistics={setCopiedStatistics}
+        setTime={setTime}
+      />
     </div>
   );
 };

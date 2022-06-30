@@ -1,11 +1,27 @@
-import React from "react";
+import { Game, copyFinishedGame } from "../../../../app/gameSlice";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../../app/store";
 
 interface Props {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   toggleStatistics: () => void;
+  gameState: Game;
 }
 
-const GameOverModal: React.FC<Props> = ({ setShowModal, toggleStatistics }) => {
+const GameOverModal: React.FC<Props> = ({
+  setShowModal,
+  toggleStatistics,
+  gameState,
+}) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const clone = structuredClone(gameState.singleGame);
+    const { ...newObj } = clone;
+    dispatch(copyFinishedGame(newObj));
+  }, []);
+
   return (
     <div
       className="relative z-10 "

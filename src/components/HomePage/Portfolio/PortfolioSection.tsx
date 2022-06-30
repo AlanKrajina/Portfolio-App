@@ -12,7 +12,7 @@ import sosellBrowserFront from "./images/sosellBrowserFront.png";
 import sosellMobileFront from "./images/sosellMobileFront.png";
 import visualCVFront from "./images/visualCVFront.png";
 
-interface initialImagesState {
+interface InitialImagesState {
   youTubeSource: string;
   gitHubSource: string;
   image: string;
@@ -73,7 +73,7 @@ const PortfolioSection: React.FC = () => {
     },
   ];
 
-  const [imagesState, setImagesState] = useState<initialImagesState[]>([]);
+  const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
   const renderImages = useCallback(() => {

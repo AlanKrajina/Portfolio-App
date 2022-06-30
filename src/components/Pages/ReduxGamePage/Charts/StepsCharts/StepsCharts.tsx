@@ -1,12 +1,12 @@
 import { styles } from "../../reduxGameStyles";
 import StepsPieChart from "./StepsPieChart";
 import StepsBarChart from "./StepsBarChart";
-import { ImagesState, UserStatsState } from "../../../../../app/imagesSlice";
+import { SingleGameState, GameStatsState } from "../../../../../app/gameSlice";
 import StepsComposedChart from "./StepsComposedChart";
 
 interface Props {
-  gameStats: UserStatsState;
-  gameState: ImagesState;
+  gameStats: GameStatsState;
+  gameState: SingleGameState;
 }
 
 const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {

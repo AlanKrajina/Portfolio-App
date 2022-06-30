@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import imagesReducer from "./imagesSlice";
+import imagesReducer from "./gameSlice";
 
 export const store = configureStore({
   reducer: {
-    gameState: imagesReducer,
+    game: imagesReducer,
   },
 });
 

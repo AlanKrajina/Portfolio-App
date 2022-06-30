@@ -1,8 +1,8 @@
-import { ImagesState } from "../../../../app/imagesSlice";
+import { SingleGameState } from "../../../../app/gameSlice";
 import { styles } from "../reduxGameStyles";
 
 interface Props {
-  gameState: ImagesState;
+  gameState: SingleGameState;
 }
 
 const MachedList: React.FC<Props> = ({ gameState }: Props) => {
@@ -17,11 +17,12 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
               ...styles.ImagesGallery,
               gridTemplateColumns: "repeat(auto-fit, 9rem)",
               margin: "auto",
+              width: "75%",
             }}
           >
             {gameState.matchedImages.map((img) => {
-              if (gameState.imagesData.find((el) => el.name === img)) {
-                const foundImg = gameState.imagesData.find(
+              if (gameState.gameData.find((el) => el.name === img)) {
+                const foundImg = gameState.gameData.find(
                   (el) => el.name === img
                 );
                 return (

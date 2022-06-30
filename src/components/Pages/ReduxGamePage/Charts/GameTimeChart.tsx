@@ -9,11 +9,11 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { UserStatsState } from "../../../../app/imagesSlice";
+import { GameStatsState } from "../../../../app/gameSlice";
 import { styles } from "../reduxGameStyles";
 
 interface Props {
-  gameStats: UserStatsState;
+  gameStats: GameStatsState;
 }
 
 const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {

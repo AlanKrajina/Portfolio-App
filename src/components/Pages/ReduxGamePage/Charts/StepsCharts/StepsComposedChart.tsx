@@ -10,10 +10,10 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { GameTime } from "../../../../../app/imagesSlice";
+import { GameTimeState } from "../../../../../app/gameSlice";
 
 interface Props {
-  gameTimes: GameTime[];
+  gameTimes: GameTimeState[];
 }
 
 const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {

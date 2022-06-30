@@ -32,7 +32,8 @@ const DashboardMainDiv = {
 
 const DashboardButtonsDiv = {
   display: "flex",
-  gap: "10px",
+  gap: "1rem",
+  marginLeft: "22px",
 };
 
 const DashboardP = {

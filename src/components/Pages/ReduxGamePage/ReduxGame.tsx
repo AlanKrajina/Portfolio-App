@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getImagesAndResetState,
-  ImagesMainState,
+  GameMainState,
   imageIsClicked,
   clearSelectedImages,
   updateTimer,
-} from "../../../app/imagesSlice";
+  MemeState,
+} from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
 import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";
@@ -16,21 +17,20 @@ import GameOverModal from "./GameModal/GameOverModal";
 
 const ReduxGame: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const imagesResponse = useSelector(
-    (state: ImagesMainState) => state.gameState
-  );
+  const gameState = useSelector((state: GameMainState) => state.game);
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [timerRunning, setTimerRunning] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
   const [disabledCard, setDisableCard] = useState<boolean>(false);
+  const [copiedStatistics, setCopiedStatistics] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
   }, [dispatch]);
 
   useEffect(() => {
-    if (imagesResponse.selectedImages.length === 2) {
+    if (gameState.singleGame.selectedImages.length === 2) {
       setDisableCard(true);
       setTimeout(function () {
         dispatch(clearSelectedImages());
@@ -38,14 +38,15 @@ const ReduxGame: React.FC = () => {
       }, 1000);
 
       if (
-        imagesResponse.matchedImages.length ===
-        imagesResponse.imagesData.length / 2
+        gameState.singleGame.matchedImages.length ===
+          gameState.singleGame.gameData.length / 2 &&
+        !copiedStatistics
       ) {
         setShowModal(true);
         setTimerRunning(false);
       }
     }
-  }, [dispatch, imagesResponse]);
+  }, [dispatch, gameState.singleGame, copiedStatistics]);
 
   const toggleStatistics = () => {
     setShowStatistics((prevState) => !prevState);
@@ -61,6 +62,8 @@ const ReduxGame: React.FC = () => {
         showStatistics={showStatistics}
         time={time}
         setTime={setTime}
+        gameCopies={gameState.gameCopies}
+        setCopiedStatistics={setCopiedStatistics}
       />
       {showStatistics ? (
         <ReduxGameStatistics />
@@ -68,11 +71,11 @@ const ReduxGame: React.FC = () => {
         <div
           style={{
             ...styles.ImagesGallery,
-            marginTop: "5vh",
+            marginTop: "3vh",
             maxWidth: "80rem",
           }}
         >
-          {imagesResponse.imagesData.map((img) => {
+          {gameState.singleGame.gameData.map((img: MemeState) => {
             return (
               <img
                 key={img.id}
@@ -97,6 +100,7 @@ const ReduxGame: React.FC = () => {
         <GameOverModal
           setShowModal={setShowModal}
           toggleStatistics={toggleStatistics}
+          gameState={gameState}
         />
       )}
     </Layout>
