@@ -9,21 +9,27 @@ import { AppDispatch } from "../../../../app/store";
 
 interface Props {
   gameCopies: SingleGameState[];
-  setCopiedStatistics: React.Dispatch<React.SetStateAction<boolean>>;
+  setTimerRunning: React.Dispatch<React.SetStateAction<boolean>>;
   setTime: React.Dispatch<React.SetStateAction<number>>;
+  setGameIndex: React.Dispatch<React.SetStateAction<number | null>>;
+  gameIndex: number | null;
 }
 
 const Games: React.FC<Props> = ({
   gameCopies,
-  setCopiedStatistics,
   setTime,
+  setTimerRunning,
+  setGameIndex,
+  gameIndex,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
+
   const updateStatistics = (index: number) => {
-    const copies = gameCopies.at(index);
-    dispatch(updateCurrentStatistics(copies));
-    setCopiedStatistics(true);
-    setTime(0);
+    const gameCopy = gameCopies.at(index);
+    setGameIndex(index);
+    dispatch(updateCurrentStatistics(gameCopy));
+    setTime(parseInt(gameCopy!.gameStats.timer));
+    setTimerRunning(false);
   };
 
   return (
@@ -35,7 +41,12 @@ const Games: React.FC<Props> = ({
               <button
                 key={index}
                 onClick={() => updateStatistics(index)}
-                className="bg-white hover:bg-gray-100 text-gray-800 py-1 px-3 border border-gray-400 rounded shadow text-sm"
+                className="text-gray-800 py-1 px-3 border border-gray-400 rounded shadow text-sm"
+                style={
+                  gameIndex === index
+                    ? { backgroundColor: "#0088FE", color: "#ffffff" }
+                    : { backgroundColor: "#ffffff" }
+                }
               >
                 Game {index + 1}
               </button>

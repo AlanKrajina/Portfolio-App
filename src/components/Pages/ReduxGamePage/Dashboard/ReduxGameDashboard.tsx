@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "../reduxGameStyles";
 import { AppDispatch } from "../../../../app/store";
 import Timer from "../StatsComponents/Timer";
@@ -15,7 +15,6 @@ interface DashboardProps {
   setTime: React.Dispatch<React.SetStateAction<number>>;
   time: number;
   gameCopies: SingleGameState[];
-  setCopiedStatistics: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ReduxGameDashboard: React.FC<DashboardProps> = ({
@@ -27,15 +26,15 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   setTime,
   time,
   gameCopies,
-  setCopiedStatistics,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const [gameIndex, setGameIndex] = useState<number | null>(null);
 
   const resetGame = () => {
     dispatch(getImagesAndResetState());
     setTimerRunning(false);
+    setGameIndex(null);
     setTime(0);
-    setCopiedStatistics(false);
   };
 
   const checkStatistics = () => {
@@ -46,9 +45,7 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   return (
     <div style={styles.DashboardMainDiv}>
       <p style={styles.DashboardP}>Dashboard</p>
-      {!showStatistics && (
-        <Timer timerRunning={timerRunning} time={time} setTime={setTime} />
-      )}
+      <Timer timerRunning={timerRunning} time={time} setTime={setTime} />
       <div style={styles.DashboardButtonsDiv}>
         <button
           className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
@@ -67,8 +64,10 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
       </div>
       <Games
         gameCopies={gameCopies}
-        setCopiedStatistics={setCopiedStatistics}
+        setTimerRunning={setTimerRunning}
         setTime={setTime}
+        setGameIndex={setGameIndex}
+        gameIndex={gameIndex}
       />
     </div>
   );

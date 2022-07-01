@@ -19,7 +19,7 @@ const GameOverModal: React.FC<Props> = ({
   useEffect(() => {
     const clone = structuredClone(gameState.singleGame);
     const { ...newObj } = clone;
-    dispatch(copyFinishedGame(newObj));
+    dispatch(copyFinishedGame({ ...newObj, isCopy: true }));
   }, []);
 
   return (

@@ -24,6 +24,7 @@ export interface GameStatsState {
 export interface SingleGameState {
   gameData: MemeState[];
   isLoading: boolean;
+  isCopy: boolean;
   matchedImages: string[];
   selectedImages: string[];
   error: string;
@@ -49,6 +50,7 @@ const gameStatsState: GameStatsState = {
 const singleGameState: SingleGameState = {
   gameData: [],
   isLoading: false,
+  isCopy: false,
   matchedImages: [],
   selectedImages: [],
   error: "",
@@ -134,6 +136,7 @@ export const imagesSlice = createSlice({
         () => 0.5 - Math.random()
       );
       state.singleGame.isLoading = false;
+      state.singleGame.isCopy = false;
       state.singleGame.selectedImages = [];
       state.singleGame.matchedImages = [];
       state.singleGame.gameStats = {

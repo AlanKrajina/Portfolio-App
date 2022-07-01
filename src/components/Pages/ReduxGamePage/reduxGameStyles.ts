@@ -24,8 +24,8 @@ const DashboardMainDiv = {
   flexDirection: "column" as "column",
   alignItems: "center",
   color: "#ffffff",
-  padding: "2rem",
-  minHeight: "18vh",
+  padding: "2rem 2rem 0 2rem",
+  minHeight: "24vh",
   justifyContent: "space-between",
   gap: "1rem",
 };
@@ -57,7 +57,7 @@ const Section = {
 };
 
 const StatisticsMainDiv = {
-  padding: "2rem 5rem 5rem 5rem",
+  padding: "0 5rem 5rem 5rem",
 };
 
 const StatisticsDiv = {

@@ -23,7 +23,6 @@ const ReduxGame: React.FC = () => {
   const [timerRunning, setTimerRunning] = useState<boolean>(false);
   const [time, setTime] = useState<number>(0);
   const [disabledCard, setDisableCard] = useState<boolean>(false);
-  const [copiedStatistics, setCopiedStatistics] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
@@ -40,13 +39,13 @@ const ReduxGame: React.FC = () => {
       if (
         gameState.singleGame.matchedImages.length ===
           gameState.singleGame.gameData.length / 2 &&
-        !copiedStatistics
+        !gameState.singleGame.isCopy
       ) {
         setShowModal(true);
         setTimerRunning(false);
       }
     }
-  }, [dispatch, gameState.singleGame, copiedStatistics]);
+  }, [dispatch, gameState.singleGame]);
 
   const toggleStatistics = () => {
     setShowStatistics((prevState) => !prevState);
@@ -63,7 +62,6 @@ const ReduxGame: React.FC = () => {
         time={time}
         setTime={setTime}
         gameCopies={gameState.gameCopies}
-        setCopiedStatistics={setCopiedStatistics}
       />
       {showStatistics ? (
         <ReduxGameStatistics />
@@ -71,7 +69,7 @@ const ReduxGame: React.FC = () => {
         <div
           style={{
             ...styles.ImagesGallery,
-            marginTop: "3vh",
+            marginTop: "4vh",
             maxWidth: "80rem",
           }}
         >
