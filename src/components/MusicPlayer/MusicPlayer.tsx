@@ -24,7 +24,7 @@ const MusicPlayer: React.FC = () => {
       {showPlayer && (
         <ReactAudioPlayer
           style={styles.Player}
-          src="/videoplayback.ogg"
+          src="/song.ogg"
           autoPlay={false}
           loop={false}
           controls

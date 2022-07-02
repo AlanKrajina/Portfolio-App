@@ -1,25 +1,30 @@
-import { Game, copyFinishedGame } from "../../../../app/gameSlice";
+import { copyFinishedGame, GameMainState } from "../../../../app/gameSlice";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../../../app/store";
 
 interface Props {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   toggleStatistics: () => void;
-  gameState: Game;
 }
 
-const GameOverModal: React.FC<Props> = ({
-  setShowModal,
-  toggleStatistics,
-  gameState,
-}) => {
+const GameOverModal: React.FC<Props> = ({ setShowModal, toggleStatistics }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const singleGameState = useSelector(
+    (state: GameMainState) => state.game.singleGame
+  );
 
   useEffect(() => {
-    const clone = structuredClone(gameState.singleGame);
+    const clone = structuredClone(singleGameState);
     const { ...newObj } = clone;
-    dispatch(copyFinishedGame({ ...newObj, isCopy: true }));
+    const updatedObj = {
+      ...newObj,
+      gameConditionals: {
+        ...newObj.gameConditionals,
+        isCopy: true,
+      },
+    };
+    dispatch(copyFinishedGame(updatedObj));
   }, []);
 
   return (
@@ -78,4 +83,4 @@ const GameOverModal: React.FC<Props> = ({
   );
 };
 
-export default GameOverModal;
+export default React.memo(GameOverModal);

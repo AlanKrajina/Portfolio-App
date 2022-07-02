@@ -1,6 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
 
+export interface GameConditionals {
+  isLoading: boolean;
+  isAppRunning: boolean;
+  isImageClicked: boolean;
+  isCopy: boolean;
+}
+
 export interface GameTimeState {
   start: string;
   end: string;
@@ -17,18 +24,16 @@ export interface MemeState {
 export interface GameStatsState {
   stepCount: number;
   gameTimes: GameTimeState[];
-  timer: string;
   wrongMatches: number;
 }
 
 export interface SingleGameState {
   gameData: MemeState[];
-  isLoading: boolean;
-  isCopy: boolean;
   matchedImages: string[];
   selectedImages: string[];
   error: string;
   gameStats: GameStatsState;
+  gameConditionals: GameConditionals;
 }
 
 export interface Game {
@@ -40,21 +45,26 @@ export interface GameMainState {
   game: Game;
 }
 
+const gameConditionals: GameConditionals = {
+  isLoading: false,
+  isAppRunning: false,
+  isImageClicked: false,
+  isCopy: false,
+};
+
 const gameStatsState: GameStatsState = {
   stepCount: 0,
   gameTimes: [],
-  timer: "",
   wrongMatches: 0,
 };
 
 const singleGameState: SingleGameState = {
   gameData: [],
-  isLoading: false,
-  isCopy: false,
   matchedImages: [],
   selectedImages: [],
   error: "",
   gameStats: gameStatsState,
+  gameConditionals: gameConditionals,
 };
 
 const initialState: Game = {
@@ -75,14 +85,9 @@ export const imagesSlice = createSlice({
   name: "images",
   initialState,
   reducers: {
-    imageIsClicked: (state, action) => {
+    updateImagesState: (state, action) => {
       updateImagesData(state, action);
       updateWrongMatches(state);
-      updateGameTimes(state);
-    },
-
-    updateTimer: (state, action) => {
-      state.singleGame.gameStats.timer = action.payload;
     },
 
     clearSelectedImages: (state) => {
@@ -98,17 +103,31 @@ export const imagesSlice = createSlice({
 
       state.singleGame.selectedImages = [];
     },
+
     copyFinishedGame: (state, action) => {
       state.gameCopies = [...state.gameCopies, action.payload];
     },
+
     updateCurrentStatistics: (state, action) => {
       state.singleGame = action.payload;
+    },
+
+    appRunning: (state, action) => {
+      state.singleGame.gameConditionals.isAppRunning = action.payload;
+    },
+
+    imageClicked: (state, action) => {
+      state.singleGame.gameConditionals.isImageClicked = action.payload;
+    },
+
+    updateGameTimes: (state, action) => {
+      updateTimes(state, action);
     },
   },
 
   extraReducers: (builder) => {
     builder.addCase(getImagesAndResetState.pending, (state) => {
-      state.singleGame.isLoading = true;
+      state.singleGame.gameConditionals.isLoading = true;
     });
 
     builder.addCase(getImagesAndResetState.fulfilled, (state, action) => {
@@ -135,31 +154,32 @@ export const imagesSlice = createSlice({
       state.singleGame.gameData = [...memesCopy1, ...memesCopy2].sort(
         () => 0.5 - Math.random()
       );
-      state.singleGame.isLoading = false;
-      state.singleGame.isCopy = false;
+      state.singleGame.gameConditionals.isLoading = false;
+      state.singleGame.gameConditionals.isCopy = false;
       state.singleGame.selectedImages = [];
       state.singleGame.matchedImages = [];
       state.singleGame.gameStats = {
         stepCount: 0,
         gameTimes: [],
-        timer: "",
         wrongMatches: 0,
       };
     });
 
     builder.addCase(getImagesAndResetState.rejected, (state) => {
       state.singleGame.error = "Unable to fetch images";
-      state.singleGame.isLoading = false;
+      state.singleGame.gameConditionals.isLoading = false;
     });
   },
 });
 
 export const {
-  imageIsClicked,
+  updateImagesState,
   clearSelectedImages,
-  updateTimer,
   copyFinishedGame,
   updateCurrentStatistics,
+  appRunning,
+  imageClicked,
+  updateGameTimes,
 } = imagesSlice.actions;
 export default imagesSlice.reducer;
 
@@ -198,12 +218,15 @@ const updateWrongMatches = (state: WritableDraft<Game>) => {
   }
 };
 
-const updateGameTimes = (state: WritableDraft<Game>) => {
+const updateTimes = (
+  state: WritableDraft<Game>,
+  action: { payload: any; type?: string }
+) => {
   if (state.singleGame.selectedImages.length < 2) {
     state.singleGame.gameStats.gameTimes = [
       ...state.singleGame.gameStats.gameTimes,
       {
-        start: state.singleGame.gameStats.timer,
+        start: action.payload,
         end: "",
       },
     ];
@@ -217,7 +240,7 @@ const updateGameTimes = (state: WritableDraft<Game>) => {
       ...state.singleGame.gameStats.gameTimes.filter((el) => el.end !== ""),
       {
         start: oldState.start,
-        end: state.singleGame.gameStats.timer,
+        end: action.payload,
       },
     ];
   }

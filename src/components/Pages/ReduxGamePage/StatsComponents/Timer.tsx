@@ -1,24 +1,43 @@
 import React, { useEffect } from "react";
 import { styles } from "../reduxGameStyles";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  GameMainState,
+  imageClicked,
+  updateGameTimes,
+} from "../../../../app/gameSlice";
+import { AppDispatch } from "../../../../app/store";
 
 interface TimerProps {
-  timerRunning: boolean;
   setTime: React.Dispatch<React.SetStateAction<number>>;
   time: number;
 }
 
-const Timer: React.FC<TimerProps> = ({ timerRunning, setTime, time }) => {
+const Timer: React.FC<TimerProps> = ({ setTime, time }) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  const gameState = useSelector(
+    (state: GameMainState) => state.game.singleGame
+  );
+
   useEffect(() => {
     let interval: string | number | NodeJS.Timeout | undefined;
-    if (timerRunning) {
+    if (gameState.gameConditionals.isAppRunning) {
       interval = setInterval(() => {
         setTime((prevTime: number) => prevTime + 10);
       }, 10);
-    } else if (!timerRunning) {
+    } else if (!gameState.gameConditionals.isAppRunning) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [timerRunning, setTime]);
+  }, [gameState.gameConditionals.isAppRunning, setTime]);
+
+  useEffect(() => {
+    if (gameState.gameConditionals.isImageClicked) {
+      dispatch(updateGameTimes(time));
+      dispatch(imageClicked(false));
+    }
+  }, [dispatch, gameState.gameConditionals.isImageClicked, time]);
 
   return (
     <div style={styles.Timer}>
@@ -29,4 +48,4 @@ const Timer: React.FC<TimerProps> = ({ timerRunning, setTime, time }) => {
   );
 };
 
-export default Timer;
+export default React.memo(Timer);

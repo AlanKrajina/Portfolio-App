@@ -1,35 +1,32 @@
 import React from "react";
 import { styles } from "../reduxGameStyles";
 import {
-  SingleGameState,
+  GameMainState,
   updateCurrentStatistics,
+  appRunning,
 } from "../../../../app/gameSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../../../app/store";
 
 interface Props {
-  gameCopies: SingleGameState[];
-  setTimerRunning: React.Dispatch<React.SetStateAction<boolean>>;
   setTime: React.Dispatch<React.SetStateAction<number>>;
   setGameIndex: React.Dispatch<React.SetStateAction<number | null>>;
   gameIndex: number | null;
 }
 
-const Games: React.FC<Props> = ({
-  gameCopies,
-  setTime,
-  setTimerRunning,
-  setGameIndex,
-  gameIndex,
-}) => {
+const Games: React.FC<Props> = ({ setTime, setGameIndex, gameIndex }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const gameCopies = useSelector(
+    (state: GameMainState) => state.game.gameCopies
+  );
 
   const updateStatistics = (index: number) => {
     const gameCopy = gameCopies.at(index);
+    const time = gameCopy?.gameStats.gameTimes.at(-1)?.end;
     setGameIndex(index);
     dispatch(updateCurrentStatistics(gameCopy));
-    setTime(parseInt(gameCopy!.gameStats.timer));
-    setTimerRunning(false);
+    setTime(parseInt(time!));
+    dispatch(appRunning(false));
   };
 
   return (

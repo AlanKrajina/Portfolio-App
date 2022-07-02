@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getImagesAndResetState,
   GameMainState,
-  imageIsClicked,
+  updateImagesState,
   clearSelectedImages,
-  updateTimer,
   MemeState,
+  appRunning,
+  imageClicked,
 } from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
@@ -20,8 +21,6 @@ const ReduxGame: React.FC = () => {
   const gameState = useSelector((state: GameMainState) => state.game);
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [timerRunning, setTimerRunning] = useState<boolean>(false);
-  const [time, setTime] = useState<number>(0);
   const [disabledCard, setDisableCard] = useState<boolean>(false);
 
   useEffect(() => {
@@ -39,10 +38,10 @@ const ReduxGame: React.FC = () => {
       if (
         gameState.singleGame.matchedImages.length ===
           gameState.singleGame.gameData.length / 2 &&
-        !gameState.singleGame.isCopy
+        !gameState.singleGame.gameConditionals.isCopy
       ) {
         setShowModal(true);
-        setTimerRunning(false);
+        dispatch(appRunning(false));
       }
     }
   }, [dispatch, gameState.singleGame]);
@@ -56,12 +55,7 @@ const ReduxGame: React.FC = () => {
       <ReduxGameDashboard
         getImagesAndResetState={getImagesAndResetState}
         toggleStatistics={toggleStatistics}
-        setTimerRunning={setTimerRunning}
-        timerRunning={timerRunning}
         showStatistics={showStatistics}
-        time={time}
-        setTime={setTime}
-        gameCopies={gameState.gameCopies}
       />
       {showStatistics ? (
         <ReduxGameStatistics />
@@ -82,10 +76,13 @@ const ReduxGame: React.FC = () => {
                 alt={img.name}
                 className={img.selected ? "" : "gameImageEffect"}
                 onClick={() => {
-                  setTimerRunning(true);
+                  if (!gameState.singleGame.gameConditionals.isAppRunning) {
+                    dispatch(appRunning(true));
+                  }
+
                   if (!disabledCard) {
-                    dispatch(updateTimer(time));
-                    dispatch(imageIsClicked(img));
+                    dispatch(updateImagesState(img));
+                    dispatch(imageClicked(true));
                   }
                 }}
               />
@@ -98,7 +95,6 @@ const ReduxGame: React.FC = () => {
         <GameOverModal
           setShowModal={setShowModal}
           toggleStatistics={toggleStatistics}
-          gameState={gameState}
         />
       )}
     </Layout>
