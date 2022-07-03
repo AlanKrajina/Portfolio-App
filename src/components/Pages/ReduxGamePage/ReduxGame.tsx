@@ -69,23 +69,29 @@ const ReduxGame: React.FC = () => {
         >
           {gameState.singleGame.gameData.map((img: MemeState) => {
             return (
-              <img
-                key={img.id}
-                src={img.selected ? img.url : img.urlBack}
-                style={styles.Image}
-                alt={img.name}
-                className={img.selected ? "" : "gameImageEffect"}
-                onClick={() => {
-                  if (!gameState.singleGame.gameConditionals.isAppRunning) {
-                    dispatch(appRunning(true));
-                  }
-
-                  if (!disabledCard) {
-                    dispatch(updateImagesState(img));
-                    dispatch(imageClicked(true));
-                  }
+              <figure
+                style={{
+                  overflow: "hidden",
                 }}
-              />
+              >
+                <img
+                  key={img.id}
+                  src={img.selected ? img.url : img.urlBack}
+                  style={styles.Image}
+                  alt={img.name}
+                  className={img.selected ? "" : "gameImageEffect"}
+                  onClick={() => {
+                    if (!gameState.singleGame.gameConditionals.isAppRunning) {
+                      dispatch(appRunning(true));
+                    }
+
+                    if (!disabledCard) {
+                      dispatch(updateImagesState(img));
+                      dispatch(imageClicked(true));
+                    }
+                  }}
+                />
+              </figure>
             );
           })}
         </div>

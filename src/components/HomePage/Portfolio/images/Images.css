@@ -28,11 +28,15 @@
   -webkit-animation: fadein 0.3s linear forwards;
   animation: fadein 0.3s linear forwards;
   border-radius: 10px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .gameImageEffect:hover {
-  padding: 10px;
-  background-color: rgba(34, 34, 34, 255);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .wrapper {
