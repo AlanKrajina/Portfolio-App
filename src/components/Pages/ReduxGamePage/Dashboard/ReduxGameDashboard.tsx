@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styles } from "../reduxGameStyles";
+import { styles } from "./reduxGameDashboardStyles";
 import { AppDispatch } from "../../../../app/store";
 import Timer from "../StatsComponents/Timer";
 import { useDispatch } from "react-redux";
@@ -8,34 +8,34 @@ import { appRunning } from "../../../../app/gameSlice";
 
 interface DashboardProps {
   getImagesAndResetState: any;
-  toggleStatistics: () => void;
+  setShowStatistics: React.Dispatch<React.SetStateAction<boolean>>;
   showStatistics: boolean;
 }
 
 const ReduxGameDashboard: React.FC<DashboardProps> = ({
   getImagesAndResetState,
-  toggleStatistics,
+  setShowStatistics,
   showStatistics,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
   const [gameIndex, setGameIndex] = useState<number | null>(null);
   const [time, setTime] = useState<number>(0);
 
-  const resetGame = () => {
+  const resetGame = (): void => {
     dispatch(getImagesAndResetState());
     dispatch(appRunning(false));
     setGameIndex(null);
     setTime(0);
   };
 
-  const checkStatistics = () => {
-    toggleStatistics();
+  const checkStatistics = (): void => {
+    setShowStatistics((prevState) => !prevState);
     dispatch(appRunning(false));
   };
 
   return (
     <div style={styles.DashboardMainDiv}>
-      <p style={styles.DashboardP}>Dashboard</p>
+      <p style={styles.DashboardTitle}>Dashboard</p>
       <Timer time={time} setTime={setTime} />
       <div style={styles.DashboardButtonsDiv}>
         <button
@@ -62,4 +62,4 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   );
 };
 
-export default ReduxGameDashboard;
+export default React.memo(ReduxGameDashboard);

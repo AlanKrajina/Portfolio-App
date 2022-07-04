@@ -19,32 +19,6 @@ const MatchedListImage = {
   borderRadius: "10px",
 };
 
-const DashboardMainDiv = {
-  display: "flex",
-  flexDirection: "column" as "column",
-  alignItems: "center",
-  color: "#ffffff",
-  padding: "2rem 2rem 0 2rem",
-  minHeight: "24vh",
-  justifyContent: "space-between",
-  gap: "1rem",
-};
-
-const DashboardButtonsDiv = {
-  display: "flex",
-  gap: "1rem",
-  marginLeft: "22px",
-};
-
-const DashboardP = {
-  fontSize: "xxx-large",
-};
-
-const Timer = {
-  fontSize: "x-large",
-  padding: "0.5rem",
-};
-
 const ChartsDiv = {
   display: "flex",
   gap: "6rem",
@@ -54,10 +28,6 @@ const ChartsDiv = {
 
 const Section = {
   padding: "5rem",
-};
-
-const StatisticsMainDiv = {
-  padding: "0 5rem 5rem 5rem",
 };
 
 const StatisticsDiv = {
@@ -78,15 +48,10 @@ const Title = {
 export const styles = {
   ImagesGallery: ImagesGallery,
   Image: Image,
-  DashboardMainDiv: DashboardMainDiv,
-  DashboardButtonsDiv: DashboardButtonsDiv,
-  DashboardP: DashboardP,
-  Timer: Timer,
   ChartsDiv: ChartsDiv,
   MatchedListImage: MatchedListImage,
   Title: Title,
   Section: Section,
   StatisticsDiv: StatisticsDiv,
-  StatisticsMainDiv: StatisticsMainDiv,
   GameChartDiv: GameChartDiv,
 };

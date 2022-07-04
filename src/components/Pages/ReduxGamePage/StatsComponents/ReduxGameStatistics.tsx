@@ -1,5 +1,5 @@
 import GameTimeChart from "../Charts/GameTimeChart";
-import { styles } from "../reduxGameStyles";
+import { styles } from "./statsComponentsStyles";
 import MatchedList from "../Charts/MatchedList";
 import StepsCharts from "../Charts/StepsCharts/StepsCharts";
 import { GameMainState } from "../../../../app/gameSlice";

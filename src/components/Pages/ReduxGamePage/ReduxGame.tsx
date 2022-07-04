@@ -1,106 +1,48 @@
 import Layout from "../../Layout/LayoutComponent";
-import { styles } from "./reduxGameStyles";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getImagesAndResetState,
-  GameMainState,
-  updateImagesState,
-  clearSelectedImages,
-  MemeState,
-  appRunning,
-  imageClicked,
-} from "../../../app/gameSlice";
+import { getImagesAndResetState, GameMainState } from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
 import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";
 import GameOverModal from "./GameModal/GameOverModal";
+import GameImagesList from "./GameImagesList/GameImagesList";
 
 const ReduxGame: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const gameState = useSelector((state: GameMainState) => state.game);
+  const gameState = useSelector(
+    (state: GameMainState) => state.game.singleGame
+  );
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [disabledCard, setDisableCard] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
   }, [dispatch]);
 
   useEffect(() => {
-    if (gameState.singleGame.selectedImages.length === 2) {
-      setDisableCard(true);
-      setTimeout(function () {
-        dispatch(clearSelectedImages());
-        setDisableCard(false);
-      }, 1000);
-
-      if (
-        gameState.singleGame.matchedImages.length ===
-          gameState.singleGame.gameData.length / 2 &&
-        !gameState.singleGame.gameConditionals.isCopy
-      ) {
-        setShowModal(true);
-        dispatch(appRunning(false));
-      }
+    if (
+      gameState.selectedImages.length === 2 &&
+      gameState.matchedImages.length === gameState.gameData.length / 2 &&
+      !gameState.gameConditionals.isCopy
+    ) {
+      setShowModal(true);
     }
-  }, [dispatch, gameState.singleGame]);
-
-  const toggleStatistics = () => {
-    setShowStatistics((prevState) => !prevState);
-  };
+  }, [gameState]);
 
   return (
     <Layout>
       <ReduxGameDashboard
         getImagesAndResetState={getImagesAndResetState}
-        toggleStatistics={toggleStatistics}
+        setShowStatistics={setShowStatistics}
         showStatistics={showStatistics}
       />
-      {showStatistics ? (
-        <ReduxGameStatistics />
-      ) : (
-        <div
-          style={{
-            ...styles.ImagesGallery,
-            marginTop: "4vh",
-            maxWidth: "80rem",
-          }}
-        >
-          {gameState.singleGame.gameData.map((img: MemeState) => {
-            return (
-              <figure
-                style={{
-                  overflow: "hidden",
-                }}
-              >
-                <img
-                  key={img.id}
-                  src={img.selected ? img.url : img.urlBack}
-                  style={styles.Image}
-                  alt={img.name}
-                  className={img.selected ? "" : "gameImageEffect"}
-                  onClick={() => {
-                    if (!gameState.singleGame.gameConditionals.isAppRunning) {
-                      dispatch(appRunning(true));
-                    }
-
-                    if (!disabledCard) {
-                      dispatch(updateImagesState(img));
-                      dispatch(imageClicked(true));
-                    }
-                  }}
-                />
-              </figure>
-            );
-          })}
-        </div>
-      )}
+      {showStatistics ? <ReduxGameStatistics /> : <GameImagesList />}
 
       {showModal && (
         <GameOverModal
           setShowModal={setShowModal}
-          toggleStatistics={toggleStatistics}
+          setShowStatistics={setShowStatistics}
         />
       )}
     </Layout>

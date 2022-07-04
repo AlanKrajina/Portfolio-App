@@ -20,7 +20,7 @@ const Games: React.FC<Props> = ({ setTime, setGameIndex, gameIndex }) => {
     (state: GameMainState) => state.game.gameCopies
   );
 
-  const updateStatistics = (index: number) => {
+  const updateStatistics = (index: number): void => {
     const gameCopy = gameCopies.at(index);
     const time = gameCopy?.gameStats.gameTimes.at(-1)?.end;
     setGameIndex(index);
