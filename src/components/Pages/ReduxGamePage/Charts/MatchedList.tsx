@@ -1,5 +1,5 @@
 import { SingleGameState } from "../../../../app/gameSlice";
-import { styles } from "../reduxGameStyles";
+import { styles } from "./chartStyles";
 
 interface Props {
   gameState: SingleGameState;
@@ -9,12 +9,12 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
   return (
     <>
       {gameState.matchedImages.length > 0 && (
-        <div style={styles.StatisticsDiv}>
+        <div style={styles.MainChartsDiv}>
           <p style={styles.Title}>List of all matched cards.</p>
           <div
             id="section"
             style={{
-              ...styles.ImagesGallery,
+              ...styles.MatchedListGallery,
               gridTemplateColumns: "repeat(auto-fit, 9rem)",
               margin: "auto",
               width: "75%",

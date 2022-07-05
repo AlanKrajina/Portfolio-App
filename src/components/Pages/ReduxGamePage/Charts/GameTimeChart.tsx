@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { GameStatsState } from "../../../../app/gameSlice";
-import { styles } from "../reduxGameStyles";
+import { styles } from "./chartStyles";
 
 interface Props {
   gameStats: GameStatsState;
@@ -30,7 +30,7 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
   return (
     <>
       {gameStats.stepCount > 0 && (
-        <div style={styles.StatisticsDiv}>
+        <div style={styles.MainChartsDiv}>
           <p style={styles.Title}>
             Chart shows all turns when 2 cards got fliped, matched or not. Bars
             represent time it takes when first card got fliped and then the

@@ -1,4 +1,4 @@
-import { styles } from "../../reduxGameStyles";
+import { styles } from "../chartStyles";
 import StepsPieChart from "./StepsPieChart";
 import StepsBarChart from "./StepsBarChart";
 import { SingleGameState, GameStatsState } from "../../../../../app/gameSlice";
@@ -13,7 +13,7 @@ const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
   return (
     <>
       {gameStats.stepCount > 0 && (
-        <div style={styles.StatisticsDiv}>
+        <div style={styles.MainChartsDiv}>
           <p style={styles.Title}>
             Pie Chart and Bar Chart show the number of tries (how many times 2
             card where fliped) and number of wrong (Pie Chart) or correct (Bar

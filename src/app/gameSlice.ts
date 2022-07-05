@@ -123,6 +123,10 @@ export const imagesSlice = createSlice({
     updateGameTimes: (state, action) => {
       updateTimes(state, action);
     },
+
+    unmountGameComponent: (state) => {
+      clearGameState(state, () => (state.singleGame.gameData = []));
+    },
   },
 
   extraReducers: (builder) => {
@@ -154,15 +158,7 @@ export const imagesSlice = createSlice({
       state.singleGame.gameData = [...memesCopy1, ...memesCopy2].sort(
         () => 0.5 - Math.random()
       );
-      state.singleGame.gameConditionals.isLoading = false;
-      state.singleGame.gameConditionals.isCopy = false;
-      state.singleGame.selectedImages = [];
-      state.singleGame.matchedImages = [];
-      state.singleGame.gameStats = {
-        stepCount: 0,
-        gameTimes: [],
-        wrongMatches: 0,
-      };
+      clearGameState(state, null);
     });
 
     builder.addCase(getImagesAndResetState.rejected, (state) => {
@@ -180,6 +176,7 @@ export const {
   appRunning,
   imageClicked,
   updateGameTimes,
+  unmountGameComponent,
 } = imagesSlice.actions;
 export default imagesSlice.reducer;
 
@@ -244,4 +241,25 @@ const updateTimes = (
       },
     ];
   }
+};
+
+const clearGameState = (
+  state: WritableDraft<Game>,
+  clearGameData: { (): never[]; (): void } | null
+) => {
+  if (clearGameData) clearGameData();
+  state.singleGame.selectedImages = [];
+  state.singleGame.matchedImages = [];
+  state.singleGame.error = "";
+  state.singleGame.gameStats = {
+    stepCount: 0,
+    gameTimes: [],
+    wrongMatches: 0,
+  };
+  state.singleGame.gameConditionals = {
+    isLoading: false,
+    isCopy: false,
+    isAppRunning: false,
+    isImageClicked: false,
+  };
 };

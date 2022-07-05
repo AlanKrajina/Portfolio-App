@@ -1,5 +1,5 @@
 import React from "react";
-import { styles } from "../reduxGameStyles";
+import { styles } from "./gamesStyles";
 import {
   GameMainState,
   updateCurrentStatistics,
@@ -32,7 +32,7 @@ const Games: React.FC<Props> = ({ setTime, setGameIndex, gameIndex }) => {
   return (
     <>
       {gameCopies.length > 0 && (
-        <div style={{ ...styles.StatisticsDiv, gap: "1rem", display: "flex" }}>
+        <div style={styles.GamesDiv}>
           {gameCopies.map((_, index) => {
             return (
               <button

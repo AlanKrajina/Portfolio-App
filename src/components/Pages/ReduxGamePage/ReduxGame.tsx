@@ -1,7 +1,11 @@
 import Layout from "../../Layout/LayoutComponent";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getImagesAndResetState, GameMainState } from "../../../app/gameSlice";
+import {
+  getImagesAndResetState,
+  GameMainState,
+  unmountGameComponent,
+} from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
 import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
 import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";
@@ -18,6 +22,9 @@ const ReduxGame: React.FC = () => {
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
+    return () => {
+      dispatch(unmountGameComponent());
+    };
   }, [dispatch]);
 
   useEffect(() => {
