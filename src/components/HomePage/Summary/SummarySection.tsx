@@ -1,11 +1,29 @@
+import React, { useEffect, useCallback } from "react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import { styles } from "./summaryStyles";
 import coding from "./gif/coding.gif";
 
 const SummarySection: React.FC = () => {
+  const renderSection = useCallback(() => {
+    const title = document.getElementById("summaryTitle");
+    if (title) {
+      title.setAttribute("id", "typewriterEffect");
+      title.innerHTML = "Summary";
+    }
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#summarySection",
+      onEnter: renderSection,
+    });
+  }, [renderSection]);
+
   return (
     <div style={styles.Section}>
-      <h1 style={styles.Title}>Summary</h1>
-      <div style={styles.TextGifDiv}>
+      <p id="summaryTitle" className="titleTypewriter" style={styles.Title} />
+      <div id="summarySection" style={styles.TextGifDiv}>
         <div style={styles.TextDiv}>
           <p style={styles.Text}>
             Lorem Ipsum is simply dummy text of the printing and typesetting

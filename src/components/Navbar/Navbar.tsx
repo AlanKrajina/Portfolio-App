@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
         scrollTrigger: {
           trigger: "#logo",
           scrub: 0.2,
-          start: "top top",
+          start: "top bottom",
           end: "+=10000",
         },
       })

@@ -55,6 +55,21 @@
   transition: background 900ms ease-in-out;
 }
 
+#typewriterEffect {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  animation: typing 3.5s steps(40, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 /* Home */
 .homeMain {
   display: flex;

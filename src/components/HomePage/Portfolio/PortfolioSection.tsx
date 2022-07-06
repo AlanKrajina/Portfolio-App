@@ -77,6 +77,12 @@ const PortfolioSection: React.FC = () => {
   let loadImages: boolean = true;
 
   const renderImages = useCallback(() => {
+    const title = document.getElementById("portfolioTitle");
+    if (title) {
+      title.setAttribute("id", "typewriterEffect");
+      title.innerHTML = "My Portfolio";
+    }
+
     if (loadImages) {
       let delay = 200;
       initialImages.forEach((e) => {
@@ -91,14 +97,14 @@ const PortfolioSection: React.FC = () => {
 
   useEffect(() => {
     ScrollTrigger.create({
-      trigger: "#section",
+      trigger: "#portfolioSection",
       onEnter: renderImages,
     });
   }, [renderImages]);
 
   return (
     <div style={styles.Section}>
-      <h1 style={styles.Title}>My Portfolio</h1>
+      <p id="portfolioTitle" style={styles.Title} />
       <p>
         A small gallery of recent projects. Some of them were done while working
         for Agent3 and others when I was enrolled in Flatiron School.
@@ -111,7 +117,7 @@ const PortfolioSection: React.FC = () => {
       <p>
         Visit my <Link to="/about">work page</Link> to see a more in-depth view.
       </p>
-      <div id="section" style={styles.ImagesGallery}>
+      <div id="portfolioSection" style={styles.ImagesGallery}>
         {imagesState.map((elem, key) => {
           return (
             <section

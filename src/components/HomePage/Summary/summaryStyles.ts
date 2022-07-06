@@ -11,6 +11,7 @@ const Title = {
   color: "#08fdd8",
   marginBottom: "3rem",
   fontWeight: "bold",
+  height: "6rem",
 };
 
 const TextGifDiv = {

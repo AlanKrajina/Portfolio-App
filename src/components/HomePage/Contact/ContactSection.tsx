@@ -1,8 +1,9 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect, useCallback } from "react";
 import "../Home.css";
 import { styles } from "./contactStyles";
 import sendEmail from "../../../helpers/sendEmail";
 import Globe from "./Globe/Globe";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 interface EmailResponse {
   sent: boolean;
@@ -84,11 +85,26 @@ const ContactSection: React.FC = () => {
     });
   };
 
+  const renderSection = useCallback(() => {
+    const title = document.getElementById("contactTitle");
+    if (title) {
+      title.setAttribute("id", "typewriterEffect");
+      title.innerHTML = "Contact Me";
+    }
+  }, []);
+
+  useEffect(() => {
+    ScrollTrigger.create({
+      trigger: "#contactSection",
+      onEnter: renderSection,
+    });
+  }, [renderSection]);
+
   return (
     <div style={styles.Section}>
-      <h1 style={styles.Title}>Contact Me</h1>
+      <p id="contactTitle" style={styles.Title} />
       <p>For any questions or enquiries feel free drop me an email.</p>
-      <div style={styles.FormAndGloveDiv}>
+      <div id="contactSection" style={styles.FormAndGloveDiv}>
         <div style={styles.FormDiv}>
           <form className="w-full max-w-xxl" style={{ minHeight: "35rem" }}>
             <div
