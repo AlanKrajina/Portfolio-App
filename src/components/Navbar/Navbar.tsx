@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
         <hr style={styles.Hr} />
         <CustomLink to="/about">Work</CustomLink>
         <hr style={styles.Hr} />
-        <CustomLink to="/about">Skills</CustomLink>
+        <CustomLink to="/skills">Skills</CustomLink>
         <hr style={styles.Hr} />
         <CustomLink to="/about">Portfolio Tech</CustomLink>
         <hr style={styles.Hr} />
