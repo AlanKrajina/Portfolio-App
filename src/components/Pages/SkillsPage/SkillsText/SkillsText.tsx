@@ -1,9 +1,9 @@
 import React from "react";
-import "./skillsTextStyles.css";
+import { styles } from "./skillsTextStyles";
 
 const SkillsText: React.FC = () => {
   return (
-    <div className="wrap">
+    <div style={styles.Section}>
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever

@@ -1,8 +1,9 @@
 const Section = {
   margin: "0 auto",
   position: "relative" as "relative",
-  padding: " 0 20px",
+  padding: "20px 50px 20px 0",
   flex: 1,
+  flexBasis: "20rem",
 };
 
 const Row = {
@@ -31,12 +32,12 @@ const BarDiv = {
   marginBottom: "35px",
   borderRadius: "3px 3px 3px 3px",
   backgroundColor: "#09131b",
-  height: "42px",
+  height: "30px",
   overflow: "hidden",
 };
 
 const BarSpan = {
-  height: "42px",
+  height: "30px",
   display: "block",
   borderRadius: "3px 3px 3px 3px",
 };

@@ -20,7 +20,7 @@ const SkillsCharts: React.FC = () => {
               ></span>
             </div>
           </li>
-          <li className="css">
+          <li>
             <h3 style={styles.Title}>CSS/CSS3</h3>
             <div style={styles.BarDiv}>
               <span
@@ -53,7 +53,7 @@ const SkillsCharts: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#2ecc71",
-                  width: "85%",
+                  width: "89%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -103,13 +103,13 @@ const SkillsCharts: React.FC = () => {
             </div>
           </li>
           <li>
-            <h3 style={styles.Title}>React Native</h3>
+            <h3 style={styles.Title}>Svelte</h3>
             <div style={styles.BarDiv}>
               <span
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#206c40",
-                  width: "75%",
+                  width: "82%",
                 }}
                 className="animated fadeInLeft"
               ></span>

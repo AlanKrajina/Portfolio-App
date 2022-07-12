@@ -7,6 +7,7 @@ const Section = {
   display: "flex",
   flexDirection: "column" as "column",
   width: "100%",
+  justifyContent: "center",
 };
 
 const Title = {
@@ -19,6 +20,7 @@ const Title = {
 
 const SkillsDiv = {
   display: "flex",
+  flexWrap: "wrap" as "wrap",
 };
 
 export const styles = {
