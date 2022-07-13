@@ -1,6 +1,5 @@
 import React, { useEffect, useCallback } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 import { styles } from "./summaryStyles";
 import coding from "./gif/coding.gif";
 

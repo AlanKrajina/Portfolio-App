@@ -3,79 +3,18 @@ import "../Home.css";
 import { styles } from "./introStyles";
 import { ParticleNetwork } from "../../../helpers/canvas.js";
 import MouseScroll from "../../../components/MouseScroll/MouseScroll";
-
-interface Options {
-  particleColor: string;
-  background: string;
-  interactive: boolean;
-  speed: string;
-  density: string;
-}
-
-interface Intro {
-  elementId: string;
-  title: string[];
-}
+import { introText, Intro, introOptions } from "../../../data/appData";
 
 const IntroSection: React.FC = () => {
   useEffect(() => {
-    new ParticleNetwork(document.getElementById("particle-canvas"), options);
+    new ParticleNetwork(
+      document.getElementById("particle-canvas"),
+      introOptions
+    );
     setTimeout(function () {
       showIntro();
     }, 400);
   }, []);
-
-  const options: Options = {
-    particleColor: "#08fdd8",
-    background: "#1d1d1d",
-    interactive: true,
-    speed: "medium",
-    density: "medium",
-  };
-
-  const intro: Intro[] = [
-    {
-      elementId: "firstSection",
-      title: ["H", "i", ","],
-    },
-    {
-      elementId: "secondSection",
-      title: ["I", `'`, "m", "&nbsp", "A", "l", "a", "n", ","],
-    },
-    {
-      elementId: "thirdSection",
-      title: [
-        "w",
-        "e",
-        "l",
-        "c",
-        "o",
-        "m",
-        "e",
-        "&nbsp",
-        "t",
-        "o",
-        "&nbsp",
-        "m",
-        "y",
-        "&nbsp",
-        "P",
-        "o",
-        "r",
-        "t",
-        "f",
-        "o",
-        "l",
-        "i",
-        "o",
-        "&nbsp",
-        "A",
-        "p",
-        "p",
-        "&nbsp",
-      ],
-    },
-  ];
 
   const initialBounce = (span: HTMLSpanElement) => {
     span.style.transform = "scale(1.3)";
@@ -87,7 +26,7 @@ const IntroSection: React.FC = () => {
 
   const showIntro = (): void => {
     let delay = 70;
-    intro.forEach((e) => {
+    introText.forEach((e) => {
       const section = document.getElementById(e.elementId);
       e.title.forEach((el, index) => {
         setTimeout(function () {

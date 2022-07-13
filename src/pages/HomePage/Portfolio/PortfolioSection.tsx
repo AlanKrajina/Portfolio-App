@@ -3,76 +3,9 @@ import { Link } from "react-router-dom";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { styles } from "./portfolioStyles";
 import "../../../helpers/portfolioImages.css";
-import hubFront from "./images/hubFront.png";
-import hubFront2 from "./images/hubFront2.png";
-import guessANumberFront from "./images/guessANumberFront.png";
-import learnfullstackFront from "./images/learnfullstackFront.png";
-import pizzaOnRailsFront from "./images/pizzaOnRailsFront.png";
-import sosellBrowserFront from "./images/sosellBrowserFront.png";
-import sosellMobileFront from "./images/sosellMobileFront.png";
-import visualCVFront from "./images/visualCVFront.png";
-
-interface InitialImagesState {
-  youTubeSource: string;
-  gitHubSource: string;
-  image: string;
-  name: string;
-}
+import { initialImages, InitialImagesState } from "../../../data/appData";
 
 const PortfolioSection: React.FC = () => {
-  const initialImages = [
-    {
-      youTubeSource: "https://youtu.be/41MN6aUOUsM",
-      gitHubSource:
-        "https://github.com/AlanKrajina/React_Native_Guess-A-Number-App",
-      image: guessANumberFront,
-      name: "Guess A Number App Mobile",
-    },
-    {
-      youTubeSource: "https://youtu.be/28mV6BxiXJw",
-      gitHubSource: "",
-      image: hubFront,
-      name: "Hub App Main Page",
-    },
-    {
-      youTubeSource: "https://youtu.be/28mV6BxiXJw",
-      gitHubSource: "",
-      image: hubFront2,
-      name: "Hub App Asset Creation",
-    },
-    {
-      youTubeSource: "",
-      gitHubSource: "",
-      image: sosellBrowserFront,
-      name: "SoSell Browser App",
-    },
-    {
-      youTubeSource: "",
-      gitHubSource: "",
-      image: sosellMobileFront,
-      name: "SoSell Mobile App",
-    },
-    {
-      youTubeSource: "",
-      gitHubSource: "https://github.com/AlanKrajina/PizzaOnRailsApp",
-      image: pizzaOnRailsFront,
-      name: "Pizza On Rails App",
-    },
-    {
-      youTubeSource: "",
-      gitHubSource:
-        "https://github.com/AlanKrajina/VisualCV_Final_Project_frontend",
-      image: visualCVFront,
-      name: "Visual CV App",
-    },
-    {
-      youTubeSource: "",
-      gitHubSource: "https://github.com/AlanKrajina/learn_fullstack.app",
-      image: learnfullstackFront,
-      name: "Learn Full Stack App",
-    },
-  ];
-
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
