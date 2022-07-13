@@ -1,4 +1,4 @@
-import CustomLink from "./CustomLink";
+import CustomLink from "../CustomLink/CustomLink";
 import { styles } from "./navbarStyles";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";

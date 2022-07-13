@@ -1,20 +1,23 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import About from "../components/Pages/AboutPage/About";
-import Skills from "../components/Pages/SkillsPage/Skills";
+import About from "../pages/AboutPage/About";
+import Skills from "../pages/SkillsPage/Skills";
 
-const Home = lazy(() => import("../components/HomePage/Home"));
-const ReduxGame = lazy(
-  () => import("../components/Pages/ReduxGamePage/ReduxGame")
-);
+const Home = lazy(() => import("../pages/HomePage/Home"));
+const ReduxGame = lazy(() => import("../pages/ReduxGamePage/ReduxGame"));
 
 const AppRoutes: React.FC = () => {
+  const suspenseStyle = {
+    backgroundColor: "rgb(29, 29, 29)",
+    width: "100vw",
+    height: "100vh",
+  };
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <Suspense fallback={<>Loading...</>}>
+          <Suspense fallback={<div style={suspenseStyle} />}>
             <Home />
           </Suspense>
         }
@@ -24,7 +27,7 @@ const AppRoutes: React.FC = () => {
       <Route
         path="/game"
         element={
-          <Suspense fallback={<>Loading...</>}>
+          <Suspense fallback={<div style={suspenseStyle} />}>
             <ReduxGame />
           </Suspense>
         }
