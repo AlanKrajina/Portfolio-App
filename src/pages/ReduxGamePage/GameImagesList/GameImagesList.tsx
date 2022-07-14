@@ -24,7 +24,7 @@ const GameImagesList: React.FC = () => {
       setTimeout(function () {
         dispatch(clearSelectedImages());
         setDisableCard(false);
-      }, 1000);
+      }, 800);
     }
   }, [dispatch, gameState.selectedImages.length]);
 

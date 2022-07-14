@@ -16,8 +16,8 @@ const Globe: React.FC = () => {
   return (
     <ReactGlobe
       backgroundColor="#1d1d1d"
-      width={750}
-      height={720}
+      width={850}
+      height={820}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       arcsData={arcsData}
       arcColor={"color"}

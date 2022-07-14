@@ -27,6 +27,14 @@ export interface InitialImagesState {
   name: string;
 }
 
+export interface BlogDataState {
+  link: string;
+  title: string;
+  technology: string;
+  date: string;
+  color: string;
+}
+
 // DATA
 export const introOptions: Options = {
   particleColor: "#08fdd8",
@@ -80,7 +88,7 @@ export const introText: Intro[] = [
   },
 ];
 
-export const initialImages = [
+export const initialImages: InitialImagesState[] = [
   {
     youTubeSource: "https://youtu.be/41MN6aUOUsM",
     gitHubSource:
@@ -130,5 +138,64 @@ export const initialImages = [
     gitHubSource: "https://github.com/AlanKrajina/learn_fullstack.app",
     image: learnfullstackFront,
     name: "Learn Full Stack App",
+  },
+];
+
+export const blogData: BlogDataState[] = [
+  {
+    link: "https://alankrajina.github.io/control_flow_in_javascript",
+    title: "Control Flow in JavaScript",
+    technology: "JavaScript",
+    date: "January 25, 2020",
+    color: "#FF0000",
+  },
+  {
+    link: "https://alankrajina.github.io/javascript_scope",
+    title: "JavaScript Scope",
+    technology: "JavaScript",
+    date: "January 19, 2020",
+    color: "#4169E1",
+  },
+  {
+    link: "https://alankrajina.github.io/react_redux_state_flow_with_rails_api_using_async_js_with_promises",
+    title: "React/Redux state flow with Rails API using async JS with Promises",
+    technology: "React, Redux, Ruby on Rails",
+    date: "December 14, 2019",
+    color: "#8B008B",
+  },
+  {
+    link: "https://alankrajina.github.io/visualcv_final_project",
+    title: "VisualCV Final Project",
+    technology: "React, Redux, Ruby on Rails",
+    date: "November 30, 2019",
+    color: "#ADFF2F",
+  },
+  {
+    link: "https://alankrajina.github.io/flow_of_fetch_in_rails_and_js_project_to_view_index_content",
+    title: "Flow of fetch in Rails&JS Project to view Index content",
+    technology: "JavaScript, Ruby on Rails",
+    date: "October 11, 2019",
+    color: "#00FFFF",
+  },
+  {
+    link: "https://alankrajina.github.io/pizzaonrailsapp_-_rails_project",
+    title: "PizzaOnRailsApp - Rails project",
+    technology: "Ruby on Rails",
+    date: "September 6, 2019",
+    color: "#8B4513",
+  },
+  {
+    link: "https://alankrajina.github.io/projects_track_app",
+    title: "Projects Track App",
+    technology: "Ruby, Sinatra",
+    date: "August 4, 2019",
+    color: "#000080",
+  },
+  {
+    link: "https://alankrajina.github.io/cli_data_gem_project_blog",
+    title: "CLI Data Gem Project Blog",
+    technology: "Ruby",
+    date: "June 18, 2019",
+    color: "#FFD700",
   },
 ];

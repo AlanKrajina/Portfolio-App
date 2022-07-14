@@ -1,9 +1,10 @@
-import React, { useState, useReducer, useEffect, useCallback } from "react";
+import React, { useState, useReducer } from "react";
 import "../Home.css";
 import { styles } from "./contactStyles";
 import sendEmail from "../../../helpers/sendEmail";
+import "../../../helpers/animations.css";
 import Globe from "../../../components/Globe/Globe";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 
 interface EmailResponse {
   sent: boolean;
@@ -58,6 +59,8 @@ const ContactSection: React.FC = () => {
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
 
+  useScrollTrigger("contactTitle", "Contact Me", "#contactSection", null);
+
   const handleEmailResponse = () => {
     setShowEmailResponse(true);
     setTimeout(function () {
@@ -84,21 +87,6 @@ const ContactSection: React.FC = () => {
       payload: e.target.value,
     });
   };
-
-  const renderSection = useCallback(() => {
-    const title = document.getElementById("contactTitle");
-    if (title) {
-      title.setAttribute("id", "typewriterEffect");
-      title.innerHTML = "Contact Me";
-    }
-  }, []);
-
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#contactSection",
-      onEnter: renderSection,
-    });
-  }, [renderSection]);
 
   return (
     <div style={styles.Section}>

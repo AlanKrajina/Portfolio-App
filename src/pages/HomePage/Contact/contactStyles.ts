@@ -20,14 +20,15 @@ const Title = {
 const FormAndGloveDiv = {
   display: "flex",
   gap: "2rem",
-  alignItems: "end",
+  alignItems: "center",
   justifyContent: "space-between",
   flexWrap: "wrap" as "wrap",
+  width: "90%",
 };
 
 const FormDiv = {
   margin: "2rem 0rem 2rem 0rem",
-  width: "35%",
+  width: "42%",
   minWidth: "34rem",
 };
 

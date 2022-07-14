@@ -1,21 +1,16 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { styles } from "./portfolioStyles";
 import "../../../helpers/portfolioImages.css";
+import "../../../helpers/animations.css";
 import { initialImages, InitialImagesState } from "../../../data/appData";
+import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 
 const PortfolioSection: React.FC = () => {
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
-  const renderImages = useCallback(() => {
-    const title = document.getElementById("portfolioTitle");
-    if (title) {
-      title.setAttribute("id", "typewriterEffect");
-      title.innerHTML = "My Portfolio";
-    }
-
+  const delayImagesLoad = () => {
     if (loadImages) {
       let delay = 200;
       initialImages.forEach((e) => {
@@ -26,14 +21,14 @@ const PortfolioSection: React.FC = () => {
       });
     }
     loadImages = false;
-  }, []);
+  };
 
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#portfolioSection",
-      onEnter: renderImages,
-    });
-  }, [renderImages]);
+  useScrollTrigger(
+    "portfolioTitle",
+    "My Portfolio",
+    "#portfolioSection",
+    delayImagesLoad
+  );
 
   return (
     <div style={styles.Section}>
@@ -54,7 +49,7 @@ const PortfolioSection: React.FC = () => {
         {imagesState.map((elem, key) => {
           return (
             <section
-              className="wrapper-full effectTab-header"
+              className="wrapper-full effectTab-header animated fadeInLeft50"
               id="style_11"
               key={key}
             >

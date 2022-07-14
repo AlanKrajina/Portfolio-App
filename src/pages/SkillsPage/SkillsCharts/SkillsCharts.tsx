@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../helpers/skillsAnimations.css";
+import "../../../helpers/animations.css";
 import { styles } from "./skillsChartsStyles";
 
 const SkillsCharts: React.FC = () => {
@@ -40,7 +40,7 @@ const SkillsCharts: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#3498db",
-                  width: "75%",
+                  width: "80%",
                 }}
                 className="animated fadeInLeft"
               ></span>

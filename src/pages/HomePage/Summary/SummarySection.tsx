@@ -1,23 +1,10 @@
-import React, { useEffect, useCallback } from "react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import React from "react";
 import { styles } from "./summaryStyles";
 import coding from "./gif/coding.gif";
+import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 
 const SummarySection: React.FC = () => {
-  const renderSection = useCallback(() => {
-    const title = document.getElementById("summaryTitle");
-    if (title) {
-      title.setAttribute("id", "typewriterEffect");
-      title.innerHTML = "Summary";
-    }
-  }, []);
-
-  useEffect(() => {
-    ScrollTrigger.create({
-      trigger: "#summarySection",
-      onEnter: renderSection,
-    });
-  }, [renderSection]);
+  useScrollTrigger("summaryTitle", "Summary", "#summarySection", null);
 
   return (
     <div style={styles.Section}>
