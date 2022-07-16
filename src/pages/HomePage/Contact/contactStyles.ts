@@ -1,8 +1,8 @@
 const Section = {
-  minHeight: "80vh",
+  minHeight: "70vh",
   backgroundColor: "#1d1d1d",
   marginLeft: "9rem",
-  padding: "5rem",
+  padding: "5rem 5rem 1rem 5rem",
   color: "#ffffff",
   display: "flex",
   flexDirection: "column" as "column",
@@ -27,9 +27,21 @@ const FormAndGloveDiv = {
 };
 
 const FormDiv = {
-  margin: "2rem 0rem 2rem 0rem",
+  margin: "4rem 0 2rem 0",
   width: "42%",
   minWidth: "34rem",
+  alignSelf: "start",
+};
+
+const GlobeDiv = {
+  position: "relative" as "relative",
+  bottom: "4rem",
+};
+
+const Link = {
+  fontSize: "18px",
+  color: "#0077b5",
+  textDecoration: "underline",
 };
 
 export const styles = {
@@ -37,4 +49,6 @@ export const styles = {
   Title: Title,
   FormDiv: FormDiv,
   FormAndGloveDiv: FormAndGloveDiv,
+  Link: Link,
+  GlobeDiv: GlobeDiv,
 };

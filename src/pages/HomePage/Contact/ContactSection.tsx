@@ -59,6 +59,7 @@ const ContactSection: React.FC = () => {
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
   const [showFormAndGlobe, setShowFormAndGlobe] = useState<boolean>(false);
+  const [emailLoading, setEmailLoading] = useState<boolean>(false);
 
   useScrollTrigger("contactTitle", "Contact Me", "#contactSection", () =>
     setShowFormAndGlobe(true)
@@ -72,9 +73,11 @@ const ContactSection: React.FC = () => {
   };
 
   const handleEmail = async () => {
+    setEmailLoading(true);
     setEmailResponse(
       await sendEmail(formState.name, formState.email, formState.message)
     );
+    setEmailLoading(false);
 
     handleEmailResponse();
   };
@@ -94,9 +97,21 @@ const ContactSection: React.FC = () => {
   return (
     <div style={styles.Section}>
       <p id="contactTitle" style={styles.Title} />
-      <p id="contactSection">
-        For any questions or enquiries feel free drop me an email.
+      <p id="contactSection" style={{ maxWidth: "48rem" }}>
+        For any questions, comments or enquiries feel free to fill in this form
+        and drop me an email or connect with me via{" "}
+        <a
+          href="https://www.linkedin.com/in/alankrajina/"
+          target="_blank"
+          rel="noreferrer"
+          style={styles.Link}
+        >
+          LinkedIn
+        </a>
+        . I would be more than happy to have a chat and maybe discuss some new
+        ideas about development.
       </p>
+      <p>{emailLoading}</p>
 
       {showFormAndGlobe && (
         <div style={styles.FormAndGloveDiv}>
@@ -184,7 +199,9 @@ const ContactSection: React.FC = () => {
               {showEmailResponse && emailResponse?.message}
             </form>
           </div>
-          <Globe />
+          <div style={styles.GlobeDiv}>
+            <Globe />
+          </div>
         </div>
       )}
     </div>
