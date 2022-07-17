@@ -21,6 +21,7 @@ const BlogGallery = {
   gap: "1.5rem",
   gridTemplateColumns: "repeat(auto-fill, 28rem)",
   marginTop: "3rem",
+  justifyContent: "center",
 };
 
 const Blog = {

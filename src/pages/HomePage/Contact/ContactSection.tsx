@@ -1,5 +1,6 @@
 import React, { useState, useReducer } from "react";
 import "../Home.css";
+import "../../../helpers/animations.css";
 import { styles } from "./contactStyles";
 import sendEmail from "../../../helpers/sendEmail";
 import "../../../helpers/animations.css";
@@ -188,10 +189,10 @@ const ContactSection: React.FC = () => {
                     formState.message !== "" && (
                       <button
                         onClick={handleEmail}
-                        className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        className="w-16	h-10 shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                         type="button"
                       >
-                        Send
+                        {emailLoading ? <div className="spinner" /> : "Send"}
                       </button>
                     )}
                 </div>

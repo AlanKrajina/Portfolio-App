@@ -28,9 +28,10 @@ const FormAndGloveDiv = {
 
 const FormDiv = {
   margin: "4rem 0 2rem 0",
-  width: "42%",
+  maxWidth: "70rem",
   minWidth: "34rem",
   alignSelf: "start",
+  flex: 1,
 };
 
 const GlobeDiv = {

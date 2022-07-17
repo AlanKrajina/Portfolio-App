@@ -15,22 +15,20 @@ const Title = {
 };
 
 const TextGifDiv = {
-  display: "flex",
+  display: "grid",
+  gap: "1.5rem",
+  gridTemplateColumns: "repeat(auto-fit, minmax(40rem, 1fr))",
+  justifyItems: "center",
 };
 
 const Text = {
   marginBottom: "1rem",
 };
 
-const TextDiv = {
-  margin: "1rem 0rem 1rem 0rem",
-  width: "60%",
-};
+const TextDiv = {};
 
 const Gif = {
-  width: "30%",
   height: "26rem",
-  margin: "0rem 5rem 0rem 5rem",
   borderRadius: "15%",
   alignSelf: "center",
 };

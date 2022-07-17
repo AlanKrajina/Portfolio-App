@@ -16,7 +16,7 @@ const sendEmail = async (
     if (response.status === 200) {
       return {
         sent: true,
-        message: "Successfully sent message.",
+        message: "Message successfully sent.",
       };
     }
   } catch (error) {
