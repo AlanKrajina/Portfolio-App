@@ -45,7 +45,9 @@ const SummarySection: React.FC = () => {
             PageMaker including versions of Lorem Ipsum.
           </p>
         </div>
-        <img style={styles.Gif} src={coding} alt="coding" />
+        <div style={styles.GifDiv}>
+          <img style={styles.Gif} src={coding} alt="coding" />
+        </div>
       </div>
     </div>
   );

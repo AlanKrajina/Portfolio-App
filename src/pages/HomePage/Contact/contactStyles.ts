@@ -23,20 +23,21 @@ const FormAndGloveDiv = {
   alignItems: "center",
   justifyContent: "space-between",
   flexWrap: "wrap" as "wrap",
-  width: "90%",
 };
 
 const FormDiv = {
   margin: "4rem 0 2rem 0",
-  maxWidth: "70rem",
-  minWidth: "34rem",
   alignSelf: "start",
   flex: 1,
+  flexBasis: "30rem",
+  maxWidth: "55rem",
 };
 
 const GlobeDiv = {
   position: "relative" as "relative",
   bottom: "4rem",
+  flex: 1,
+  flexBasis: "20rem",
 };
 
 const Link = {

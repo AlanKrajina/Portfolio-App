@@ -15,22 +15,33 @@ const Title = {
 };
 
 const TextGifDiv = {
-  display: "grid",
   gap: "1.5rem",
-  gridTemplateColumns: "repeat(auto-fit, minmax(40rem, 1fr))",
   justifyItems: "center",
+
+  display: "flex",
+  flexWrap: "wrap" as "wrap",
 };
 
 const Text = {
   marginBottom: "1rem",
 };
 
-const TextDiv = {};
+const TextDiv = {
+  flex: 1,
+  flexBasis: "45rem",
+};
+
+const GifDiv = {
+  flex: 1,
+  flexBasis: "20rem",
+  alignSelf: "center",
+};
 
 const Gif = {
   height: "26rem",
   borderRadius: "15%",
   alignSelf: "center",
+  margin: "auto",
 };
 
 export const styles = {
@@ -40,4 +51,5 @@ export const styles = {
   Text: Text,
   Gif: Gif,
   TextDiv: TextDiv,
+  GifDiv: GifDiv,
 };
