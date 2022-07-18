@@ -28,6 +28,7 @@ const ACTIONS = {
   UPDATE_NAME: "update_name",
   UPDATE_EMAIL: "update_email",
   UPDATE_MESSAGE: "update_message",
+  RESET_FORM: "reset_form",
 };
 
 const reducer = (
@@ -50,6 +51,10 @@ const reducer = (
         ...state,
         message: action.payload,
       };
+    case ACTIONS.RESET_FORM:
+      return {
+        ...initialFormState,
+      };
     default:
       return state;
   }
@@ -70,6 +75,10 @@ const ContactSection: React.FC = () => {
     setShowEmailResponse(true);
     setTimeout(function () {
       setShowEmailResponse(false);
+      dispatch({
+        type: ACTIONS.RESET_FORM,
+        payload: "",
+      });
     }, 5000);
   };
 
@@ -98,7 +107,7 @@ const ContactSection: React.FC = () => {
   return (
     <div style={styles.Section}>
       <p id="contactTitle" style={styles.Title} />
-      <p id="contactSection" style={{ maxWidth: "48rem" }}>
+      <p id="contactSection" style={{ maxWidth: "60rem" }}>
         For any questions, comments or enquiries feel free to fill in this form
         and drop me an email or connect with me via{" "}
         <a
@@ -132,9 +141,10 @@ const ContactSection: React.FC = () => {
                     id="grid-first-name"
                     type="text"
                     style={{ backgroundColor: "#323232" }}
+                    value={formState.name}
                   />
                   {formState.name === "" && (
-                    <p className="text-red-100 text-xs italic">
+                    <p className="text-red-100 text-xs italic opacity-50">
                       Name field required.
                     </p>
                   )}
@@ -154,9 +164,10 @@ const ContactSection: React.FC = () => {
                     id="email"
                     type="email"
                     style={{ backgroundColor: "#323232" }}
+                    value={formState.email}
                   />
                   {formState.email === "" && (
-                    <p className="text-red-100 text-xs italic">
+                    <p className="text-red-100 text-xs italic opacity-50">
                       Email field required.
                     </p>
                   )}
@@ -174,9 +185,10 @@ const ContactSection: React.FC = () => {
                     className="no-resize appearance-none block w-full border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
                     id="message"
                     style={{ backgroundColor: "#323232" }}
+                    value={formState.message}
                   ></textarea>
                   {formState.message === "" && (
-                    <p className="text-red-100 text-xs italic">
+                    <p className="text-red-100 text-xs italic opacity-50">
                       Message field required.
                     </p>
                   )}

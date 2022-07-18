@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { styles } from "./summaryStyles";
 import coding from "./gif/coding.gif";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
+import "../../../helpers/animations.css";
 
 const SummarySection: React.FC = () => {
-  useScrollTrigger("summaryTitle", "Summary", "#summarySection", null);
+  const [showGif, setShowGif] = useState<boolean>(false);
+
+  useScrollTrigger("summaryTitle", "Summary", "#summarySection", () =>
+    setShowGif(true)
+  );
 
   return (
     <div style={styles.Section}>
@@ -46,7 +51,14 @@ const SummarySection: React.FC = () => {
           </p>
         </div>
         <div style={styles.GifDiv}>
-          <img style={styles.Gif} src={coding} alt="coding" />
+          {showGif && (
+            <img
+              style={styles.Gif}
+              src={coding}
+              alt="coding"
+              className="animated fadeInUp"
+            />
+          )}
         </div>
       </div>
     </div>

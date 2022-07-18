@@ -4,6 +4,7 @@ import { styles } from "./introStyles";
 import { ParticleNetwork } from "../../../helpers/canvas.js";
 import MouseScroll from "../../../components/MouseScroll/MouseScroll";
 import { introText, Intro, introOptions } from "../../../data/appData";
+import "../../../helpers/animations.css";
 
 const IntroSection: React.FC = () => {
   useEffect(() => {
@@ -74,6 +75,8 @@ const IntroSection: React.FC = () => {
     const p = document.createElement("p");
     p.className = "introSectionParagraph";
     p.innerHTML = "Front End Developer / React || Svelte";
+    p.classList.add("animated");
+    p.classList.add("fadeInUp");
     section?.append(p);
   };
 

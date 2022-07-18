@@ -21,7 +21,7 @@ const FormAndGloveDiv = {
   display: "flex",
   gap: "2rem",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "center",
   flexWrap: "wrap" as "wrap",
 };
 
@@ -36,8 +36,6 @@ const FormDiv = {
 const GlobeDiv = {
   position: "relative" as "relative",
   bottom: "4rem",
-  flex: 1,
-  flexBasis: "20rem",
 };
 
 const Link = {

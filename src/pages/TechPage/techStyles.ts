@@ -6,12 +6,12 @@ const Title = {
   height: "6rem",
 };
 
-const SkillsDiv = {
+const TechDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
 };
 
 export const styles = {
   Title: Title,
-  SkillsDiv: SkillsDiv,
+  TechDiv: TechDiv,
 };
