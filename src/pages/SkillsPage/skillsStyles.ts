@@ -9,6 +9,8 @@ const Title = {
 const SkillsDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
+  /*   height: "100%",
+    alignContent: "center" */
 };
 
 export const styles = {

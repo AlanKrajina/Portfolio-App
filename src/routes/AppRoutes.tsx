@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import About from "../pages/AboutPage/About";
 import Skills from "../pages/SkillsPage/Skills";
 import Tech from "../pages/TechPage/Tech";
-import Work from "../pages/WorkPage/Work";
 
 const Home = lazy(() => import("../pages/HomePage/Home"));
 const ReduxGame = lazy(() => import("../pages/ReduxGamePage/ReduxGame"));
+const Work = lazy(() => import("../pages/WorkPage/Work"));
 
 const AppRoutes: React.FC = () => {
   const suspenseStyle = {
@@ -25,7 +25,15 @@ const AppRoutes: React.FC = () => {
         }
       />
       <Route path="/skills" element={<Skills />} />
-      <Route path="/work" element={<Work />} />
+
+      <Route
+        path="/work"
+        element={
+          <Suspense fallback={<div style={suspenseStyle} />}>
+            <Work />
+          </Suspense>
+        }
+      />
       <Route
         path="/game"
         element={

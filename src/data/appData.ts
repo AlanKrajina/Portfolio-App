@@ -25,6 +25,7 @@ export interface InitialImagesState {
   gitHubSource: string;
   image: string;
   name: string;
+  summary: string[];
 }
 
 export interface BlogDataState {
@@ -90,41 +91,84 @@ export const introText: Intro[] = [
 
 export const initialImages: InitialImagesState[] = [
   {
-    youTubeSource: "https://youtu.be/41MN6aUOUsM",
+    youTubeSource: "https://www.youtube.com/embed/41MN6aUOUsM",
     gitHubSource:
       "https://github.com/AlanKrajina/React_Native_Guess-A-Number-App",
     image: guessANumberFront,
     name: "Guess A Number App Mobile",
+    summary: [
+      "App uses React Native, Expo, Functional Components, hooks etc.",
+      "Player selects a number between 1-99 and the App tries to quess what number it is while Player gives hints if the number is lower or greater.",
+      "Player cannot give a wrong hint, warning modal appears at that point.",
+      "When the game ends, Player can see the number of rounds he played and selected number.",
+      "For styling app uses Native StyleSheet.create.",
+      "App uses AppLoading from expo to prolong screen loading until fonts are fetched.",
+    ],
   },
   {
-    youTubeSource: "https://youtu.be/28mV6BxiXJw",
+    youTubeSource: "https://www.youtube.com/embed/28mV6BxiXJw",
     gitHubSource: "",
     image: hubFront,
-    name: "Hub App Main Page",
+    name: "Hub App",
+    summary: [
+      "App uses Svelte on frontend and Nodejs on backend, built on Typescript.",
+      "App give the user the ability to create custom assets and add them to their custom folders.",
+      "Each asset and folder can be filtered and searched, favourited and taged.",
+      "After asset is created it can be downloaded as a PDF or as a excel Report.",
+      "Asset can have its group with child Assets and can be added to a User group.",
+      "Uses Vite plugin that allows to quickly start or reload development server. Vite starts the server right away, and it takes the dependencies that don’t change often and pre-bundles them using ES build.",
+      "For automated testing app uses Cypress to provide E2E, unit and integration tests.",
+      "For styling app uses a mix of regular CSS and Tailwind with its built-in classes.",
+      "For better productivity app uses libraries like DnD drag and drop action, infinite loader and scroll, svelte slider, easy crop etc..",
+      "For routing uses Svelte Navigator.",
+    ],
   },
   {
-    youTubeSource: "https://youtu.be/28mV6BxiXJw",
+    youTubeSource: "https://www.youtube.com/embed/28mV6BxiXJw",
     gitHubSource: "",
     image: hubFront2,
     name: "Hub App Asset Creation",
+    summary: [""],
   },
   {
     youTubeSource: "",
     gitHubSource: "",
     image: sosellBrowserFront,
     name: "SoSell Browser App",
+    summary: [
+      "App gives ability to help sales reps to better communicate with prospective customers and deliver quality leads along the way.",
+      "On starting the app the user would select certain accounts of their interest and then their content library would be populated with generated posts.",
+      "Content library posts would be generated internally.",
+      "There user could either select these posts or create customised posts that would be shared with clients via email and on social medial like LinkedIn and Twitter, marketing certain productz or topicz of interest.",
+      "Posts could be internal, external or client specified.",
+      "App implements statistics with tracked interactions from clients.",
+      "On the frontend the app uses React and Typescript, on backend Golang.",
+      "For data app uses Apollo GraphQL.",
+      "For state management Redux and Jest for testing.",
+    ],
   },
   {
     youTubeSource: "",
     gitHubSource: "",
     image: sosellMobileFront,
     name: "SoSell Mobile App",
+    summary: [""],
   },
   {
     youTubeSource: "",
     gitHubSource: "https://github.com/AlanKrajina/PizzaOnRailsApp",
     image: pizzaOnRailsFront,
     name: "Pizza On Rails App",
+    summary: [
+      "In this project I have build a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. The goal of the application is to build a Content Management System.",
+      "There is no emphasis on HTML or CSS, and there is no JS required for the project. I added some CSS just to get a basic look for the App.",
+      "The app provides a database and web interface for users to:",
+      "Sign up, login or log out securely as user.",
+      "This app includes a third party signup/login via Google thanks to the OmniAuth gem.",
+      "User can see all pizzas but can only create, update, and delete (CRUD) his own created pizza.",
+      "User can browse pizzas via name.",
+      "User and pizza inputs are validated.",
+    ],
   },
   {
     youTubeSource: "",
@@ -132,12 +176,33 @@ export const initialImages: InitialImagesState[] = [
       "https://github.com/AlanKrajina/VisualCV_Final_Project_frontend",
     image: visualCVFront,
     name: "Visual CV App",
+    summary: [
+      "VisualCV is a Full Stack web application created using Rails backend and React/Redux frontend.",
+      "It is a single page application that utilizes Create, Read and Delete functions of persistent storage.",
+      "App uses RESTful architectural style with the implementation of the client and server done independently, meaning that the code on the client side can be changed at any time without affecting the operation of the server, and the code on the server side can be changed without affecting the operation of the client.",
+      "Utilizes GET, POST and DELETE fetch requests to get and submit data to the database.",
+      "Thunk middleware for async logic that interacts with the store and in addition uses EXTERNAL and INTERNAL APIs.",
+      "Project is build upon ES6 JS standards.",
+    ],
   },
   {
     youTubeSource: "",
     gitHubSource: "https://github.com/AlanKrajina/learn_fullstack.app",
     image: learnfullstackFront,
     name: "Learn Full Stack App",
+    summary: [
+      "In this project I have built a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. Main requirement is to add dynamic features to previous Rails application that are possible only through JavaScript and a JSON API.",
+      "For the first requirement we are to use our previous Rails app and upon that one build dynamic JS features.",
+      "The app allows us to:",
+      "Sign up, login or log out securely as user.",
+      "This app includes a third party signup/login via Google thanks to the OmniAuth gem.",
+      "User can see all lessons but can only create, update, and delete (CRUD) his own created lesson and browse lessons via name.",
+      "User can view users with most lessons created.  All inputs are validated.",
+      "App translates JSON responses into JavaScript Model Objects using constructor syntax and includes two prototype methods.",
+      "Renders one index and one show page via JavaScript and an Active Model Serialization JSON Backend.",
+      "Dynamically renders on the page at least one serialized 'has_many' relationship through JSON using JavaScript.",
+      "Renders a form for creating a resource that is submitted dynamically and displayed through JavaScript and JSON without a page refresh.",
+    ],
   },
 ];
 

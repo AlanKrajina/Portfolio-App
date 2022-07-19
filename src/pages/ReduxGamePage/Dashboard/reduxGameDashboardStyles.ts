@@ -3,8 +3,7 @@ const DashboardMainDiv = {
   flexDirection: "column" as "column",
   alignItems: "center",
   color: "#ffffff",
-  padding: "2rem 2rem 0 2rem",
-  minHeight: "24vh",
+  padding: "1rem 2rem 0 2rem",
   justifyContent: "space-between",
   gap: "1rem",
 };
@@ -16,7 +15,8 @@ const DashboardButtonsDiv = {
 };
 
 const DashboardTitle = {
-  fontSize: "xxx-large",
+  fontSize: "4rem",
+  color: "#08fdd8",
 };
 
 export const styles = {

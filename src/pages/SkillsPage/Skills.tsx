@@ -7,7 +7,7 @@ import SkillsText from "./SkillsText/SkillsText";
 
 const Skills: React.FC = () => {
   useEffect(() => {
-    animateTitle("skillsTitle", "Skills");
+    animateTitle("skillsTitle", "Skills & Experience");
   }, []);
 
   return (
