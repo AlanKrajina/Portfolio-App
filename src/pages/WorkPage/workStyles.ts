@@ -34,7 +34,6 @@ const WorkAppSummaryDiv = {
 };
 
 const WorkAppIFrameImgDiv = {
-  padding: "20px 50px 20px 0",
   flex: 1,
   flexBasis: "30rem",
   alignSelf: "center",
@@ -51,6 +50,14 @@ const WorkAppParagraph = {
   color: "#c9c8c8",
 };
 
+const PacmanDiv = {
+  height: "18rem",
+  width: "18rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
+};
+
 export const styles = {
   Title: Title,
   WorkDiv: WorkDiv,
@@ -61,4 +68,5 @@ export const styles = {
   WorkAppSummaryDiv: WorkAppSummaryDiv,
   WorkAppsSectionDiv: WorkAppsSectionDiv,
   WorkAppParagraph: WorkAppParagraph,
+  PacmanDiv: PacmanDiv,
 };

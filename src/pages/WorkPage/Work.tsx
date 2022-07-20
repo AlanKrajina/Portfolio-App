@@ -16,7 +16,7 @@ const Work: React.FC = () => {
       <div style={styles.Section}>
         {initialImages.map((elem, key) => {
           if (key !== 2 && key !== 4) {
-            return <WorkApp workApp={elem} />;
+            return <WorkApp workApp={elem} keyVal={key} />;
           } else {
             return null;
           }

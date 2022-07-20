@@ -5,9 +5,10 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 interface AppProps {
   workApp: InitialImagesState;
+  keyVal: number;
 }
 
-const WorkApp: React.FC<AppProps> = ({ workApp }) => {
+const WorkApp: React.FC<AppProps> = ({ workApp, keyVal }) => {
   let [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,27 +18,39 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
   }, []);
 
   return (
-    <div style={styles.WorkAppDiv}>
+    <div style={styles.WorkAppDiv} key={keyVal}>
       <p style={styles.WorkAppTitle}>{workApp.name}</p>
 
       <div style={styles.WorkAppsSectionDiv}>
         <div style={styles.WorkAppSummaryDiv}>
-          {workApp.summary.map((summary, key) => {
-            return <p style={styles.WorkAppParagraph}>{summary}</p>;
+          {workApp.summary.map((summary, index) => {
+            return (
+              <p style={styles.WorkAppParagraph} key={index}>
+                {summary}
+              </p>
+            );
           })}
         </div>
         {loading ? (
           <div
             style={{
               ...styles.WorkAppIFrameImgDiv,
-              paddingLeft: "10vw",
+              paddingLeft: "20px 50px 20px 10vw",
               minHeight: "21.3rem",
             }}
           >
-            <PacmanLoader color={"#08fdd8"} loading={loading} size={20} />
+            <div style={styles.PacmanDiv}>
+              <PacmanLoader color={"#08fdd8"} loading={loading} size={20} />
+            </div>
           </div>
         ) : (
-          <div style={styles.WorkAppIFrameImgDiv}>
+          <div
+            style={{
+              ...styles.WorkAppIFrameImgDiv,
+              padding: "20px 50px 20px 0",
+              minHeight: "21.3rem",
+            }}
+          >
             {workApp.youTubeSource !== "" &&
             workApp.name !== "Hub App Asset Creation" ? (
               <iframe

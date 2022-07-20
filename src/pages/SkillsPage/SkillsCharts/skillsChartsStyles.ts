@@ -6,6 +6,7 @@ const Section = {
   flexBasis: "20rem",
   display: "flex",
   flexDirection: "column" as "column",
+  gap: "1rem",
 };
 
 const Row = {
@@ -51,7 +52,8 @@ const List = {
 const RecomAndInterviewDiv = {
   justifyContent: "space-between",
   display: "flex" as "flex",
-  gap: "1rem",
+  gap: "1.5rem",
+  flexWrap: "wrap" as "wrap",
 };
 
 const RecommendationDiv = {
@@ -63,6 +65,7 @@ const RecommendationDiv = {
   borderRadius: "10px",
   boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
   height: "fit-content",
+  flexBasis: "21rem",
 };
 
 const RITitle = {
@@ -77,7 +80,7 @@ const RIText = {
 
 const RILink = {
   fontSize: "0.8rem",
-  color: "#08fdd8",
+  color: "#0077b5",
   textDecoration: "underline",
   padding: "0.6rem",
 };
@@ -91,6 +94,7 @@ const InterviewDiv = {
   borderRadius: "10px",
   boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
   height: "fit-content",
+  flexBasis: "21rem",
 };
 
 export const styles = {

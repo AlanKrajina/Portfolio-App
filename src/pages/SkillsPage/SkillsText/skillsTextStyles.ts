@@ -27,7 +27,7 @@ const Text = {
 
 const Link = {
   fontSize: "0.8rem",
-  color: "#08fdd8",
+  color: "#0077b5",
   textDecoration: "underline",
   padding: "0.6rem 0 0 0",
 };
