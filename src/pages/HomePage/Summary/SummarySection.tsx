@@ -4,18 +4,21 @@ import coding from "./gif/coding.gif";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import "../../../helpers/animations.css";
 
-const SummarySection: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const SummarySection: React.FC<Props> = ({ isDesktop }) => {
   const [showGif, setShowGif] = useState<boolean>(false);
 
-  useScrollTrigger(
-    "summaryTitle",
-    "Summary & Technologies used",
-    "#summarySection",
-    () => setShowGif(true)
+  useScrollTrigger("summaryTitle", "Summary & Tech", "#summarySection", () =>
+    setShowGif(true)
   );
 
   return (
-    <div style={styles.Section}>
+    <div
+      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+    >
       <p id="summaryTitle" className="titleTypewriter" style={styles.Title} />
       <div id="summarySection" style={styles.TextGifDiv}>
         <div style={styles.TextDiv}>

@@ -1,7 +1,11 @@
 import React from "react";
 import ReactGlobe from "react-globe.gl";
 
-const Globe: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const Globe: React.FC<Props> = ({ isDesktop }) => {
   const arcsData = Array.from(Array(20).keys()).map(() => ({
     startLat: 45,
     startLng: 16,
@@ -16,8 +20,8 @@ const Globe: React.FC = () => {
   return (
     <ReactGlobe
       backgroundColor="#1d1d1d"
-      width={850}
-      height={820}
+      width={isDesktop ? 850 : 600}
+      height={isDesktop ? 820 : 550}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       arcsData={arcsData}
       arcColor={"color"}

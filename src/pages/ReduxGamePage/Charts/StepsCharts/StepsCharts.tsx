@@ -7,9 +7,14 @@ import StepsComposedChart from "./StepsComposedChart";
 interface Props {
   gameStats: GameStatsState;
   gameState: SingleGameState;
+  isDesktop: boolean;
 }
 
-const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
+const StepsCharts: React.FC<Props> = ({
+  gameStats,
+  gameState,
+  isDesktop,
+}: Props) => {
   return (
     <>
       {gameStats.stepCount > 0 && (
@@ -19,15 +24,26 @@ const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
             card where fliped) and number of wrong (Pie Chart) or correct (Bar
             Chart) matches when 2 cards are the different or same.
           </p>
-          <div style={styles.ChartsDiv}>
-            <StepsComposedChart gameTimes={gameStats.gameTimes} />
+          <div
+            style={
+              isDesktop
+                ? styles.ChartsDiv
+                : { ...styles.ChartsDiv, flexDirection: "column" }
+            }
+          >
+            <StepsComposedChart
+              gameTimes={gameStats.gameTimes}
+              isDesktop={isDesktop}
+            />
             <StepsPieChart
               wrongMatches={gameState.gameStats.wrongMatches}
               stepCount={gameState.gameStats.stepCount}
+              isDesktop={isDesktop}
             />
             <StepsBarChart
               matchedImages={gameState.matchedImages}
               stepCount={gameState.gameStats.stepCount}
+              isDesktop={isDesktop}
             />
           </div>
         </div>

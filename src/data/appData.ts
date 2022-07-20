@@ -98,7 +98,10 @@ export const initialImages: InitialImagesState[] = [
     name: "Guess A Number App Mobile",
     summary: [
       "App uses React Native, Expo, Functional Components, hooks etc.",
-      "Player selects a number between 1-99 and the App tries to quess what number it is while Player gives hints if the number is lower or greater.",
+      "Focus of this practice app is to differentiate development procedures between React Native and React for browsers.",
+      "React Native brings React's declarative UI framework to iOS and Android. With React Native, you use native UI controls and have full access to the native platform.",
+      "React Native uses native components instead of web components as building blocks such as Text and View components.",
+      "In the app Player selects a number between 1-99 and the App tries to quess what number it is while Player gives hints if the number is lower or greater.",
       "Player cannot give a wrong hint, warning modal appears at that point.",
       "When the game ends, Player can see the number of rounds he played and selected number.",
       "For styling app uses Native StyleSheet.create.",

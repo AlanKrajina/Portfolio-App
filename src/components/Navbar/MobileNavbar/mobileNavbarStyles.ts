@@ -1,15 +1,3 @@
-const DesktopNavbar = {
-  display: "flex",
-  flexDirection: "column" as "column",
-  height: "100vh",
-  position: "fixed" as "fixed",
-  backgroundColor: "#151515",
-  left: 0,
-  width: "9rem",
-  justifyContent: "space-between",
-  zIndex: 21,
-};
-
 const MobileNavbar = {
   display: "flex",
   position: "fixed" as "fixed",
@@ -22,7 +10,6 @@ const MobileNavbar = {
 
 const MobileNavItems = {
   display: "flex",
-  flexDirection: "column" as "column",
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
@@ -30,13 +17,13 @@ const MobileNavItems = {
 };
 
 const Header = {
-  height: "13rem",
+  height: "6rem",
   backgroundColor: "black",
   color: "white",
   display: "flex",
-  flexDirection: "column" as "column",
   alignItems: "center",
-  paddingTop: "1rem",
+  width: "10rem",
+  justifyContent: "space-around",
 };
 
 const TitleDiv = {
@@ -51,26 +38,25 @@ const Title = {
 };
 
 const Logo = {
-  width: "6rem",
+  width: "3rem",
   backgroundColor: "black",
 };
 
 const NavItems = {
   display: "flex",
-  flexDirection: "column" as "column",
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
   fontSize: "larger",
+  gap: "1rem",
 };
 
 const Footer = {
-  height: "10vh",
   alignSelf: "center",
   display: "flex",
   gap: "15px",
   zIndex: 21,
-  alignItems: "center",
+  marginRight: "3rem",
 };
 
 const FooterIcons = {
@@ -85,7 +71,6 @@ const Hr = {
 };
 
 export const styles = {
-  DesktopNavbar: DesktopNavbar,
   Header: Header,
   TitleDiv: TitleDiv,
   Title: Title,

@@ -10,25 +10,6 @@ const DesktopNavbar = {
   zIndex: 21,
 };
 
-const MobileNavbar = {
-  display: "flex",
-  position: "fixed" as "fixed",
-  backgroundColor: "rgb(21, 21, 21)",
-  justifyContent: "space-between",
-  zIndex: 21,
-  top: 0,
-  width: "100vw",
-};
-
-const MobileNavItems = {
-  display: "flex",
-  flexDirection: "column" as "column",
-  alignItems: "center",
-  zIndex: 21,
-  textAlign: "center" as "center",
-  fontSize: "larger",
-};
-
 const Header = {
   height: "13rem",
   backgroundColor: "black",
@@ -94,6 +75,4 @@ export const styles = {
   Footer: Footer,
   FooterIcons: FooterIcons,
   Hr: Hr,
-  MobileNavbar: MobileNavbar,
-  MobileNavItems: MobileNavItems,
 };

@@ -6,7 +6,11 @@ import MouseScroll from "../../../components/MouseScroll/MouseScroll";
 import { introText, Intro, introOptions } from "../../../data/appData";
 import "../../../helpers/animations.css";
 
-const IntroSection: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const IntroSection: React.FC<Props> = ({ isDesktop }) => {
   useEffect(() => {
     new ParticleNetwork(
       document.getElementById("particle-canvas"),
@@ -87,7 +91,7 @@ const IntroSection: React.FC = () => {
       <div id="secondSection" style={{ ...styles.IntroSection, top: "37vh" }} />
       <div
         id="thirdSection"
-        style={{ ...styles.IntroSection, top: "49vh", minWidth: "53rem" }}
+        style={{ ...styles.IntroSection, top: "49vh" /*  minWidth: "53rem" */ }}
       />
       <div id="fourthSection" style={{ ...styles.IntroSection, top: "75vh" }} />
       <MouseScroll />

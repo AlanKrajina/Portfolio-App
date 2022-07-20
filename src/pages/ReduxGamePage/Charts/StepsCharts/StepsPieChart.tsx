@@ -4,12 +4,17 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 interface Props {
   wrongMatches: number;
   stepCount: number;
+  isDesktop: boolean;
 }
 
 const COLORS = ["#0088FE", "rgb(251 101 121)"];
 const RADIAN = Math.PI / 180;
 
-const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
+const StepsPieChart: React.FC<Props> = ({
+  wrongMatches,
+  stepCount,
+  isDesktop,
+}: Props) => {
   const pieChartData = [
     { name: "Tries", value: stepCount },
     { name: "Wrong matches", value: wrongMatches },
@@ -42,7 +47,7 @@ const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
   };
 
   return (
-    <ResponsiveContainer width="25%" height={350}>
+    <ResponsiveContainer width={isDesktop ? "25%" : "100%"} height={350}>
       <PieChart>
         <Pie
           data={pieChartData}

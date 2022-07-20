@@ -13,11 +13,13 @@ import {
 interface Props {
   matchedImages: string[];
   stepCount: number;
+  isDesktop: boolean;
 }
 
 const StepsAndMatchesChart: React.FC<Props> = ({
   matchedImages,
   stepCount,
+  isDesktop,
 }: Props) => {
   const barChartData = [
     {
@@ -28,7 +30,7 @@ const StepsAndMatchesChart: React.FC<Props> = ({
   ];
 
   return (
-    <ResponsiveContainer width="20%" height={350}>
+    <ResponsiveContainer width={isDesktop ? "20%" : "100%"} height={350}>
       <BarChart
         data={barChartData}
         margin={{

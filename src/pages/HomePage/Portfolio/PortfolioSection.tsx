@@ -6,7 +6,11 @@ import "../../../helpers/animations.css";
 import { initialImages, InitialImagesState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 
-const PortfolioSection: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const PortfolioSection: React.FC<Props> = ({ isDesktop }) => {
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
@@ -31,7 +35,9 @@ const PortfolioSection: React.FC = () => {
   );
 
   return (
-    <div style={styles.Section}>
+    <div
+      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+    >
       <p id="portfolioTitle" style={styles.Title} />
       <p>
         A small gallery of recent projects. Some of them were done while working

@@ -14,9 +14,10 @@ import { styles } from "./chartStyles";
 
 interface Props {
   gameStats: GameStatsState;
+  isDesktop: boolean;
 }
 
-const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
+const GameTimeChart: React.FC<Props> = ({ gameStats, isDesktop }: Props) => {
   const gameTimes = gameStats.gameTimes.map(
     (el: { end: string; start: string }, index: number) => {
       const secondsConverted = parseInt(el.end) - parseInt(el.start);
@@ -33,12 +34,14 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
         <div style={styles.MainChartsDiv}>
           <p style={styles.Title}>
             Chart shows all turns when 2 cards got fliped, matched or not. Bars
-            represent time it takes when first card got fliped and then the
-            second, which gets calculated in to a single turn with the time
-            passed.
+            represent time it takes when first and second card get fliped, which
+            gets calculated in to a single turn with the time passed.
           </p>
           <div style={styles.GameChartDiv}>
-            <ResponsiveContainer width="85%" height={350}>
+            <ResponsiveContainer
+              width={isDesktop ? "85%" : "100%"}
+              height={350}
+            >
               <BarChart
                 data={gameTimes}
                 margin={{

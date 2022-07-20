@@ -14,9 +14,13 @@ import { GameTimeState } from "../../../../app/gameSlice";
 
 interface Props {
   gameTimes: GameTimeState[];
+  isDesktop: boolean;
 }
 
-const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
+const StepsComposedChart: React.FC<Props> = ({
+  gameTimes,
+  isDesktop,
+}: Props) => {
   const gameTimesSorted = gameTimes
     .map((el) => (parseInt(el.end) - parseInt(el.start)) / 1000)
     .sort((a, b) => b - a);
@@ -35,7 +39,7 @@ const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
   ];
 
   return (
-    <ResponsiveContainer width="20%" height={350}>
+    <ResponsiveContainer width={isDesktop ? "20%" : "100%"} height={350}>
       <ComposedChart
         width={500}
         height={400}

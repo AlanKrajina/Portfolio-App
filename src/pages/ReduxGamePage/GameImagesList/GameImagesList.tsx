@@ -11,7 +11,11 @@ import {
 } from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
 
-const GameImagesList: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const GameImagesList: React.FC<Props> = ({ isDesktop }) => {
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
@@ -40,7 +44,13 @@ const GameImagesList: React.FC = () => {
   };
 
   return (
-    <div style={styles.GameImagesGallery}>
+    <div
+      style={
+        isDesktop
+          ? styles.GameImagesGallery
+          : { ...styles.GameImagesGallery, maxWidth: "85vw" }
+      }
+    >
       {gameState.gameData.map((img: MemeState) => {
         return (
           <figure

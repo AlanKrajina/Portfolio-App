@@ -5,7 +5,11 @@ import { blogData, BlogDataState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import "../../../helpers/animations.css";
 
-const BlogSection: React.FC = () => {
+interface Props {
+  isDesktop: boolean;
+}
+
+const BlogSection: React.FC<Props> = ({ isDesktop }) => {
   const [blogState, setBlogsState] = useState<BlogDataState[]>([]);
   let loadBlogs: boolean = true;
 
@@ -25,7 +29,9 @@ const BlogSection: React.FC = () => {
   useScrollTrigger("blogTitle", "School Blogs", "#blogSection", delayBlogsLoad);
 
   return (
-    <div style={styles.Section}>
+    <div
+      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+    >
       <p id="blogTitle" style={styles.Title} />
       <p>
         A small gallery of recent projects. Some of them were done while working

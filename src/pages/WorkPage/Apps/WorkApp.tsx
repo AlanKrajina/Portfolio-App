@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { InitialImagesState } from "../../../data/appData";
 import { styles } from "../workStyles";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import _ from "lodash";
 
 interface AppProps {
   workApp: InitialImagesState;
-  keyVal: number;
 }
 
-const WorkApp: React.FC<AppProps> = ({ workApp, keyVal }) => {
+const WorkApp: React.FC<AppProps> = ({ workApp }) => {
   let [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,14 +18,14 @@ const WorkApp: React.FC<AppProps> = ({ workApp, keyVal }) => {
   }, []);
 
   return (
-    <div style={styles.WorkAppDiv} key={keyVal}>
+    <div style={styles.WorkAppDiv} key={_.uniqueId()}>
       <p style={styles.WorkAppTitle}>{workApp.name}</p>
 
       <div style={styles.WorkAppsSectionDiv}>
         <div style={styles.WorkAppSummaryDiv}>
-          {workApp.summary.map((summary, index) => {
+          {workApp.summary.map((summary) => {
             return (
-              <p style={styles.WorkAppParagraph} key={index}>
+              <p style={styles.WorkAppParagraph} key={_.uniqueId()}>
                 {summary}
               </p>
             );

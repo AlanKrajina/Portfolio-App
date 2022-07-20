@@ -18,6 +18,10 @@ interface InitialFormState {
   message: string;
 }
 
+interface Props {
+  isDesktop: boolean;
+}
+
 const initialFormState: InitialFormState = {
   name: "",
   email: "",
@@ -60,7 +64,7 @@ const reducer = (
   }
 };
 
-const ContactSection: React.FC = () => {
+const ContactSection: React.FC<Props> = ({ isDesktop }) => {
   const [formState, dispatch] = useReducer(reducer, initialFormState);
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
@@ -105,7 +109,9 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div style={styles.Section}>
+    <div
+      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+    >
       <p id="contactTitle" style={styles.Title} />
       <p id="contactSection" style={{ maxWidth: "60rem" }}>
         For any questions, comments or enquiries feel free to fill in this form
@@ -213,7 +219,7 @@ const ContactSection: React.FC = () => {
             </form>
           </div>
           <div style={styles.GlobeDiv}>
-            <Globe />
+            <Globe isDesktop={isDesktop} />
           </div>
         </div>
       )}

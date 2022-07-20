@@ -7,7 +7,7 @@ import WorkApp from "./Apps/WorkApp";
 
 const Work: React.FC = () => {
   useEffect(() => {
-    animateTitle("workTitle", "Examples of Work and School Apps");
+    animateTitle("workTitle", "Work and School Apps");
   }, []);
 
   return (
@@ -16,7 +16,7 @@ const Work: React.FC = () => {
       <div style={styles.Section}>
         {initialImages.map((elem, key) => {
           if (key !== 2 && key !== 4) {
-            return <WorkApp workApp={elem} keyVal={key} />;
+            return <WorkApp workApp={elem} />;
           } else {
             return null;
           }

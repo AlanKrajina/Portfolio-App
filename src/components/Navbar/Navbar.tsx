@@ -1,75 +1,12 @@
-import CustomLink from "../CustomLink/CustomLink";
-import { styles } from "./navbarStyles";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import React, { useEffect } from "react";
+import React from "react";
+import useMediaQuery from "../../hooks/use-mediaQuery";
+import DesktopNavbar from "./DesktopNavbar/DesktopNavbar";
+import MobileNavbar from "./MobileNavbar/MobileNavbar";
 
 const NavBar: React.FC = () => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#logo",
-          scrub: 0.2,
-          start: "top bottom",
-          end: "+=10000",
-        },
-      })
-      .to("#logo", {
-        rotation: 360 * 5,
-        duration: 1,
-        ease: "none",
-      });
-  }, []);
+  const isDesktop = useMediaQuery("(min-width: 960px)");
 
-  return (
-    <main style={styles.Navbar}>
-      <header style={styles.Header}>
-        <img
-          style={styles.Logo}
-          id="logo"
-          src="/images/reactIcon.jpg"
-          alt="logo"
-        />
-        <div style={styles.TitleDiv}>
-          <p>React</p>
-          <span style={styles.Title}>Portfolio App</span>
-        </div>
-      </header>
-      <nav style={styles.Nav}>
-        <hr style={styles.Hr} />
-        <CustomLink to="/">Home</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/skills">Skills</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/work">Work</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/game">Redux Game</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/interviewApp">Interview App</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/about">About</CustomLink>
-        <hr style={styles.Hr} />
-      </nav>
-      <footer style={styles.Footer}>
-        <a
-          href="https://www.linkedin.com/in/alankrajina/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fa fa-linkedin" style={styles.FooterIcons}></i>
-        </a>
-
-        <a
-          href="https://github.com/AlanKrajina"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="fa fa-github" style={styles.FooterIcons}></i>
-        </a>
-      </footer>
-    </main>
-  );
+  return isDesktop ? <DesktopNavbar /> : <MobileNavbar />;
 };
+
 export default NavBar;

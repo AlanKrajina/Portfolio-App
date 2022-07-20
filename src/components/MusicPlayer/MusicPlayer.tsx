@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { styles } from "./musicPlayerStyles";
+import useMediaQuery from "../../hooks/use-mediaQuery";
 
 const MusicPlayer: React.FC = () => {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
+  const isDesktop = useMediaQuery("(min-width: 960px)");
 
   return (
-    <div style={styles.MusicPlayerDiv}>
+    <div
+      style={
+        isDesktop
+          ? styles.MusicPlayerDiv
+          : { ...styles.MusicPlayerDiv, top: "95px" }
+      }
+    >
       <div style={styles.ToggleButtonDiv}>
         <i
           className={`fa fa-brands fa-${
