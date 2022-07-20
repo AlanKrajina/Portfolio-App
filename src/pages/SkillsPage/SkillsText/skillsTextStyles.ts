@@ -6,6 +6,37 @@ const Section = {
   flexBasis: "20rem",
 };
 
+const List = {
+  padding: "1rem",
+};
+
+const Title = {
+  fontSize: "1.5rem",
+  color: "#08fdd8",
+};
+
+const SubTitle = {
+  fontSize: "1.1rem",
+};
+
+const Text = {
+  fontSize: "0.9rem",
+  color: "#c9c8c8",
+  padding: "0.5rem",
+};
+
+const Link = {
+  fontSize: "0.8rem",
+  color: "#08fdd8",
+  textDecoration: "underline",
+  padding: "0.6rem 0 0 0",
+};
+
 export const styles = {
   Section: Section,
+  List: List,
+  Title: Title,
+  Text: Text,
+  SubTitle: SubTitle,
+  Link: Link,
 };

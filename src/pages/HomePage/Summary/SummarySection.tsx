@@ -7,8 +7,11 @@ import "../../../helpers/animations.css";
 const SummarySection: React.FC = () => {
   const [showGif, setShowGif] = useState<boolean>(false);
 
-  useScrollTrigger("summaryTitle", "Summary", "#summarySection", () =>
-    setShowGif(true)
+  useScrollTrigger(
+    "summaryTitle",
+    "Summary & Technologies used",
+    "#summarySection",
+    () => setShowGif(true)
   );
 
   return (

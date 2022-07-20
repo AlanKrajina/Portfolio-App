@@ -17,7 +17,7 @@ const Section = {
 };
 
 const WorkAppDiv = {
-  padding: "3rem 3rem 3rem 0",
+  padding: "1rem 3rem 1rem 0",
 };
 
 const WorkAppsSectionDiv = {

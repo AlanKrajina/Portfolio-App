@@ -11,6 +11,7 @@ const About: React.FC = () => {
   return (
     <Layout>
       <p id="aboutTitle" style={styles.Title} />
+      {/* dodat sve iz L */}
     </Layout>
   );
 };

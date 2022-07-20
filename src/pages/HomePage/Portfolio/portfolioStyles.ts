@@ -24,8 +24,15 @@ const ImagesGallery = {
   justifyContent: "center",
 };
 
+const Link = {
+  fontSize: "18px",
+  color: "#0077b5",
+  textDecoration: "underline",
+};
+
 export const styles = {
   Section: Section,
   Title: Title,
   ImagesGallery: ImagesGallery,
+  Link: Link,
 };

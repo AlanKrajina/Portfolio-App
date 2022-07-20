@@ -43,7 +43,11 @@ const PortfolioSection: React.FC = () => {
         development of all frontend functionality.
       </p>
       <p>
-        Visit my <Link to="/about">work page</Link> to see a more in-depth view.
+        Visit my{" "}
+        <span style={styles.Link}>
+          <Link to="/work">work page</Link>
+        </span>{" "}
+        to see a more in-depth view.
       </p>
       <div id="portfolioSection" style={styles.ImagesGallery}>
         {imagesState.map((elem, key) => {

@@ -2,8 +2,10 @@ const Section = {
   margin: "0 auto",
   position: "relative" as "relative",
   padding: "20px 50px 20px 0",
-  flex: 1,
+  flex: 2,
   flexBasis: "20rem",
+  display: "flex",
+  flexDirection: "column" as "column",
 };
 
 const Row = {
@@ -29,17 +31,66 @@ const Title = {
 };
 
 const BarDiv = {
-  marginBottom: "35px",
+  marginBottom: "25px",
   borderRadius: "3px 3px 3px 3px",
   backgroundColor: "#09131b",
-  height: "30px",
+  height: "25px",
   overflow: "hidden",
 };
 
 const BarSpan = {
-  height: "30px",
+  height: "25px",
   display: "block",
   borderRadius: "3px 3px 3px 3px",
+};
+
+const List = {
+  padding: "1rem",
+};
+
+const RecomAndInterviewDiv = {
+  justifyContent: "space-between",
+  display: "flex" as "flex",
+  gap: "1rem",
+};
+
+const RecommendationDiv = {
+  display: "flex",
+  flexDirection: "column" as "column",
+  flex: 1,
+  padding: "1.5rem",
+  backgroundColor: "rgb(37 36 36)",
+  borderRadius: "10px",
+  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+  height: "fit-content",
+};
+
+const RITitle = {
+  fontSize: "1.5rem",
+  color: "#08fdd8",
+};
+
+const RIText = {
+  fontSize: "1rem",
+  color: "#c9c8c8",
+};
+
+const RILink = {
+  fontSize: "0.8rem",
+  color: "#08fdd8",
+  textDecoration: "underline",
+  padding: "0.6rem",
+};
+
+const InterviewDiv = {
+  display: "flex",
+  flexDirection: "column" as "column",
+  flex: 1,
+  padding: "1.5rem",
+  backgroundColor: "rgb(37 36 36)",
+  borderRadius: "10px",
+  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+  height: "fit-content",
 };
 
 export const styles = {
@@ -50,4 +101,11 @@ export const styles = {
   Title: Title,
   BarDiv: BarDiv,
   BarSpan: BarSpan,
+  List: List,
+  RecomAndInterviewDiv: RecomAndInterviewDiv,
+  RecommendationDiv: RecommendationDiv,
+  InterviewDiv: InterviewDiv,
+  RITitle: RITitle,
+  RIText: RIText,
+  RILink: RILink,
 };

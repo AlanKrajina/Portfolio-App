@@ -7,7 +7,7 @@ import WorkApp from "./Apps/WorkApp";
 
 const Work: React.FC = () => {
   useEffect(() => {
-    animateTitle("workTitle", "Work");
+    animateTitle("workTitle", "Examples of Work and School Apps");
   }, []);
 
   return (

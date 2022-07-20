@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "../pages/AboutPage/About";
 import Skills from "../pages/SkillsPage/Skills";
-import Tech from "../pages/TechPage/Tech";
+import InterviewApp from "../pages/InterviewAppPage/InterviewApp";
 
 const Home = lazy(() => import("../pages/HomePage/Home"));
 const ReduxGame = lazy(() => import("../pages/ReduxGamePage/ReduxGame"));
@@ -42,7 +42,7 @@ const AppRoutes: React.FC = () => {
           </Suspense>
         }
       />
-      <Route path="/tech" element={<Tech />} />
+      <Route path="/interviewApp" element={<InterviewApp />} />
       <Route path="/about" element={<About />} />
     </Routes>
   );
