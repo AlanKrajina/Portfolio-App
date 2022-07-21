@@ -1,9 +1,12 @@
 const Section = {
   margin: "0 auto",
   position: "relative" as "relative",
-  padding: "20px 70px 20px 0",
+  padding: "20px 70px 0 0",
   flex: 1,
   flexBasis: "29rem",
+  display: "flex",
+  flexDirection: "column" as "column",
+  gap: "0.5rem",
 };
 
 const List = {

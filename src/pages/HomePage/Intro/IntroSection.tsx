@@ -87,11 +87,34 @@ const IntroSection: React.FC<Props> = ({ isDesktop }) => {
   return (
     <div style={styles.MainDiv}>
       <div id="particle-canvas" style={styles.ParticleCanvas} />
-      <div id="firstSection" style={styles.IntroSection} />
-      <div id="secondSection" style={{ ...styles.IntroSection, top: "37vh" }} />
+      <div
+        id="firstSection"
+        style={
+          isDesktop
+            ? { ...styles.IntroSection, fontSize: "5.6rem" }
+            : { ...styles.IntroSection, fontSize: "4rem" }
+        }
+      />
+      <div
+        id="secondSection"
+        style={
+          isDesktop
+            ? { ...styles.IntroSection, top: "37vh", fontSize: "5.6rem" }
+            : { ...styles.IntroSection, top: "35vh", fontSize: "4rem" }
+        }
+      />
       <div
         id="thirdSection"
-        style={{ ...styles.IntroSection, top: "49vh" /*  minWidth: "53rem" */ }}
+        style={
+          isDesktop
+            ? { ...styles.IntroSection, top: "49vh", fontSize: "5.6rem" }
+            : {
+                ...styles.IntroSection,
+                top: "45vh",
+                fontSize: "4rem",
+                width: "95vw",
+              }
+        }
       />
       <div id="fourthSection" style={{ ...styles.IntroSection, top: "75vh" }} />
       <MouseScroll />

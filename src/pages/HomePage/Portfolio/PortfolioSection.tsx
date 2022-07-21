@@ -40,11 +40,13 @@ const PortfolioSection: React.FC<Props> = ({ isDesktop }) => {
     >
       <p id="portfolioTitle" style={styles.Title} />
       <p>
-        A small gallery of recent projects. Some of them were done while working
-        for Agent3 and others when I was enrolled in Flatiron School.
+        A small gallery of recent work and school projects. Some of them were
+        done while working for Agent3 and others when I was enrolled in Flatiron
+        School. Unfortunately because of data protection most of the work apps
+        could not be shown.
       </p>
       <p>
-        It's only a drop in the ocean compared to the entire list. In total I
+        It's only a small fraction compared to the entire list. In total I
         worked on approx 20 projects where my main responsibility was
         development of all frontend functionality.
       </p>

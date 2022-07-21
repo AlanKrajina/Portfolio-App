@@ -14,7 +14,6 @@ const SkillsText: React.FC = () => {
         <p>GitKraken, Docker, JIRA</p>
       </div>
 
-      <br></br>
       <p style={styles.Title}>Latest work experience:</p>
       <div style={styles.List}>
         <p style={styles.SubTitle}>Agent3: End-to-end ABM - LONDON, UK</p>
@@ -29,7 +28,6 @@ const SkillsText: React.FC = () => {
           <li>Helping backend creating services using NodeJs and Go</li>
         </ul>
 
-        <br></br>
         <p style={styles.SubTitle}>APPLE - CORK, IRELAND</p>
         <p style={styles.SubTitle}>
           OS & MacOS Tech Support (June 2018 – Dec 2018)
@@ -37,7 +35,6 @@ const SkillsText: React.FC = () => {
         <p style={styles.SubTitle}>
           iOS Technical Support (June 2017 – June 2018)
         </p>
-
         <ul style={styles.Text}>
           <li>
             Resolving end user technical issues that requires advanced knowledge
@@ -50,7 +47,6 @@ const SkillsText: React.FC = () => {
         </ul>
       </div>
 
-      <br></br>
       <p style={styles.Title}>App award:</p>
       <div style={styles.List}>
         <p>SoSell App</p>

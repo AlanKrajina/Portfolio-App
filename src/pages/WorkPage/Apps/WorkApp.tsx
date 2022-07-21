@@ -3,6 +3,7 @@ import { InitialImagesState } from "../../../data/appData";
 import { styles } from "../workStyles";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import _ from "lodash";
+import "../../../helpers/animations.css";
 
 interface AppProps {
   workApp: InitialImagesState;
@@ -58,6 +59,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 width="600"
                 height="300"
                 title={workApp.name}
+                className="animated fadeInLeft50"
               ></iframe>
             ) : (
               <img
@@ -65,6 +67,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 height="300"
                 src={workApp.image}
                 alt="portfolioImage"
+                className="animated fadeInLeft50"
               />
             )}
           </div>

@@ -1,12 +1,12 @@
 const Section = {
   margin: "0 auto",
   position: "relative" as "relative",
-  padding: "20px 50px 20px 0",
+  padding: "0 50px 0 0",
   flex: 2,
   flexBasis: "20rem",
   display: "flex",
   flexDirection: "column" as "column",
-  gap: "1rem",
+  gap: "0.5rem",
 };
 
 const Row = {

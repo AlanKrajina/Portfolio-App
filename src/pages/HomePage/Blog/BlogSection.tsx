@@ -34,11 +34,25 @@ const BlogSection: React.FC<Props> = ({ isDesktop }) => {
     >
       <p id="blogTitle" style={styles.Title} />
       <p>
-        A small gallery of recent projects. Some of them were done while working
-        for Agent3 and others when I was enrolled in Flatiron School.
+        While studiying at Flatiron School one of the assigments was to create a
+        blog when a certain curriculum section would be reached. The blog would
+        either explain requirements of the Project created or a point of
+        interest regarding development.
       </p>
       <p>
-        Visit my <Link to="/about">work page</Link> to see a more in-depth view.
+        I implemented both by creating blogs that thoroughly explain how certain
+        aspects of development work like React/Redux state flow with Rails API
+        using async JS with Promises where one of the main requirements of the
+        Flatiron project is the understanding of React/Redux flow. Essentially
+        student needs to fully comprehend the difference between using only
+        React and React with Redux + Thunk Middleware.
+      </p>
+      <p>
+        Created blog would be about a project like Projects Track App where I
+        decided on making an app that allows users to CRUD projects and to keep
+        track of them, using Sinatra. The purpose of the App would be to
+        implement dashboard functionality where a User can save and update his
+        Projects or any tasks available.
       </p>
       <div id="blogSection" style={styles.BlogGallery}>
         {blogState.map((elem, key) => {
