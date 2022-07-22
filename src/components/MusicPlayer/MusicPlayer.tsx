@@ -12,7 +12,7 @@ const MusicPlayer: React.FC = () => {
       style={
         isDesktop
           ? styles.MusicPlayerDiv
-          : { ...styles.MusicPlayerDiv, top: "95px" }
+          : { ...styles.MusicPlayerDiv, top: "80px" }
       }
     >
       <div style={styles.ToggleButtonDiv}>

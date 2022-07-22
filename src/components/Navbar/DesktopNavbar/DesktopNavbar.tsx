@@ -46,8 +46,8 @@ const DesktopNavbar: React.FC = () => {
         <CustomLink to="/work">Work</CustomLink>
         <hr style={styles.Hr} />
         <CustomLink to="/game">Redux Game</CustomLink>
-        <hr style={styles.Hr} />
-        <CustomLink to="/interviewApp">Interview App</CustomLink>
+        {/*         <hr style={styles.Hr} />
+        <CustomLink to="/interviewApp">Interview App</CustomLink> */}
         <hr style={styles.Hr} />
         <CustomLink to="/about">About</CustomLink>
         <hr style={styles.Hr} />

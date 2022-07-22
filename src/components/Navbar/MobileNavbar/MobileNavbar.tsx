@@ -42,7 +42,8 @@ const MobileNavbar: React.FC = () => {
         <CustomLink to="/skills">Skills</CustomLink>
         <CustomLink to="/work">Work</CustomLink>
         <CustomLink to="/game">Redux Game</CustomLink>
-        <CustomLink to="/interviewApp">Interview App</CustomLink>
+        {/*         <CustomLink to="/interviewApp">Interview App</CustomLink>
+         */}{" "}
         <CustomLink to="/about">About</CustomLink>
       </nav>
       <footer style={styles.Footer}>

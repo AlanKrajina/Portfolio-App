@@ -107,7 +107,12 @@ const IntroSection: React.FC<Props> = ({ isDesktop }) => {
         id="thirdSection"
         style={
           isDesktop
-            ? { ...styles.IntroSection, top: "49vh", fontSize: "5.6rem" }
+            ? {
+                ...styles.IntroSection,
+                top: "49vh",
+                fontSize: "5.6rem",
+                minWidth: "33rem",
+              }
             : {
                 ...styles.IntroSection,
                 top: "45vh",

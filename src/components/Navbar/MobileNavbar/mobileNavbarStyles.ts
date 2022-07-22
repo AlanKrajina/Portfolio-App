@@ -17,7 +17,7 @@ const MobileNavItems = {
 };
 
 const Header = {
-  height: "6rem",
+  height: "5rem",
   backgroundColor: "black",
   color: "white",
   display: "flex",
@@ -27,9 +27,8 @@ const Header = {
 };
 
 const TitleDiv = {
-  fontSize: "x-large",
+  fontSize: "larger",
   zIndex: 2,
-  marginTop: "0.8rem",
   textAlign: "center" as "center",
 };
 
@@ -38,7 +37,7 @@ const Title = {
 };
 
 const Logo = {
-  width: "3rem",
+  width: "2rem",
   backgroundColor: "black",
 };
 
@@ -61,7 +60,7 @@ const Footer = {
 
 const FooterIcons = {
   color: "#ffffff",
-  fontSize: "x-large",
+  fontSize: "larger",
 };
 
 const Hr = {
