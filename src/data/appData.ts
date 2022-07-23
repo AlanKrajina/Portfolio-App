@@ -141,9 +141,9 @@ export const initialImages: InitialImagesState[] = [
     summary: [
       "App gives ability to help sales reps to better communicate with prospective customers and deliver quality leads along the way.",
       "On starting the app the user would select certain accounts of their interest and then their content library would be populated with generated posts.",
-      "Content library posts would be generated internally.",
-      "There user could either select these posts or create customised posts that would be shared with clients via email and on social medial like LinkedIn and Twitter, marketing certain productz or topicz of interest.",
-      "Posts could be internal, external or client specified.",
+      "Content library posts would be created internally.",
+      "In content library user could either select these posts or create customised posts that would be shared with clients via email and on social medial like LinkedIn and Twitter, marketing certain products or topics of interest.",
+      "Posts could be internal, external or client specific. Custom posts would be added to users Summary posts that could be shared with other users.",
       "App implements statistics with tracked interactions from clients.",
       "On the frontend the app uses React and Typescript, on backend Golang.",
       "For data app uses Apollo GraphQL.",
@@ -163,7 +163,7 @@ export const initialImages: InitialImagesState[] = [
     image: pizzaOnRailsFront,
     name: "Pizza On Rails App",
     summary: [
-      "In this project I have build a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. The goal of the application is to build a Content Management System.",
+      "In this project I have built a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. The goal of the application is to build a Content Management System.",
       "There is no emphasis on HTML or CSS, and there is no JS required for the project. I added some CSS just to get a basic look for the App.",
       "The app provides a database and web interface for users to:",
       "Sign up, login or log out securely as user.",
@@ -194,7 +194,7 @@ export const initialImages: InitialImagesState[] = [
     image: learnfullstackFront,
     name: "Learn Full Stack App",
     summary: [
-      "In this project I have built a complete Ruby on Rails application that manages related data through complex forms and RESTful routes. Main requirement is to add dynamic features to previous Rails application that are possible only through JavaScript and a JSON API.",
+      "This project is built using Ruby on Rails and implements RESTful routes. Main requirement is to add dynamic features to previous Rails application that are possible only through JavaScript and a JSON API.",
       "For the first requirement we are to use our previous Rails app and upon that one build dynamic JS features.",
       "The app allows us to:",
       "Sign up, login or log out securely as user.",

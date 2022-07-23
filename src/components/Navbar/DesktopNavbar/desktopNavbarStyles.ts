@@ -11,7 +11,7 @@ const DesktopNavbar = {
 };
 
 const Header = {
-  height: "13rem",
+  height: "12rem",
   backgroundColor: "black",
   color: "white",
   display: "flex",
@@ -21,7 +21,7 @@ const Header = {
 };
 
 const TitleDiv = {
-  fontSize: "x-large",
+  fontSize: "larger",
   zIndex: 2,
   marginTop: "0.8rem",
   textAlign: "center" as "center",
@@ -29,6 +29,7 @@ const TitleDiv = {
 
 const Title = {
   fontSize: "small",
+  color: "#b7b7b7",
 };
 
 const Logo = {

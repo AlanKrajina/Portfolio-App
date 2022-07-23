@@ -33,9 +33,9 @@ const GameTimeChart: React.FC<Props> = ({ gameStats, isDesktop }: Props) => {
       {gameStats.stepCount > 0 && (
         <div style={styles.MainChartsDiv}>
           <p style={styles.Title}>
-            Chart shows all turns when 2 cards got fliped, matched or not. Bars
-            represent time it takes when first and second card get fliped, which
-            gets calculated in to a single turn with the time passed.
+            Chart shows all turns and times it takes when 2 cards get fliped,
+            matched or not. Bars represent summed time for 2 cards, which gets
+            calculated in to a single turn with the time passed in seconds.
           </p>
           <div style={styles.GameChartDiv}>
             <ResponsiveContainer

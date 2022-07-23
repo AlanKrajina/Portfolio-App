@@ -22,10 +22,13 @@ const SkillsText: React.FC = () => {
         </p>
         <ul style={styles.Text}>
           <li>
-            Main responsibility development of all frontend aspects for 10+ apps
-            created using React and Svelte
+            Main responsibility was development of all frontend aspects for 10+
+            apps created using React and Svelte.
           </li>
-          <li>Helping backend creating services using NodeJs and Go</li>
+          <li>
+            With the work on the frontend I helped backend devs with creating
+            services using NodeJs and Go.
+          </li>
         </ul>
 
         <p style={styles.SubTitle}>APPLE - CORK, IRELAND</p>
@@ -57,9 +60,9 @@ const SkillsText: React.FC = () => {
           </li>
           <li>App created by Agent3, sold to Fearleess Labs.</li>
           <li>
-            Delighted to see Fearless Labs' SOsell wins gold, based on its
-            ability to help field sales reps to better communicate with
-            prospective customers and deliver quality leads along the way.
+            The app won a gold medal based on its ability to help field sales
+            reps to better communicate with prospective customers and deliver
+            quality leads along the way.
           </li>
           <p style={styles.Link}>
             <a

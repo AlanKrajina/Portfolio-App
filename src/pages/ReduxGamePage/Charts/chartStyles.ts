@@ -5,8 +5,19 @@ const Container = {
 
 const Title = {
   fontSize: "1.5rem",
-  color: "rgb(142 255 238)",
   margin: "3rem",
+  textAlign: "center" as "center",
+};
+
+const ThreeChartsTitle = {
+  fontSize: "1.5rem",
+};
+
+const ThreeChartsDiv = {
+  margin: "4rem 3rem 3rem 3rem",
+  display: "flex",
+  flexDirection: "column" as "column",
+  alignItems: "center",
 };
 
 const MainChartsDiv = {
@@ -48,4 +59,6 @@ export const styles = {
   MatchedListGallery: MatchedListGallery,
   GameChartDiv: GameChartDiv,
   MainChartsDiv: MainChartsDiv,
+  ThreeChartsTitle: ThreeChartsTitle,
+  ThreeChartsDiv: ThreeChartsDiv,
 };

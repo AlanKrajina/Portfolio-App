@@ -33,8 +33,8 @@ const MobileNavbar: React.FC = () => {
           alt="logo"
         />
         <div style={styles.TitleDiv}>
-          <p>React</p>
-          <span style={styles.Title}>Portfolio App</span>
+          <p>Portfolio App</p>
+          <span style={styles.Title}>React</span>
         </div>
       </header>
       <nav style={styles.NavItems}>
@@ -42,8 +42,6 @@ const MobileNavbar: React.FC = () => {
         <CustomLink to="/skills">Skills</CustomLink>
         <CustomLink to="/work">Work</CustomLink>
         <CustomLink to="/game">Redux Game</CustomLink>
-        {/*         <CustomLink to="/interviewApp">Interview App</CustomLink>
-         */}{" "}
         <CustomLink to="/about">About</CustomLink>
       </nav>
       <footer style={styles.Footer}>

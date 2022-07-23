@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { styles } from "./blogStyles";
 import { blogData, BlogDataState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
@@ -48,11 +47,11 @@ const BlogSection: React.FC<Props> = ({ isDesktop }) => {
         React and React with Redux + Thunk Middleware.
       </p>
       <p>
-        Created blog would be about a project like Projects Track App where I
+        A created blog could be about a project like Projects Track App where I
         decided on making an app that allows users to CRUD projects and to keep
-        track of them, using Sinatra. The purpose of the App would be to
-        implement dashboard functionality where a User can save and update his
-        Projects or any tasks available.
+        track of them, using Ruby and Sinatra. The purpose of the App would be
+        to implement dashboard functionality where a User can save and update
+        his Projects or any tasks available.
       </p>
       <div id="blogSection" style={styles.BlogGallery}>
         {blogState.map((elem, key) => {

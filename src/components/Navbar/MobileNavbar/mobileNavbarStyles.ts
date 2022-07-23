@@ -34,6 +34,7 @@ const TitleDiv = {
 
 const Title = {
   fontSize: "small",
+  color: "#b7b7b7",
 };
 
 const Logo = {

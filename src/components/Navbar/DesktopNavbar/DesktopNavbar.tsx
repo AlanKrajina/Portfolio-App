@@ -33,8 +33,8 @@ const DesktopNavbar: React.FC = () => {
           alt="logo"
         />
         <div style={styles.TitleDiv}>
-          <p>React</p>
-          <span style={styles.Title}>Portfolio App</span>
+          <p>Portfolio App</p>
+          <span style={styles.Title}>React</span>
         </div>
       </header>
       <nav style={styles.NavItems}>
@@ -46,8 +46,6 @@ const DesktopNavbar: React.FC = () => {
         <CustomLink to="/work">Work</CustomLink>
         <hr style={styles.Hr} />
         <CustomLink to="/game">Redux Game</CustomLink>
-        {/*         <hr style={styles.Hr} />
-        <CustomLink to="/interviewApp">Interview App</CustomLink> */}
         <hr style={styles.Hr} />
         <CustomLink to="/about">About</CustomLink>
         <hr style={styles.Hr} />

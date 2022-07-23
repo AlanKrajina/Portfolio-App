@@ -4,7 +4,7 @@ const Timer = {
 };
 
 const StatisticsMainDiv = {
-  padding: "0 5rem 0 5rem",
+  padding: "2rem 5rem 5rem 5rem",
   minHeight: "64vh",
 };
 

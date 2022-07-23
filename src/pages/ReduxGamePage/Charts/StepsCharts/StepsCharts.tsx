@@ -19,11 +19,21 @@ const StepsCharts: React.FC<Props> = ({
     <>
       {gameStats.stepCount > 0 && (
         <div style={styles.MainChartsDiv}>
-          <p style={styles.Title}>
-            Pie Chart and Bar Chart show the number of tries (how many times 2
-            card where fliped) and number of wrong (Pie Chart) or correct (Bar
-            Chart) matches when 2 cards are the different or same.
-          </p>
+          <div style={styles.ThreeChartsDiv}>
+            <p style={styles.ThreeChartsTitle}>
+              First Bar chart shows slowest and fastest turns user made when
+              fliping 2 cards, matched or not.
+            </p>
+            <p style={styles.ThreeChartsTitle}>
+              Pie chart compares the number of tries (how many times 2 card
+              where fliped) and number of wrong matches.
+            </p>
+            <p style={styles.ThreeChartsTitle}>
+              Second Bar chart compares the number of tries (how many times 2
+              card where fliped) and number of correct matches.
+            </p>
+          </div>
+
           <div
             style={
               isDesktop

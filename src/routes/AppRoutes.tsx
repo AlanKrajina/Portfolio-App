@@ -1,12 +1,11 @@
 import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import About from "../pages/AboutPage/About";
-import Skills from "../pages/SkillsPage/Skills";
-import InterviewApp from "../pages/InterviewAppPage/InterviewApp";
 
 const Home = lazy(() => import("../pages/HomePage/Home"));
-const ReduxGame = lazy(() => import("../pages/ReduxGamePage/ReduxGame"));
+const Skills = lazy(() => import("../pages/SkillsPage/Skills"));
 const Work = lazy(() => import("../pages/WorkPage/Work"));
+const ReduxGame = lazy(() => import("../pages/ReduxGamePage/ReduxGame"));
+const About = lazy(() => import("../pages/AboutPage/About"));
 
 const AppRoutes: React.FC = () => {
   const suspenseStyle = {
@@ -24,8 +23,14 @@ const AppRoutes: React.FC = () => {
           </Suspense>
         }
       />
-      <Route path="/skills" element={<Skills />} />
-
+      <Route
+        path="/skills"
+        element={
+          <Suspense fallback={<div style={suspenseStyle} />}>
+            <Skills />
+          </Suspense>
+        }
+      />
       <Route
         path="/work"
         element={
@@ -42,8 +47,14 @@ const AppRoutes: React.FC = () => {
           </Suspense>
         }
       />
-      <Route path="/interviewApp" element={<InterviewApp />} />
-      <Route path="/about" element={<About />} />
+      <Route
+        path="/about"
+        element={
+          <Suspense fallback={<div style={suspenseStyle} />}>
+            <About />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 };
