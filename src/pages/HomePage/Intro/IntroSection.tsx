@@ -5,12 +5,12 @@ import { ParticleNetwork } from "../../../helpers/canvas.js";
 import MouseScroll from "../../../components/MouseScroll/MouseScroll";
 import { introText, Intro, introOptions } from "../../../data/appData";
 import "../../../helpers/animations.css";
+import useMediaQuery from "../../../hooks/use-mediaQuery";
 
-interface Props {
-  isDesktop: boolean;
-}
+const IntroSection: React.FC = () => {
+  const isDesktop = useMediaQuery("(min-width: 960px)");
+  const isHalfScreen = useMediaQuery("(min-width: 1400px)");
 
-const IntroSection: React.FC<Props> = ({ isDesktop }) => {
   useEffect(() => {
     new ParticleNetwork(
       document.getElementById("particle-canvas"),
@@ -111,13 +111,15 @@ const IntroSection: React.FC<Props> = ({ isDesktop }) => {
                 ...styles.IntroSection,
                 top: "49vh",
                 fontSize: "5.6rem",
-                minWidth: "33rem",
+                width: isHalfScreen ? "fit-content" : "33rem",
+                /*                 minWidth: "33rem",
+                 */
               }
             : {
                 ...styles.IntroSection,
                 top: "45vh",
                 fontSize: "4rem",
-                width: "95vw",
+                width: "26rem",
               }
         }
       />

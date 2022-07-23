@@ -20,8 +20,8 @@ const Globe: React.FC<Props> = ({ isDesktop }) => {
   return (
     <ReactGlobe
       backgroundColor="#1d1d1d"
-      width={isDesktop ? 850 : 600}
-      height={isDesktop ? 820 : 550}
+      width={isDesktop ? 850 : 490}
+      height={isDesktop ? 820 : 430}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       arcsData={arcsData}
       arcColor={"color"}

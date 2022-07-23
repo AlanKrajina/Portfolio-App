@@ -13,7 +13,7 @@ const MobileNavItems = {
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
-  fontSize: "larger",
+  fontSize: "1.1rem",
 };
 
 const Header = {
@@ -27,7 +27,7 @@ const Header = {
 };
 
 const TitleDiv = {
-  fontSize: "larger",
+  fontSize: "1.1rem",
   zIndex: 2,
   textAlign: "center" as "center",
 };
@@ -47,8 +47,9 @@ const NavItems = {
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
-  fontSize: "larger",
+  fontSize: "1.1rem",
   gap: "1rem",
+  padding: "0 5px 0 5px",
 };
 
 const Footer = {
@@ -56,7 +57,8 @@ const Footer = {
   display: "flex",
   gap: "15px",
   zIndex: 21,
-  marginRight: "3rem",
+  marginRight: "1rem",
+  padding: "0 1rem 0 1rem",
 };
 
 const FooterIcons = {

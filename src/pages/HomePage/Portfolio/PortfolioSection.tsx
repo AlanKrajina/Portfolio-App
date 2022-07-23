@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "./portfolioStyles";
 import "../../../helpers/portfolioImages.css";
 import "../../../helpers/animations.css";
 import { initialImages, InitialImagesState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
+import { MediaQueryContext } from "../../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
-
-const PortfolioSection: React.FC<Props> = ({ isDesktop }) => {
+const PortfolioSection: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
@@ -38,7 +36,14 @@ const PortfolioSection: React.FC<Props> = ({ isDesktop }) => {
     <div
       style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
     >
-      <p id="portfolioTitle" style={styles.Title} />
+      <p
+        id="portfolioTitle"
+        style={
+          isDesktop
+            ? { ...styles.Title }
+            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+        }
+      />
       <p>
         A small gallery of recent work and school projects. Some of them were
         done while working for Agent3 and others when I was enrolled in Flatiron

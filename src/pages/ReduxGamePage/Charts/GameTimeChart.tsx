@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BarChart,
   Bar,
@@ -11,13 +11,14 @@ import {
 } from "recharts";
 import { GameStatsState } from "../../../app/gameSlice";
 import { styles } from "./chartStyles";
+import { MediaQueryContext } from "../../../App";
 
 interface Props {
   gameStats: GameStatsState;
-  isDesktop: boolean;
 }
 
-const GameTimeChart: React.FC<Props> = ({ gameStats, isDesktop }: Props) => {
+const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
+  const isDesktop = useContext(MediaQueryContext);
   const gameTimes = gameStats.gameTimes.map(
     (el: { end: string; start: string }, index: number) => {
       const secondsConverted = parseInt(el.end) - parseInt(el.start);

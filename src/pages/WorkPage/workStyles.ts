@@ -3,7 +3,6 @@ const Title = {
   color: "#08fdd8",
   marginBottom: "3rem",
   fontWeight: "bold",
-  height: "6rem",
 };
 
 const WorkDiv = {
@@ -17,7 +16,7 @@ const Section = {
 };
 
 const WorkAppDiv = {
-  padding: "1rem 3rem 1rem 0",
+  padding: "1rem 1rem 1rem 0",
 };
 
 const WorkAppsSectionDiv = {
@@ -28,7 +27,7 @@ const WorkAppsSectionDiv = {
 const WorkAppSummaryDiv = {
   paddingBottom: "2rem",
   flexDirection: "column" as "column",
-  padding: "20px 50px 20px 0",
+  padding: "20px 20px 20px 0",
   flex: 1,
   flexBasis: "30rem",
 };

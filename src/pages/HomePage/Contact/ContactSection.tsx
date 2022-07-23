@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import "../Home.css";
 import "../../../helpers/animations.css";
 import { styles } from "./contactStyles";
@@ -6,6 +6,7 @@ import sendEmail from "../../../helpers/sendEmail";
 import "../../../helpers/animations.css";
 import Globe from "../../../components/Globe/Globe";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
+import { MediaQueryContext } from "../../../App";
 
 interface EmailResponse {
   sent: boolean;
@@ -16,10 +17,6 @@ interface InitialFormState {
   name: string;
   email: string;
   message: string;
-}
-
-interface Props {
-  isDesktop: boolean;
 }
 
 const initialFormState: InitialFormState = {
@@ -64,7 +61,8 @@ const reducer = (
   }
 };
 
-const ContactSection: React.FC<Props> = ({ isDesktop }) => {
+const ContactSection: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const [formState, dispatch] = useReducer(reducer, initialFormState);
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
@@ -112,7 +110,14 @@ const ContactSection: React.FC<Props> = ({ isDesktop }) => {
     <div
       style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
     >
-      <p id="contactTitle" style={styles.Title} />
+      <p
+        id="contactTitle"
+        style={
+          isDesktop
+            ? { ...styles.Title }
+            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+        }
+      />
       <p id="contactSection" style={{ maxWidth: "60rem" }}>
         For any questions, comments or enquiries feel free to fill in this form
         and drop me an email or connect with me via{" "}

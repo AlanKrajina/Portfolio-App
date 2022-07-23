@@ -1,19 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../layouts/Layout";
 import { styles } from "./aboutStyles";
 import animateTitle from "../../helpers/animateTitle";
 import DownloadPDF from "./DownloadPDF";
+import { MediaQueryContext } from "../../App";
+
 const reactPdf = require("react-pdf/dist/esm/entry.webpack5");
 const { Document, Page } = reactPdf;
 
 const About: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
+
   useEffect(() => {
     animateTitle("aboutTitle", "About");
   }, []);
 
   return (
     <Layout>
-      <p id="aboutTitle" style={styles.Title} />
+      <p
+        id="aboutTitle"
+        style={
+          isDesktop
+            ? { ...styles.Title }
+            : { ...styles.Title, fontSize: "3rem" }
+        }
+      />
       <div style={styles.MainDiv}>
         <div style={styles.ParagraphDownloadDiv}>
           <p>
@@ -38,9 +49,9 @@ const About: React.FC = () => {
             Junior Dev role.
           </p>
           <p>
-            In my second month in London I was recieved a job offer to work as a
+            In my second month in London I recieved a job offer to work as a
             Fullstack Dev in a London based company Agent3 and that is when my
-            snew career started. While working there I have learnt a whole lot
+            new career started. While working there I have learnt a whole lot
             about development and at one point found my career path, Frontend
             development. Because of COVID from day one of my employement I was
             "stuck" in a flat in London for more than a year. I reached an

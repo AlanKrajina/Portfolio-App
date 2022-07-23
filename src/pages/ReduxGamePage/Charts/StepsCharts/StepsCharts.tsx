@@ -1,20 +1,19 @@
+import React, { useContext } from "react";
 import { styles } from "../chartStyles";
 import StepsPieChart from "./StepsPieChart";
 import StepsBarChart from "./StepsBarChart";
 import { SingleGameState, GameStatsState } from "../../../../app/gameSlice";
 import StepsComposedChart from "./StepsComposedChart";
+import { MediaQueryContext } from "../../../../App";
 
 interface Props {
   gameStats: GameStatsState;
   gameState: SingleGameState;
-  isDesktop: boolean;
 }
 
-const StepsCharts: React.FC<Props> = ({
-  gameStats,
-  gameState,
-  isDesktop,
-}: Props) => {
+const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
+  const isDesktop = useContext(MediaQueryContext);
+
   return (
     <>
       {gameStats.stepCount > 0 && (
@@ -41,19 +40,14 @@ const StepsCharts: React.FC<Props> = ({
                 : { ...styles.ChartsDiv, flexDirection: "column" }
             }
           >
-            <StepsComposedChart
-              gameTimes={gameStats.gameTimes}
-              isDesktop={isDesktop}
-            />
+            <StepsComposedChart gameTimes={gameStats.gameTimes} />
             <StepsPieChart
               wrongMatches={gameState.gameStats.wrongMatches}
               stepCount={gameState.gameStats.stepCount}
-              isDesktop={isDesktop}
             />
             <StepsBarChart
               matchedImages={gameState.matchedImages}
               stepCount={gameState.gameStats.stepCount}
-              isDesktop={isDesktop}
             />
           </div>
         </div>

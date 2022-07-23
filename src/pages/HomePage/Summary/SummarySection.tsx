@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { styles } from "./summaryStyles";
 import coding from "./gif/coding.gif";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import "../../../helpers/animations.css";
+import { MediaQueryContext } from "../../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
-
-const SummarySection: React.FC<Props> = ({ isDesktop }) => {
+const SummarySection: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const [showGif, setShowGif] = useState<boolean>(false);
 
   useScrollTrigger("summaryTitle", "Summary & Tech", "#summarySection", () =>
@@ -19,7 +17,15 @@ const SummarySection: React.FC<Props> = ({ isDesktop }) => {
     <div
       style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
     >
-      <p id="summaryTitle" className="titleTypewriter" style={styles.Title} />
+      <p
+        id="summaryTitle"
+        className="titleTypewriter"
+        style={
+          isDesktop
+            ? { ...styles.Title }
+            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+        }
+      />
       <div id="summarySection" style={styles.TextGifDiv}>
         <div style={styles.TextDiv}>
           <p style={styles.Text}>
@@ -33,17 +39,18 @@ const SummarySection: React.FC<Props> = ({ isDesktop }) => {
             big.
           </p>
           <p style={styles.Text}>
-            App consists of 5 parts which can selected on the navigation bar.
+            App consists of 5 parts which can be selected on the navigation bar.
             These pages are Home, Skills, Work, Redux Game and About.
           </p>
           <p style={styles.Text}>
             Home page includes multiple components like the intro section that
-            user sees when starting the app with a cool typewriter design and
-            particle effects in the background. If we scroll down we get this
-            summary and then a small list of portfolio apps that I created
-            during my work and school days. After these apps we see blogs
-            created while studying and at the bottom a contact form that can be
-            easily used to get directly in contact with me by sending an email.
+            user sees when starting the app with a cool typewriter bounce design
+            and particle effects in the background. If we scroll down we get
+            this summary section and then a small list of portfolio apps that I
+            created during my work and school days. After these apps we see
+            blogs created while studying and at the bottom a contact form that
+            can be easily used to get directly in contact with me by sending an
+            email.
           </p>
           <p style={styles.Text}>
             My favourite part of the app is the Redux Game, game where you need

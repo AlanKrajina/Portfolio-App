@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ResponsiveContainer,
   BarChart,
@@ -9,18 +9,18 @@ import {
   Legend,
   XAxis,
 } from "recharts";
+import { MediaQueryContext } from "../../../../App";
 
 interface Props {
   matchedImages: string[];
   stepCount: number;
-  isDesktop: boolean;
 }
 
 const StepsAndMatchesChart: React.FC<Props> = ({
   matchedImages,
   stepCount,
-  isDesktop,
 }: Props) => {
+  const isDesktop = useContext(MediaQueryContext);
   const barChartData = [
     {
       Name: "Total",

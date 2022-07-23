@@ -1,3 +1,4 @@
+import React, { useContext } from "react";
 import GameTimeChart from "../Charts/GameTimeChart";
 import { styles } from "./statsComponentsStyles";
 import MatchedList from "../Charts/MatchedList/MatchedList";
@@ -5,12 +6,10 @@ import StepsCharts from "../Charts/StepsCharts/StepsCharts";
 import { GameMainState } from "../../../app/gameSlice";
 import { useSelector } from "react-redux";
 import { memo } from "react";
+import { MediaQueryContext } from "../../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
-
-const ReduxGameStatistics: React.FC<Props> = ({ isDesktop }) => {
+const ReduxGameStatistics: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
   );
@@ -23,12 +22,8 @@ const ReduxGameStatistics: React.FC<Props> = ({ isDesktop }) => {
           : { ...styles.StatisticsMainDiv, padding: 0 }
       }
     >
-      <GameTimeChart gameStats={gameState.gameStats} isDesktop={isDesktop} />
-      <StepsCharts
-        gameStats={gameState.gameStats}
-        gameState={gameState}
-        isDesktop={isDesktop}
-      />
+      <GameTimeChart gameStats={gameState.gameStats} />
+      <StepsCharts gameStats={gameState.gameStats} gameState={gameState} />
       <MatchedList gameState={gameState} />
     </div>
   );

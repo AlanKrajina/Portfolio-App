@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ComposedChart,
   Line,
@@ -11,16 +11,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { GameTimeState } from "../../../../app/gameSlice";
+import { MediaQueryContext } from "../../../../App";
 
 interface Props {
   gameTimes: GameTimeState[];
-  isDesktop: boolean;
 }
 
-const StepsComposedChart: React.FC<Props> = ({
-  gameTimes,
-  isDesktop,
-}: Props) => {
+const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
+  const isDesktop = useContext(MediaQueryContext);
   const gameTimesSorted = gameTimes
     .map((el) => (parseInt(el.end) - parseInt(el.start)) / 1000)
     .sort((a, b) => b - a);

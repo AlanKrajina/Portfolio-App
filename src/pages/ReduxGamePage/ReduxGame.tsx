@@ -11,7 +11,6 @@ import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
 import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";
 import GameOverModal from "../../components/GameModal/GameOverModal";
 import GameImagesList from "./GameImagesList/GameImagesList";
-import useMediaQuery from "../../hooks/use-mediaQuery";
 
 const ReduxGame: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,7 +19,6 @@ const ReduxGame: React.FC = () => {
   );
   const [showStatistics, setShowStatistics] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
-  const isDesktop = useMediaQuery("(min-width: 960px)");
 
   useEffect(() => {
     dispatch(getImagesAndResetState());
@@ -46,11 +44,7 @@ const ReduxGame: React.FC = () => {
         setShowStatistics={setShowStatistics}
         showStatistics={showStatistics}
       />
-      {showStatistics ? (
-        <ReduxGameStatistics isDesktop={isDesktop} />
-      ) : (
-        <GameImagesList isDesktop={isDesktop} />
-      )}
+      {showStatistics ? <ReduxGameStatistics /> : <GameImagesList />}
 
       {showModal && (
         <GameOverModal

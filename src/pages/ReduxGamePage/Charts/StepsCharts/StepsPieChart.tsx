@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { MediaQueryContext } from "../../../../App";
 
 interface Props {
   wrongMatches: number;
   stepCount: number;
-  isDesktop: boolean;
 }
 
 const COLORS = ["#0088FE", "rgb(251 101 121)"];
 const RADIAN = Math.PI / 180;
 
-const StepsPieChart: React.FC<Props> = ({
-  wrongMatches,
-  stepCount,
-  isDesktop,
-}: Props) => {
+const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
+  const isDesktop = useContext(MediaQueryContext);
   const pieChartData = [
     { name: "Tries", value: stepCount },
     { name: "Wrong matches", value: wrongMatches },

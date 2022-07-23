@@ -1,5 +1,5 @@
 import { styles } from "./gameImagesStyles";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GameMainState,
@@ -10,12 +10,10 @@ import {
   clearSelectedImages,
 } from "../../../app/gameSlice";
 import { AppDispatch } from "../../../app/store";
+import { MediaQueryContext } from "../../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
-
-const GameImagesList: React.FC<Props> = ({ isDesktop }) => {
+const GameImagesList: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame

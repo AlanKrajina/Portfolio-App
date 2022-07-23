@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { styles } from "./blogStyles";
 import { blogData, BlogDataState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import "../../../helpers/animations.css";
+import { MediaQueryContext } from "../../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
-
-const BlogSection: React.FC<Props> = ({ isDesktop }) => {
+const BlogSection: React.FC = () => {
+  const isDesktop = useContext(MediaQueryContext);
   const [blogState, setBlogsState] = useState<BlogDataState[]>([]);
   let loadBlogs: boolean = true;
 
@@ -31,7 +29,14 @@ const BlogSection: React.FC<Props> = ({ isDesktop }) => {
     <div
       style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
     >
-      <p id="blogTitle" style={styles.Title} />
+      <p
+        id="blogTitle"
+        style={
+          isDesktop
+            ? { ...styles.Title }
+            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+        }
+      />
       <p>
         While studiying at Flatiron School one of the assigments was to create a
         blog when a certain curriculum section would be reached. The blog would

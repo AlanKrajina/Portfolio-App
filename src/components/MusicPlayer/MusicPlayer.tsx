@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import { styles } from "./musicPlayerStyles";
-import useMediaQuery from "../../hooks/use-mediaQuery";
+import { MediaQueryContext } from "../../App";
 
 const MusicPlayer: React.FC = () => {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
-  const isDesktop = useMediaQuery("(min-width: 960px)");
+  const isDesktop = useContext(MediaQueryContext);
 
   return (
     <div

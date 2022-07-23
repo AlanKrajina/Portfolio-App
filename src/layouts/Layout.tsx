@@ -1,12 +1,13 @@
+import React, { useContext } from "react";
 import { styles } from "./layoutStyles";
-import useMediaQuery from "../hooks/use-mediaQuery";
+import { MediaQueryContext } from "../App";
 
 interface LayoutProps {
   children: any;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const isDesktop = useMediaQuery("(min-width: 960px)");
+  const isDesktop = useContext(MediaQueryContext);
 
   return (
     <div

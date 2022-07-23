@@ -3,7 +3,6 @@ const Title = {
   color: "#08fdd8",
   marginBottom: "0.5rem",
   fontWeight: "bold",
-  height: "6rem",
 };
 
 const SkillsDiv = {
