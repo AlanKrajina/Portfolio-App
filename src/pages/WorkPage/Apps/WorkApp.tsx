@@ -37,7 +37,6 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
             style={{
               ...styles.WorkAppIFrameImgDiv,
               paddingLeft: "20px 50px 20px 10vw",
-              minHeight: "21.3rem",
             }}
           >
             <div style={styles.PacmanDiv}>
@@ -49,7 +48,6 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
             style={{
               ...styles.WorkAppIFrameImgDiv,
               padding: "20px 50px 20px 0",
-              minHeight: "21.3rem",
             }}
           >
             {workApp.youTubeSource !== "" &&

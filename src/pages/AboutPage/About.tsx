@@ -59,7 +59,7 @@ const About: React.FC = () => {
           <DownloadPDF />
         </div>
 
-        <div style={styles.PDFDiv}>
+        <div>
           <Document file="CV.pdf">
             <Page pageNumber={1} />
           </Document>

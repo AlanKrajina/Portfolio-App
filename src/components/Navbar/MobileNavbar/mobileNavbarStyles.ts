@@ -66,12 +66,6 @@ const FooterIcons = {
   fontSize: "larger",
 };
 
-const Hr = {
-  backgroundColor: "#383838",
-  border: "0.1px solid #383838",
-  width: "8rem",
-};
-
 export const styles = {
   Header: Header,
   TitleDiv: TitleDiv,
@@ -80,7 +74,6 @@ export const styles = {
   NavItems: NavItems,
   Footer: Footer,
   FooterIcons: FooterIcons,
-  Hr: Hr,
   MobileNavbar: MobileNavbar,
   MobileNavItems: MobileNavItems,
 };

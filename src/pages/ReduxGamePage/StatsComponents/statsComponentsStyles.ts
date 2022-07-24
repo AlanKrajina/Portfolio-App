@@ -10,6 +10,5 @@ const StatisticsMainDiv = {
 
 export const styles = {
   Timer: Timer,
-
   StatisticsMainDiv: StatisticsMainDiv,
 };

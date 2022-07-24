@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { styles } from "./portfolioStyles";
-import "../../../helpers/portfolioImages.css";
+import "./portfolioImages.css";
 import "../../../helpers/animations.css";
 import { initialImages, InitialImagesState } from "../../../data/appData";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";

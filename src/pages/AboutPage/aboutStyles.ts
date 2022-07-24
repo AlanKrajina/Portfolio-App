@@ -10,6 +10,7 @@ const MainDiv = {
   flexWrap: "wrap" as "wrap",
   gap: "10rem",
   alignSelf: "center",
+  justifyContent: "center",
 };
 
 const ParagraphDownloadDiv = {
@@ -21,13 +22,8 @@ const ParagraphDownloadDiv = {
   flexDirection: "column" as "column",
 };
 
-const PDFDiv = {
-  flex: 2,
-};
-
 export const styles = {
   Title: Title,
-  PDFDiv: PDFDiv,
   MainDiv: MainDiv,
   ParagraphDownloadDiv: ParagraphDownloadDiv,
 };
