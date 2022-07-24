@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout";
 import { styles } from "./workStyles";
 import { initialImages } from "../../data/appData";
 import WorkApp from "./Apps/WorkApp";
+import _ from "lodash";
 
 const Work: React.FC = () => {
   return (
@@ -12,9 +13,13 @@ const Work: React.FC = () => {
       headerTitle="Work and School Apps"
     >
       <div style={styles.Section}>
-        {initialImages.map((elem, key) => {
-          if (key !== 2 && key !== 4) {
-            return <WorkApp workApp={elem} />;
+        {initialImages.map((elem, index) => {
+          if (index !== 2 && index !== 4) {
+            return (
+              <div key={_.uniqueId()}>
+                <WorkApp workApp={elem} />
+              </div>
+            );
           } else {
             return null;
           }

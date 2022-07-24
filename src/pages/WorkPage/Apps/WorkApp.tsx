@@ -19,7 +19,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
   }, []);
 
   return (
-    <div style={styles.WorkAppDiv} key={_.uniqueId()}>
+    <div style={styles.WorkAppDiv}>
       <p style={styles.WorkAppTitle}>{workApp.name}</p>
 
       <div style={styles.WorkAppsSectionDiv}>
