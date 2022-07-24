@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useCallback } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import animateTitle from "../helpers/animateTitle";

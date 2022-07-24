@@ -33,6 +33,7 @@ const GameOverModal: React.FC<Props> = ({
     };
     dispatch(appRunning(false));
     dispatch(copyFinishedGame(updatedObj));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
