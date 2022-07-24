@@ -13,7 +13,7 @@ import { AppDispatch } from "../../../app/store";
 import { MediaQueryContext } from "../../../App";
 
 const GameImagesList: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame

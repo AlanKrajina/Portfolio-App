@@ -9,7 +9,7 @@ import { memo } from "react";
 import { MediaQueryContext } from "../../../App";
 
 const ReduxGameStatistics: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
   );

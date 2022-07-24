@@ -18,7 +18,7 @@ interface Props {
 }
 
 const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const gameTimes = gameStats.gameTimes.map(
     (el: { end: string; start: string }, index: number) => {
       const secondsConverted = parseInt(el.end) - parseInt(el.start);

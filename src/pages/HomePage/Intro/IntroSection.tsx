@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import "../Home.css";
 import { styles } from "./introStyles";
 import { ParticleNetwork } from "../../../helpers/canvas.js";
 import MouseScroll from "../../../components/MouseScroll/MouseScroll";
 import { introText, Intro, introOptions } from "../../../data/appData";
 import "../../../helpers/animations.css";
-import useMediaQuery from "../../../hooks/use-mediaQuery";
+import { MediaQueryContext } from "../../../App";
 
 const IntroSection: React.FC = () => {
-  const isDesktop = useMediaQuery("(min-width: 960px)");
-  const isHalfScreen = useMediaQuery("(min-width: 1400px)");
+  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
 
   useEffect(() => {
     new ParticleNetwork(

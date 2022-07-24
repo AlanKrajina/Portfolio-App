@@ -1,30 +1,18 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import Layout from "../../layouts/Layout";
 import { styles } from "./aboutStyles";
-import animateTitle from "../../helpers/animateTitle";
 import DownloadPDF from "./DownloadPDF";
-import { MediaQueryContext } from "../../App";
 
 const reactPdf = require("react-pdf/dist/esm/entry.webpack5");
 const { Document, Page } = reactPdf;
 
 const About: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
-
-  useEffect(() => {
-    animateTitle("aboutTitle", "About");
-  }, []);
-
   return (
-    <Layout>
-      <p
-        id="aboutTitle"
-        style={
-          isDesktop
-            ? { ...styles.Title }
-            : { ...styles.Title, fontSize: "3rem" }
-        }
-      />
+    <Layout
+      headerStyle={styles.Title}
+      headerId="aboutTitle"
+      headerTitle="About and CV"
+    >
       <div style={styles.MainDiv}>
         <div style={styles.ParagraphDownloadDiv}>
           <p>

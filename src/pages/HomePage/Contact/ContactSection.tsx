@@ -62,7 +62,7 @@ const reducer = (
 };
 
 const ContactSection: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const [formState, dispatch] = useReducer(reducer, initialFormState);
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
@@ -224,7 +224,7 @@ const ContactSection: React.FC = () => {
             </form>
           </div>
           <div style={styles.GlobeDiv}>
-            <Globe isDesktop={isDesktop} />
+            <Globe />
           </div>
         </div>
       )}

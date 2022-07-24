@@ -6,7 +6,7 @@ import "../../../helpers/animations.css";
 import { MediaQueryContext } from "../../../App";
 
 const SummarySection: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const [showGif, setShowGif] = useState<boolean>(false);
 
   useScrollTrigger("summaryTitle", "Summary & Tech", "#summarySection", () =>

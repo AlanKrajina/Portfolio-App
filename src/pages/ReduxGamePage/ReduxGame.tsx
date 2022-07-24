@@ -38,7 +38,7 @@ const ReduxGame: React.FC = () => {
   }, [gameState]);
 
   return (
-    <Layout>
+    <Layout headerStyle={undefined} headerId="" headerTitle="">
       <ReduxGameDashboard
         getImagesAndResetState={getImagesAndResetState}
         setShowStatistics={setShowStatistics}

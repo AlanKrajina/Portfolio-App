@@ -4,7 +4,7 @@ import MobileNavbar from "./MobileNavbar/MobileNavbar";
 import { MediaQueryContext } from "../../App";
 
 const NavBar: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
 
   return isDesktop ? <DesktopNavbar /> : <MobileNavbar />;
 };

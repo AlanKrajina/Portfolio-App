@@ -6,7 +6,7 @@ import "../../../helpers/animations.css";
 import { MediaQueryContext } from "../../../App";
 
 const BlogSection: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const [blogState, setBlogsState] = useState<BlogDataState[]>([]);
   let loadBlogs: boolean = true;
 

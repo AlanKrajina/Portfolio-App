@@ -6,13 +6,20 @@ import MusicPlayer from "./components/MusicPlayer/MusicPlayer";
 import AnimatedCursor from "react-animated-cursor";
 import useMediaQuery from "./hooks/use-mediaQuery";
 
-export const MediaQueryContext = React.createContext(true);
+const isDesktop: boolean = true;
+const isHalfScreen: boolean = true;
+
+export const MediaQueryContext = React.createContext({
+  isDesktop,
+  isHalfScreen,
+});
 
 const App: React.FC = () => {
   const isDesktop = useMediaQuery("(min-width: 960px)");
+  const isHalfScreen = useMediaQuery("(min-width: 1400px)");
 
   return (
-    <MediaQueryContext.Provider value={isDesktop}>
+    <MediaQueryContext.Provider value={{ isDesktop, isHalfScreen }}>
       <div style={styles.App}>
         <AnimatedCursor
           color="8, 253, 216"

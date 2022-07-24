@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactGlobe from "react-globe.gl";
+import { MediaQueryContext } from "../../App";
 
-interface Props {
-  isDesktop: boolean;
-}
+const Globe: React.FC = () => {
+  const { isDesktop } = useContext(MediaQueryContext);
 
-const Globe: React.FC<Props> = ({ isDesktop }) => {
   const arcsData = Array.from(Array(20).keys()).map(() => ({
     startLat: 45,
     startLng: 16,

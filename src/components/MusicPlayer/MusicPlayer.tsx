@@ -5,7 +5,7 @@ import { MediaQueryContext } from "../../App";
 
 const MusicPlayer: React.FC = () => {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
 
   return (
     <div

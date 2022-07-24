@@ -8,7 +8,7 @@ import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import { MediaQueryContext } from "../../../App";
 
 const PortfolioSection: React.FC = () => {
-  const isDesktop = useContext(MediaQueryContext);
+  const { isDesktop } = useContext(MediaQueryContext);
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
