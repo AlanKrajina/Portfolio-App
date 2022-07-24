@@ -23,6 +23,7 @@ const LayoutHeader: React.FC<LayoutProps> = ({
 }) => {
   useEffect(() => {
     animateTitle(headerId, headerTitle);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <p

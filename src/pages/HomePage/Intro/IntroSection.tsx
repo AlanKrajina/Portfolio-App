@@ -18,6 +18,7 @@ const IntroSection: React.FC = () => {
     setTimeout(function () {
       showIntro();
     }, 400);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initialBounce = (span: HTMLSpanElement) => {
