@@ -1,8 +1,8 @@
 const Section = {
-  minHeight: "100vh",
+  minHeight: "80vh",
   backgroundColor: "#1d1d1d",
   marginLeft: "9rem",
-  padding: "5rem",
+  padding: "3rem 5rem 3rem 5rem",
   color: "#FFFFFF",
   fontSize: "large",
 };
@@ -12,7 +12,7 @@ const Title = {
   color: "#08fdd8",
   marginBottom: "3rem",
   fontWeight: "bold",
-  height: "6rem",
+  height: "5.5rem",
 };
 
 const ImagesGallery = {

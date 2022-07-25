@@ -2,7 +2,7 @@ const Section = {
   minHeight: "70vh",
   backgroundColor: "#1d1d1d",
   marginLeft: "9rem",
-  padding: "5rem 5rem 1rem 5rem",
+  padding: "1rem 5rem 1rem 5rem",
   color: "#ffffff",
   display: "flex",
   flexDirection: "column" as "column",
@@ -14,7 +14,7 @@ const Title = {
   color: "#08fdd8",
   marginBottom: "3rem",
   fontWeight: "bold",
-  height: "6rem",
+  height: "5.5rem",
 };
 
 const FormAndGloveDiv = {

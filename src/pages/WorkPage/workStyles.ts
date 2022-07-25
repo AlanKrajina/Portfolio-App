@@ -58,6 +58,13 @@ const PacmanDiv = {
   justifyContent: "flex-end",
 };
 
+const Link = {
+  fontSize: "0.8rem",
+  color: "#0077b5",
+  textDecoration: "underline",
+  padding: "0.6rem 0 0 0",
+};
+
 export const styles = {
   Title: Title,
   WorkDiv: WorkDiv,
@@ -69,4 +76,5 @@ export const styles = {
   WorkAppsSectionDiv: WorkAppsSectionDiv,
   WorkAppParagraph: WorkAppParagraph,
   PacmanDiv: PacmanDiv,
+  Link: Link,
 };

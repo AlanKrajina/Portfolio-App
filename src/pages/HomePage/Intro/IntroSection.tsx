@@ -30,7 +30,7 @@ const IntroSection: React.FC = () => {
   };
 
   const showIntro = (): void => {
-    let delay = 70;
+    let delay = 55;
     introText.forEach((e) => {
       const section = document.getElementById(e.elementId);
       e.title.forEach((el, index) => {
@@ -41,7 +41,7 @@ const IntroSection: React.FC = () => {
             appendButton();
           }
         }, delay);
-        delay += 80;
+        delay += 55;
       });
     });
   };

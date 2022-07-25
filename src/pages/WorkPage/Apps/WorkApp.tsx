@@ -34,6 +34,26 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
               </p>
             );
           })}
+
+          {workApp.youTubeSource !== "" ? (
+            <p style={styles.Link}>
+              <a href={workApp.youTubeSource} target="_blank" rel="noreferrer">
+                YouTube Link
+              </a>
+            </p>
+          ) : (
+            ""
+          )}
+
+          {workApp.gitHubSource !== "" ? (
+            <p style={styles.Link}>
+              <a href={workApp.gitHubSource} target="_blank" rel="noreferrer">
+                GitHub Link
+              </a>
+            </p>
+          ) : (
+            ""
+          )}
         </div>
         {loading ? (
           <div

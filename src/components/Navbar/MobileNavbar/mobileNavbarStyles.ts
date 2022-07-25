@@ -14,8 +14,9 @@ const Header = {
   color: "white",
   display: "flex",
   alignItems: "center",
-  width: "5rem",
+  width: "3rem",
   justifyContent: "space-around",
+  borderRadius: "0 5px 5px 0",
 };
 
 const MobileHeader = {
@@ -24,8 +25,9 @@ const MobileHeader = {
   color: "white",
   display: "flex",
   alignItems: "center",
-  width: "8rem",
+  width: "5rem",
   justifyContent: "space-around",
+  borderRadius: "0 10px 10px 0",
 };
 
 const TitleDiv = {
@@ -62,7 +64,7 @@ const NavItems = {
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
-  fontSize: "0.8rem",
+  fontSize: "0.9rem",
   gap: "0.6rem",
   padding: "0 5px 0 5px",
 };
@@ -72,7 +74,7 @@ const MobileNavItems = {
   alignItems: "center",
   zIndex: 21,
   textAlign: "center" as "center",
-  fontSize: "1.1rem",
+  fontSize: "1.2rem",
   gap: "1rem",
   padding: "0 5px 0 5px",
 };
@@ -82,8 +84,11 @@ const Footer = {
   display: "flex",
   gap: "15px",
   zIndex: 21,
-  marginRight: "0.2rem",
-  padding: "0 0.4rem 0 0.4rem",
+  padding: "0 0.5rem 0 0.5rem",
+  backgroundColor: "black",
+  height: "3rem",
+  alignItems: "center" as "center",
+  borderRadius: "5px 0 0 5px",
 };
 
 const MobileFooter = {
@@ -91,10 +96,13 @@ const MobileFooter = {
   display: "flex",
   gap: "15px",
   zIndex: 21,
-  marginRight: "1rem",
-  padding: "0 1rem 0 1rem",
-  flexDirection: "column",
-  width: "8vw",
+  padding: "0 0.5rem 0 0.5rem",
+  width: "5rem",
+  backgroundColor: "black",
+  height: "5rem",
+  alignItems: "center" as "center",
+  justifyContent: "center",
+  borderRadius: "10px 0 0 10px",
 };
 
 const FooterIcons = {

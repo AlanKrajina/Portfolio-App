@@ -18,6 +18,7 @@ const Header = {
   flexDirection: "column" as "column",
   alignItems: "center",
   paddingTop: "1rem",
+  borderRadius: "0 0 10px 10px",
 };
 
 const TitleDiv = {

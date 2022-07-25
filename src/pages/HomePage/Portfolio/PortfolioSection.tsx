@@ -78,7 +78,10 @@ const PortfolioSection: React.FC = () => {
             ? { ...styles.ImagesGallery }
             : {
                 ...styles.ImagesGallery,
-                gridTemplateColumns: "repeat(auto-fill, 19rem)",
+                gridTemplateColumns: isDesktop
+                  ? "repeat(auto-fill, 19rem)"
+                  : "repeat(auto-fill, 9rem)",
+                gap: isDesktop ? "1.5rem" : "0.7rem",
               }
         }
       >
@@ -91,37 +94,42 @@ const PortfolioSection: React.FC = () => {
             >
               <div className="column-12 column-xs-12 tab">
                 <div className="column-4 column-xs-12 column-sm-6 column-md-6 box-tab">
-                  <div className="effect effect-portfolio">
+                  <div className={isDesktop ? "effect effect-portfolio" : ""}>
                     <img
                       src={elem.image}
-                      className="photoEffect"
+                      className={
+                        isDesktop ? "photoEffect" : "mobilePhotoEffect"
+                      }
                       alt="portfolioImage"
                     />
-                    <div className="tab-text">
-                      <p>{elem.name}</p>
-                      <div className="icons-block">
-                        {elem.youTubeSource !== "" && (
-                          <a
-                            href={elem.youTubeSource}
-                            className="social-icon-1"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <i className="fa fa-youtube-square"></i>
-                          </a>
-                        )}
-                        {elem.gitHubSource !== "" && (
-                          <a
-                            href={elem.gitHubSource}
-                            className="social-icon-2"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <i className="fa fa-github"></i>
-                          </a>
-                        )}
+
+                    {isDesktop && (
+                      <div className="tab-text">
+                        <p>{elem.name}</p>
+                        <div className="icons-block">
+                          {elem.youTubeSource !== "" && (
+                            <a
+                              href={elem.youTubeSource}
+                              className="social-icon-1"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <i className="fa fa-youtube-square"></i>
+                            </a>
+                          )}
+                          {elem.gitHubSource !== "" && (
+                            <a
+                              href={elem.gitHubSource}
+                              className="social-icon-2"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <i className="fa fa-github"></i>
+                            </a>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>

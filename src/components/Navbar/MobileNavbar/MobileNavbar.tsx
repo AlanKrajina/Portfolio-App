@@ -35,10 +35,6 @@ const MobileNavbar: React.FC = () => {
           src="/images/reactIcon.jpg"
           alt="logo"
         />
-        <div style={isDesktop ? styles.MobileTitleDiv : styles.TitleDiv}>
-          <p>Portfolio</p>
-          <span style={isDesktop ? styles.MobileTitle : styles.Title}>App</span>
-        </div>
       </header>
       <nav style={isDesktop ? styles.MobileNavItems : styles.NavItems}>
         <CustomLink to="/">Home</CustomLink>
