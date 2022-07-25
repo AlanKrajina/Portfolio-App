@@ -25,8 +25,7 @@ const BlogGallery = {
 };
 
 const Blog = {
-  /*   width: "28rem",
-   */ height: "12rem",
+  height: "12rem",
   backgroundColor: "rgb(37 36 36)",
   borderRadius: "0 0 10px 10px",
   boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",

@@ -14,10 +14,11 @@ const ThreeChartsTitle = {
 };
 
 const ThreeChartsDiv = {
-  margin: "4rem 3rem 3rem 3rem",
   display: "flex",
   flexDirection: "column" as "column",
   alignItems: "center",
+  fontSize: "1.5rem",
+  margin: "2rem 1rem 2rem 1rem",
 };
 
 const MainChartsDiv = {

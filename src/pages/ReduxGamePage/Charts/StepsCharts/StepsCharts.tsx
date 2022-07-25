@@ -12,22 +12,32 @@ interface Props {
 }
 
 const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
-  const { isLargeScreen } = useContext(MediaQueryContext);
+  const { isLargeScreen, isDesktop } = useContext(MediaQueryContext);
 
   return (
     <>
       {gameStats.stepCount > 0 && (
         <div style={styles.MainChartsDiv}>
-          <div style={styles.ThreeChartsDiv}>
-            <p style={styles.ThreeChartsTitle}>
+          <div
+            style={
+              isDesktop
+                ? styles.ThreeChartsDiv
+                : {
+                    ...styles.ThreeChartsDiv,
+                    fontSize: "1rem",
+                    margin: "2rem 1rem 2rem 1rem",
+                  }
+            }
+          >
+            <p>
               First Bar chart shows slowest and fastest turns user made when
               fliping 2 cards, matched or not.
             </p>
-            <p style={styles.ThreeChartsTitle}>
+            <p>
               Pie chart compares the number of tries (how many times 2 card
               where fliped) and number of wrong matches.
             </p>
-            <p style={styles.ThreeChartsTitle}>
+            <p>
               Second Bar chart compares the number of tries (how many times 2
               card where fliped) and number of correct matches.
             </p>
@@ -37,7 +47,7 @@ const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
             style={
               isLargeScreen
                 ? styles.ChartsDiv
-                : { ...styles.ChartsDiv, flexDirection: "column" }
+                : { ...styles.ChartsDiv, flexDirection: "column", gap: "2rem" }
             }
           >
             <StepsComposedChart gameTimes={gameStats.gameTimes} />

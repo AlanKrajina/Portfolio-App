@@ -74,11 +74,11 @@ const PortfolioSection: React.FC = () => {
       <div
         id="portfolioSection"
         style={
-          isDesktop
+          isHalfScreen
             ? { ...styles.ImagesGallery }
             : {
                 ...styles.ImagesGallery,
-                gridTemplateColumns: "repeat(auto-fill, 21rem)",
+                gridTemplateColumns: "repeat(auto-fill, 19rem)",
               }
         }
       >

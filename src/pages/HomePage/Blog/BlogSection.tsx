@@ -70,11 +70,11 @@ const BlogSection: React.FC = () => {
       <div
         id="blogSection"
         style={
-          isDesktop
+          isHalfScreen
             ? { ...styles.BlogGallery }
             : {
                 ...styles.BlogGallery,
-                gridTemplateColumns: "repeat(auto-fill, 21rem)",
+                gridTemplateColumns: "repeat(auto-fill, 19rem)",
               }
         }
       >

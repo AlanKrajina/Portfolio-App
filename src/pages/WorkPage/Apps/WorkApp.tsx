@@ -73,7 +73,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 src={workApp.image}
                 alt="portfolioImage"
                 className="animated fadeInLeft50"
-                style={isDesktop ? { height: "300px" } : { height: "200px" }}
+                style={isDesktop ? { height: "300px" } : { height: "280px" }}
               />
             )}
           </div>

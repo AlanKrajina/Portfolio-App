@@ -1,21 +1,33 @@
+import React, { useContext } from "react";
 import { SingleGameState } from "../../../../app/gameSlice";
 import { styles } from "../chartStyles";
+import { MediaQueryContext } from "../../../../App";
 
 interface Props {
   gameState: SingleGameState;
 }
 
 const MachedList: React.FC<Props> = ({ gameState }: Props) => {
+  const { isDesktop } = useContext(MediaQueryContext);
+
   return (
     <>
       {gameState.matchedImages.length > 0 && (
         <div style={styles.MainChartsDiv}>
-          <p style={styles.Title}>List of all matched cards.</p>
+          <p
+            style={
+              isDesktop
+                ? styles.Title
+                : { ...styles.Title, fontSize: "1rem", margin: "1rem" }
+            }
+          >
+            List of all matched cards.
+          </p>
           <div
             id="section"
             style={{
               ...styles.MatchedListGallery,
-              gridTemplateColumns: "repeat(auto-fit, 9rem)",
+              gridTemplateColumns: "repeat(auto-fit, 7rem)",
               margin: "auto",
               width: "77%",
             }}

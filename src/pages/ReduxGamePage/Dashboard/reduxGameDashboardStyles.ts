@@ -3,7 +3,7 @@ const DashboardMainDiv = {
   flexDirection: "column" as "column",
   alignItems: "center",
   color: "#ffffff",
-  padding: "1rem 2rem 0 2rem",
+  padding: "0 2rem 0 2rem",
   justifyContent: "space-between",
   gap: "1rem",
 };
