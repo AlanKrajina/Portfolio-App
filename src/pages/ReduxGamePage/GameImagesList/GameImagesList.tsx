@@ -13,7 +13,7 @@ import { AppDispatch } from "../../../app/store";
 import { MediaQueryContext } from "../../../App";
 
 const GameImagesList: React.FC = () => {
-  const { isHalfScreen } = useContext(MediaQueryContext);
+  const { isHalfScreen, isLargeScreen } = useContext(MediaQueryContext);
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
@@ -47,7 +47,7 @@ const GameImagesList: React.FC = () => {
         isHalfScreen
           ? {
               ...styles.GameImagesGallery,
-              maxWidth: "62vw",
+              maxWidth: isLargeScreen ? "80rem" : "62vw",
             }
           : {
               ...styles.GameImagesGallery,
