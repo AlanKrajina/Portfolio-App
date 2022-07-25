@@ -18,7 +18,12 @@ const SummarySection: React.FC = () => {
       style={
         isHalfScreen
           ? styles.Section
-          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+          : {
+              ...styles.Section,
+              marginLeft: 0,
+              padding: "2rem",
+              fontSize: "initial",
+            }
       }
     >
       <p
@@ -27,7 +32,7 @@ const SummarySection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.Title }
-            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+            : { ...styles.Title, fontSize: "3rem", marginBottom: "1rem" }
         }
       />
       <div id="summarySection" style={styles.TextGifDiv}>
@@ -84,7 +89,14 @@ const SummarySection: React.FC = () => {
         <div style={styles.GifDiv}>
           {showGif && (
             <img
-              style={styles.Gif}
+              style={
+                isHalfScreen
+                  ? styles.Gif
+                  : {
+                      ...styles.Gif,
+                      height: "12rem",
+                    }
+              }
               src={coding}
               alt="coding"
               className="animated fadeInUp"

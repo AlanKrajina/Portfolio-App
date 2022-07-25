@@ -30,7 +30,12 @@ const BlogSection: React.FC = () => {
       style={
         isHalfScreen
           ? styles.Section
-          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+          : {
+              ...styles.Section,
+              marginLeft: 0,
+              padding: "2rem",
+              fontSize: "initial",
+            }
       }
     >
       <p
@@ -38,7 +43,7 @@ const BlogSection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.Title }
-            : { ...styles.Title, fontSize: "3.2rem", marginBottom: "1rem" }
+            : { ...styles.Title, fontSize: "3rem", marginBottom: "1rem" }
         }
       />
       <p>

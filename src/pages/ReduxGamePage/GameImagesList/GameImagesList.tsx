@@ -52,7 +52,7 @@ const GameImagesList: React.FC = () => {
           : {
               ...styles.GameImagesGallery,
               maxWidth: "85vw",
-              gridTemplateColumns: "repeat(auto-fit, 7rem)",
+              gridTemplateColumns: "repeat(auto-fit, 6rem)",
             }
       }
     >

@@ -70,11 +70,10 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
               ></iframe>
             ) : (
               <img
-                width={isDesktop ? "600" : "300"}
-                height="300"
                 src={workApp.image}
                 alt="portfolioImage"
                 className="animated fadeInLeft50"
+                style={isDesktop ? { height: "300px" } : { height: "200px" }}
               />
             )}
           </div>

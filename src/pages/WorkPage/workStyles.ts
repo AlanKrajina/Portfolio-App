@@ -36,7 +36,7 @@ const WorkAppIFrameImgDiv = {
   flex: 1,
   flexBasis: "30rem",
   alignSelf: "center",
-  minHeight: "21.3rem",
+  minHeight: "17rem",
 };
 
 const WorkAppTitle = {
