@@ -13,7 +13,7 @@ import { AppDispatch } from "../../../app/store";
 import { MediaQueryContext } from "../../../App";
 
 const GameImagesList: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isHalfScreen } = useContext(MediaQueryContext);
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
@@ -44,9 +44,16 @@ const GameImagesList: React.FC = () => {
   return (
     <div
       style={
-        isDesktop
-          ? styles.GameImagesGallery
-          : { ...styles.GameImagesGallery, maxWidth: "85vw" }
+        isHalfScreen
+          ? {
+              ...styles.GameImagesGallery,
+              maxWidth: "62vw",
+            }
+          : {
+              ...styles.GameImagesGallery,
+              maxWidth: "85vw",
+              gridTemplateColumns: "repeat(auto-fit, 7rem)",
+            }
       }
     >
       {gameState.gameData.map((img: MemeState) => {
@@ -60,7 +67,14 @@ const GameImagesList: React.FC = () => {
             <img
               key={img.id}
               src={img.selected ? img.url : img.urlBack}
-              style={styles.GameImage}
+              style={
+                isHalfScreen
+                  ? styles.GameImage
+                  : {
+                      ...styles.GameImage,
+                      height: "7rem",
+                    }
+              }
               alt={img.name}
               className={img.selected ? "" : "gameImageEffect"}
               onClick={() => imageClickHandler(img)}

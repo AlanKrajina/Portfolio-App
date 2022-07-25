@@ -8,7 +8,7 @@ import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import { MediaQueryContext } from "../../../App";
 
 const PortfolioSection: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
   const [imagesState, setImagesState] = useState<InitialImagesState[]>([]);
   let loadImages: boolean = true;
 
@@ -34,7 +34,11 @@ const PortfolioSection: React.FC = () => {
 
   return (
     <div
-      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+      style={
+        isHalfScreen
+          ? styles.Section
+          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+      }
     >
       <p
         id="portfolioTitle"
@@ -62,7 +66,17 @@ const PortfolioSection: React.FC = () => {
         </span>{" "}
         to see a more in-depth view.
       </p>
-      <div id="portfolioSection" style={styles.ImagesGallery}>
+      <div
+        id="portfolioSection"
+        style={
+          isDesktop
+            ? { ...styles.ImagesGallery }
+            : {
+                ...styles.ImagesGallery,
+                gridTemplateColumns: "repeat(auto-fill, 21rem)",
+              }
+        }
+      >
         {imagesState.map((elem, key) => {
           return (
             <section

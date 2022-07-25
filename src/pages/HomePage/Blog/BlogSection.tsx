@@ -6,7 +6,7 @@ import "../../../helpers/animations.css";
 import { MediaQueryContext } from "../../../App";
 
 const BlogSection: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
   const [blogState, setBlogsState] = useState<BlogDataState[]>([]);
   let loadBlogs: boolean = true;
 
@@ -27,7 +27,11 @@ const BlogSection: React.FC = () => {
 
   return (
     <div
-      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+      style={
+        isHalfScreen
+          ? styles.Section
+          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+      }
     >
       <p
         id="blogTitle"
@@ -38,7 +42,7 @@ const BlogSection: React.FC = () => {
         }
       />
       <p>
-        While studiying at Flatiron School one of the assigments was to create a
+        While studying at Flatiron School one of the assigments was to create a
         blog when a certain curriculum section would be reached. The blog would
         either explain requirements of the Project created or a point of
         interest regarding development.
@@ -58,7 +62,17 @@ const BlogSection: React.FC = () => {
         to implement dashboard functionality where a User can save and update
         his Projects or any tasks available.
       </p>
-      <div id="blogSection" style={styles.BlogGallery}>
+      <div
+        id="blogSection"
+        style={
+          isDesktop
+            ? { ...styles.BlogGallery }
+            : {
+                ...styles.BlogGallery,
+                gridTemplateColumns: "repeat(auto-fill, 21rem)",
+              }
+        }
+      >
         {blogState.map((elem, key) => {
           return (
             <section

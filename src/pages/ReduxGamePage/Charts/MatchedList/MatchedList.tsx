@@ -17,7 +17,7 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
               ...styles.MatchedListGallery,
               gridTemplateColumns: "repeat(auto-fit, 9rem)",
               margin: "auto",
-              width: "75%",
+              width: "77%",
             }}
           >
             {gameState.matchedImages.map((img) => {

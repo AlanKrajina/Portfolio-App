@@ -12,7 +12,7 @@ interface Props {
 }
 
 const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
-  const { isHalfScreen } = useContext(MediaQueryContext);
+  const { isLargeScreen } = useContext(MediaQueryContext);
 
   return (
     <>
@@ -35,7 +35,7 @@ const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
 
           <div
             style={
-              isHalfScreen
+              isLargeScreen
                 ? styles.ChartsDiv
                 : { ...styles.ChartsDiv, flexDirection: "column" }
             }

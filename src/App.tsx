@@ -8,18 +8,23 @@ import useMediaQuery from "./hooks/use-mediaQuery";
 
 const isDesktop: boolean = true;
 const isHalfScreen: boolean = true;
+const isLargeScreen: boolean = true;
 
 export const MediaQueryContext = React.createContext({
   isDesktop,
   isHalfScreen,
+  isLargeScreen,
 });
 
 const App: React.FC = () => {
-  const isDesktop = useMediaQuery("(min-width: 960px)");
-  const isHalfScreen = useMediaQuery("(min-width: 1400px)");
+  const isDesktop = useMediaQuery("(min-width: 430px)");
+  const isHalfScreen = useMediaQuery("(min-width: 960px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1400px)");
 
   return (
-    <MediaQueryContext.Provider value={{ isDesktop, isHalfScreen }}>
+    <MediaQueryContext.Provider
+      value={{ isDesktop, isHalfScreen, isLargeScreen }}
+    >
       <div style={styles.App}>
         <AnimatedCursor
           color="8, 253, 216"

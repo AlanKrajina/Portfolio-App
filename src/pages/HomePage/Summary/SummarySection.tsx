@@ -6,7 +6,7 @@ import "../../../helpers/animations.css";
 import { MediaQueryContext } from "../../../App";
 
 const SummarySection: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
   const [showGif, setShowGif] = useState<boolean>(false);
 
   useScrollTrigger("summaryTitle", "Summary & Tech", "#summarySection", () =>
@@ -15,7 +15,11 @@ const SummarySection: React.FC = () => {
 
   return (
     <div
-      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+      style={
+        isHalfScreen
+          ? styles.Section
+          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+      }
     >
       <p
         id="summaryTitle"

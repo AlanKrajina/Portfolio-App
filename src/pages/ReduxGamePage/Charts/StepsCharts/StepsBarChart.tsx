@@ -20,7 +20,7 @@ const StepsAndMatchesChart: React.FC<Props> = ({
   matchedImages,
   stepCount,
 }: Props) => {
-  const { isHalfScreen } = useContext(MediaQueryContext);
+  const { isLargeScreen } = useContext(MediaQueryContext);
   const barChartData = [
     {
       Name: "Total",
@@ -30,7 +30,7 @@ const StepsAndMatchesChart: React.FC<Props> = ({
   ];
 
   return (
-    <ResponsiveContainer width={isHalfScreen ? "20%" : "95%"} height={350}>
+    <ResponsiveContainer width={isLargeScreen ? "20%" : "95%"} height={350}>
       <BarChart
         data={barChartData}
         margin={{

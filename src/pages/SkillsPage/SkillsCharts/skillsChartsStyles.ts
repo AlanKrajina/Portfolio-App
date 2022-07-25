@@ -1,7 +1,7 @@
 const Section = {
   margin: "0 auto",
   position: "relative" as "relative",
-  padding: "0 50px 0 0",
+  padding: "0 20px 0 20px",
   flex: 2,
   flexBasis: "20rem",
   display: "flex",

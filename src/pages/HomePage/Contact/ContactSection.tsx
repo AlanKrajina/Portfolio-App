@@ -62,7 +62,7 @@ const reducer = (
 };
 
 const ContactSection: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
   const [formState, dispatch] = useReducer(reducer, initialFormState);
   const [showEmailResponse, setShowEmailResponse] = useState<boolean>(false);
   const [emailResponse, setEmailResponse] = useState<EmailResponse>();
@@ -108,7 +108,11 @@ const ContactSection: React.FC = () => {
 
   return (
     <div
-      style={isDesktop ? styles.Section : { ...styles.Section, marginLeft: 0 }}
+      style={
+        isHalfScreen
+          ? styles.Section
+          : { ...styles.Section, marginLeft: 0, padding: "2rem" }
+      }
     >
       <p
         id="contactTitle"

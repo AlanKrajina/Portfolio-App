@@ -8,9 +8,10 @@ const Title = {
 const MainDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
-  gap: "10rem",
+  gap: "5rem",
   alignSelf: "center",
   justifyContent: "center",
+  padding: "20px 20px 0 20px",
 };
 
 const ParagraphDownloadDiv = {

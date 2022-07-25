@@ -3,7 +3,7 @@ import ReactGlobe from "react-globe.gl";
 import { MediaQueryContext } from "../../App";
 
 const Globe: React.FC = () => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isHalfScreen } = useContext(MediaQueryContext);
 
   const arcsData = Array.from(Array(20).keys()).map(() => ({
     startLat: 45,
@@ -19,8 +19,8 @@ const Globe: React.FC = () => {
   return (
     <ReactGlobe
       backgroundColor="#1d1d1d"
-      width={isDesktop ? 850 : 490}
-      height={isDesktop ? 820 : 430}
+      width={isHalfScreen ? 850 : 350}
+      height={isHalfScreen ? 820 : 300}
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       arcsData={arcsData}
       arcColor={"color"}

@@ -10,14 +10,14 @@ interface LayoutProps {
         fontWeight: string;
       }
     | undefined;
-  isDesktop: boolean;
+  isHalfScreen: boolean;
   headerId: string;
   headerTitle: string;
 }
 
 const LayoutHeader: React.FC<LayoutProps> = ({
   headerStyle,
-  isDesktop,
+  isHalfScreen,
   headerId,
   headerTitle,
 }) => {
@@ -29,7 +29,9 @@ const LayoutHeader: React.FC<LayoutProps> = ({
     <p
       id={headerId}
       style={
-        isDesktop ? { ...headerStyle } : { ...headerStyle, fontSize: "3rem" }
+        isHalfScreen
+          ? { ...headerStyle }
+          : { ...headerStyle, fontSize: "2.5rem" }
       }
     />
   );

@@ -33,8 +33,8 @@ const DesktopNavbar: React.FC = () => {
           alt="logo"
         />
         <div style={styles.TitleDiv}>
-          <p>Portfolio App</p>
-          <span style={styles.Title}>React</span>
+          <p>Portfolio</p>
+          <span style={styles.Title}>App</span>
         </div>
       </header>
       <nav style={styles.NavItems}>

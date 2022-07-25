@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { styles } from "./reduxGameDashboardStyles";
 import { AppDispatch } from "../../../app/store";
 import Timer from "../../../components/GameTimer/Timer";
 import { useDispatch } from "react-redux";
 import Games from "../AllGames/Games";
 import { appRunning } from "../../../app/gameSlice";
+import { MediaQueryContext } from "../../../App";
 
 interface DashboardProps {
   getImagesAndResetState: any;
@@ -20,6 +21,7 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
   const dispatch = useDispatch<AppDispatch>();
   const [gameIndex, setGameIndex] = useState<number | null>(null);
   const [time, setTime] = useState<number>(0);
+  const { isHalfScreen } = useContext(MediaQueryContext);
 
   const resetGame = (): void => {
     dispatch(getImagesAndResetState());
@@ -35,7 +37,18 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
 
   return (
     <div style={styles.DashboardMainDiv}>
-      <p style={styles.DashboardTitle}>Dashboard</p>
+      <p
+        style={
+          isHalfScreen
+            ? styles.DashboardTitle
+            : {
+                ...styles.DashboardTitle,
+                fontSize: "2.5rem",
+              }
+        }
+      >
+        Dashboard
+      </p>
       <Timer time={time} setTime={setTime} />
       <div style={styles.DashboardButtonsDiv}>
         <button

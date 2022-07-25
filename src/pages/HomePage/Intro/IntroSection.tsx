@@ -8,7 +8,7 @@ import "../../../helpers/animations.css";
 import { MediaQueryContext } from "../../../App";
 
 const IntroSection: React.FC = () => {
-  const { isDesktop, isHalfScreen } = useContext(MediaQueryContext);
+  const { isDesktop, isLargeScreen } = useContext(MediaQueryContext);
 
   useEffect(() => {
     new ParticleNetwork(
@@ -92,7 +92,7 @@ const IntroSection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.IntroSection, fontSize: "5.6rem" }
-            : { ...styles.IntroSection, fontSize: "4rem" }
+            : { ...styles.IntroSection, fontSize: "3rem" }
         }
       />
       <div
@@ -100,7 +100,12 @@ const IntroSection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.IntroSection, top: "37vh", fontSize: "5.6rem" }
-            : { ...styles.IntroSection, top: "35vh", fontSize: "4rem" }
+            : {
+                ...styles.IntroSection,
+                top: "35vh",
+                fontSize: "3rem",
+                minWidth: "15rem",
+              }
         }
       />
       <div
@@ -109,17 +114,16 @@ const IntroSection: React.FC = () => {
           isDesktop
             ? {
                 ...styles.IntroSection,
-                top: "49vh",
+                top: "48vh",
                 fontSize: "5.6rem",
-                width: isHalfScreen ? "fit-content" : "33rem",
-                /*                 minWidth: "33rem",
-                 */
+                width: isLargeScreen ? "fit-content" : "33rem",
               }
             : {
                 ...styles.IntroSection,
-                top: "45vh",
-                fontSize: "4rem",
-                width: "26rem",
+                top: "44vh",
+                fontSize: "3rem",
+                width: "21rem",
+                padding: "0 1rem 0 1rem",
               }
         }
       />

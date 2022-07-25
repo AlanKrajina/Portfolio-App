@@ -23,19 +23,23 @@ const Layout: React.FC<LayoutProps> = ({
   headerId,
   headerTitle,
 }) => {
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isHalfScreen } = useContext(MediaQueryContext);
 
   return (
     <div
       style={
-        isDesktop
+        isHalfScreen
           ? styles.Layout
-          : { ...styles.Layout, marginLeft: 0, marginTop: "5rem" }
+          : {
+              ...styles.Layout,
+              marginLeft: 0,
+              padding: "8rem 1rem 1rem 1rem",
+            }
       }
     >
       <LayoutHeader
         headerStyle={headerStyle}
-        isDesktop={isDesktop}
+        isHalfScreen={isHalfScreen}
         headerId={headerId}
         headerTitle={headerTitle}
       />

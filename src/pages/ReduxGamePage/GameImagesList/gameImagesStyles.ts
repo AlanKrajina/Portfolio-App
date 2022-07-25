@@ -5,7 +5,7 @@ const GameImagesGallery = {
   justifyContent: "center",
   margin: "auto",
   marginTop: "4vh",
-  maxWidth: "62vw",
+  maxWidth: "85vw",
   paddingBottom: "2rem",
 };
 

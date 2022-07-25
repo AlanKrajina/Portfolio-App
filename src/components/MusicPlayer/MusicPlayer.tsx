@@ -5,17 +5,47 @@ import { MediaQueryContext } from "../../App";
 
 const MusicPlayer: React.FC = () => {
   const [showPlayer, setShowPlayer] = useState<boolean>(false);
-  const { isDesktop } = useContext(MediaQueryContext);
+  const { isHalfScreen, isDesktop } = useContext(MediaQueryContext);
 
   return (
     <div
       style={
         isDesktop
+          ? {
+              ...styles.MusicPlayerDiv,
+              top: isHalfScreen ? 0 : "70px",
+              right: isHalfScreen ? 0 : "-20px",
+            }
+          : {
+              ...styles.MusicPlayerDiv,
+              top: "40px",
+              right: "-20px",
+            }
+        /*         isHalfScreen
+          ? {
+              ...styles.MusicPlayerDiv,
+              top: "70px",
+              right: "-20px",
+            }
+          : styles.MusicPlayerDiv */
+
+        /* 
+        isHalfScreen
           ? styles.MusicPlayerDiv
-          : { ...styles.MusicPlayerDiv, top: "80px" }
+          : {
+              ...styles.MusicPlayerDiv,
+              top: isDesktop ? "40px" : "70px",
+              right: "-20px",
+            } */
       }
     >
-      <div style={styles.ToggleButtonDiv}>
+      <div
+        style={
+          isHalfScreen
+            ? styles.ToggleButtonDiv
+            : { ...styles.ToggleButtonDiv, width: "7rem", fontSize: "0.9rem" }
+        }
+      >
         <i
           className={`fa fa-brands fa-${
             showPlayer ? "mixcloud" : "soundcloud"

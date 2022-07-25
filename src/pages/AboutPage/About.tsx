@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../layouts/Layout";
 import { styles } from "./aboutStyles";
 import DownloadPDF from "./DownloadPDF";
+import { MediaQueryContext } from "../../App";
 
 const reactPdf = require("react-pdf/dist/esm/entry.webpack5");
 const { Document, Page } = reactPdf;
 
 const About: React.FC = () => {
+  const { isDesktop } = useContext(MediaQueryContext);
+
   return (
     <Layout
       headerStyle={styles.Title}
@@ -61,7 +64,7 @@ const About: React.FC = () => {
 
         <div>
           <Document file="CV.pdf">
-            <Page pageNumber={1} />
+            <Page pageNumber={1} width={isDesktop ? 570 : 300} />
           </Document>
         </div>
       </div>

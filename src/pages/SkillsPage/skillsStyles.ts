@@ -8,6 +8,7 @@ const Title = {
 const SkillsDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
+  gap: "2rem",
 };
 
 export const styles = {
