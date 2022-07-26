@@ -1,27 +1,10 @@
 import CustomLink from "../../CustomLink/CustomLink";
 import { styles } from "./desktopNavbarStyles";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import React, { useEffect } from "react";
+import React from "react";
+import useAnimatedLogo from "../../../hooks/use-animatedLogo";
 
 const DesktopNavbar: React.FC = () => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#logo",
-          scrub: 0.2,
-          start: "top bottom",
-          end: "+=10000",
-        },
-      })
-      .to("#logo", {
-        rotation: 360 * 5,
-        duration: 1,
-        ease: "none",
-      });
-  }, []);
+  useAnimatedLogo();
 
   return (
     <main style={styles.DesktopNavbar}>

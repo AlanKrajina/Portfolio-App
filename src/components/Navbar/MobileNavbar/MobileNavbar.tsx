@@ -1,34 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import CustomLink from "../../CustomLink/CustomLink";
 import { styles } from "./mobileNavbarStyles";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { MediaQueryContext } from "../../../App";
+import useAnimatedLogo from "../../../hooks/use-animatedLogo";
 
 const MobileNavbar: React.FC = () => {
   const { isDesktop } = useContext(MediaQueryContext);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#logo",
-          scrub: 0.2,
-          start: "top bottom",
-          end: "+=10000",
-        },
-      })
-      .to("#logo", {
-        rotation: 360 * 5,
-        duration: 1,
-        ease: "none",
-      });
-  }, []);
+  useAnimatedLogo();
 
   return (
     <main style={styles.MobileNavbar}>
-      <header style={isDesktop ? styles.MobileHeader : styles.Header}>
+      <header style={isDesktop ? styles.Header : styles.MobileHeader}>
         <img
           style={styles.Logo}
           id="logo"
@@ -36,14 +18,14 @@ const MobileNavbar: React.FC = () => {
           alt="logo"
         />
       </header>
-      <nav style={isDesktop ? styles.MobileNavItems : styles.NavItems}>
+      <nav style={isDesktop ? styles.NavItems : styles.MobileNavItems}>
         <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/skills">Skills</CustomLink>
         <CustomLink to="/work">Work</CustomLink>
         <CustomLink to="/game">Redux Game</CustomLink>
         <CustomLink to="/about">About</CustomLink>
       </nav>
-      <footer style={isDesktop ? styles.MobileFooter : styles.Footer}>
+      <footer style={isDesktop ? styles.Footer : styles.MobileFooter}>
         <a
           href="https://www.linkedin.com/in/alankrajina/"
           target="_blank"
@@ -51,7 +33,7 @@ const MobileNavbar: React.FC = () => {
         >
           <i
             className="fa fa-linkedin"
-            style={isDesktop ? styles.MobileFooterIcons : styles.FooterIcons}
+            style={isDesktop ? styles.FooterIcons : styles.MobileFooterIcons}
           ></i>
         </a>
 
@@ -62,7 +44,7 @@ const MobileNavbar: React.FC = () => {
         >
           <i
             className="fa fa-github"
-            style={isDesktop ? styles.MobileFooterIcons : styles.FooterIcons}
+            style={isDesktop ? styles.FooterIcons : styles.MobileFooterIcons}
           ></i>
         </a>
       </footer>

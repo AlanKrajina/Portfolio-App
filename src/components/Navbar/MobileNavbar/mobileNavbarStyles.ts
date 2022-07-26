@@ -8,7 +8,7 @@ const MobileNavbar = {
   width: "100vw",
 };
 
-const Header = {
+const MobileHeader = {
   height: "3rem",
   backgroundColor: "black",
   color: "white",
@@ -19,7 +19,7 @@ const Header = {
   borderRadius: "0 5px 5px 0",
 };
 
-const MobileHeader = {
+const Header = {
   height: "5rem",
   backgroundColor: "black",
   color: "white",
@@ -28,20 +28,6 @@ const MobileHeader = {
   width: "5rem",
   justifyContent: "space-around",
   borderRadius: "0 10px 10px 0",
-};
-
-const TitleDiv = {
-  fontSize: "0.8rem",
-  zIndex: 2,
-  textAlign: "center" as "center",
-  padding: "0 5px 0 5px",
-};
-
-const MobileTitleDiv = {
-  fontSize: "1.1rem",
-  zIndex: 2,
-  textAlign: "center" as "center",
-  padding: "0 5px 0 5px",
 };
 
 const Title = {
@@ -59,7 +45,7 @@ const Logo = {
   backgroundColor: "black",
 };
 
-const NavItems = {
+const MobileNavItems = {
   display: "flex",
   alignItems: "center",
   zIndex: 21,
@@ -69,7 +55,7 @@ const NavItems = {
   padding: "0 5px 0 5px",
 };
 
-const MobileNavItems = {
+const NavItems = {
   display: "flex",
   alignItems: "center",
   zIndex: 21,
@@ -79,7 +65,7 @@ const MobileNavItems = {
   padding: "0 5px 0 5px",
 };
 
-const Footer = {
+const MobileFooter = {
   alignSelf: "center",
   display: "flex",
   gap: "15px",
@@ -91,7 +77,7 @@ const Footer = {
   borderRadius: "5px 0 0 5px",
 };
 
-const MobileFooter = {
+const Footer = {
   alignSelf: "center",
   display: "flex",
   gap: "15px",
@@ -105,19 +91,18 @@ const MobileFooter = {
   borderRadius: "10px 0 0 10px",
 };
 
-const FooterIcons = {
+const MobileFooterIcons = {
   color: "#ffffff",
-  fontSize: "small",
+  fontSize: "16px",
 };
 
-const MobileFooterIcons = {
+const FooterIcons = {
   color: "#ffffff",
   fontSize: "large",
 };
 
 export const styles = {
   Header: Header,
-  TitleDiv: TitleDiv,
   Title: Title,
   Logo: Logo,
   NavItems: NavItems,
@@ -126,7 +111,6 @@ export const styles = {
   MobileNavbar: MobileNavbar,
   MobileNavItems: MobileNavItems,
   MobileHeader: MobileHeader,
-  MobileTitleDiv: MobileTitleDiv,
   MobileTitle: MobileTitle,
   MobileFooter: MobileFooter,
   MobileFooterIcons: MobileFooterIcons,

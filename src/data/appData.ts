@@ -1,11 +1,11 @@
-import hubFront from "../pages/HomePage/Portfolio/images/hubFront.png";
-import hubFront2 from "../pages/HomePage/Portfolio/images/hubFront2.png";
-import guessANumberFront from "../pages/HomePage/Portfolio/images/guessANumberFront.png";
-import learnfullstackFront from "../pages/HomePage/Portfolio/images/learnfullstackFront.png";
-import pizzaOnRailsFront from "../pages/HomePage/Portfolio/images/pizzaOnRailsFront.png";
-import sosellBrowserFront from "../pages/HomePage/Portfolio/images/sosellBrowserFront.png";
-import sosellMobileFront from "../pages/HomePage/Portfolio/images/sosellMobileFront.png";
-import visualCVFront from "../pages/HomePage/Portfolio/images/visualCVFront.png";
+import hubFront from "./portfolioImages/hubFront.png";
+import hubFront2 from "./portfolioImages/hubFront2.png";
+import guessANumberFront from "./portfolioImages/guessANumberFront.png";
+import learnfullstackFront from "./portfolioImages/learnfullstackFront.png";
+import pizzaOnRailsFront from "./portfolioImages/pizzaOnRailsFront.png";
+import sosellBrowserFront from "./portfolioImages/sosellBrowserFront.png";
+import sosellMobileFront from "./portfolioImages/sosellMobileFront.png";
+import visualCVFront from "./portfolioImages/visualCVFront.png";
 
 // INTERFACES
 export interface Options {
