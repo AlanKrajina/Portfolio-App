@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../layouts/Layout";
 import { styles } from "./workStyles";
 import { initialImages } from "../../data/appData";
-import WorkApp from "./Apps/WorkApp";
+import WorkApp from "./WorkApps/WorkApp";
 import _ from "lodash";
 
 const Work: React.FC = () => {

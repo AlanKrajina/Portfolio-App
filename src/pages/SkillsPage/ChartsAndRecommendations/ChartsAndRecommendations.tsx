@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../helpers/animations.css";
-import Charts from "./Charts";
-import RecommendationAndInterview from "./RecommendationAndInterview";
+import Charts from "./Charts/Charts";
+import RecommendationAndInterview from "./Recommendations/RecommendationAndInterview";
 import { styles } from "./skillsChartsStyles";
 
 const SkillsCharts: React.FC = () => {

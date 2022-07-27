@@ -80,7 +80,8 @@ const SummarySection: React.FC = () => {
             advantages. ScrollTrigger from GSAP to trigger component animations
             when we get into view. EmailJS to send quick and simple emails from
             the contact section. Redux Toolkit for state management in the Redux
-            Game. Custom hooks for animation effects. Great packages like
+            Game. UseState, useReducer and useContext for local state
+            management. Custom hooks for animation effects. Great packages like
             recharts, react-globe, react-animated-cursor, react-audio-player,
             react-pdf and file-saver. For styling app uses CSS in JS, Tailwind,
             and regular CSS as files or inline.

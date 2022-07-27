@@ -3,7 +3,7 @@ import GameTimeChart from "../Charts/GameTimeChart";
 import { styles } from "./statsComponentsStyles";
 import MatchedList from "../Charts/MatchedList/MatchedList";
 import StepsCharts from "../Charts/StepsCharts/StepsCharts";
-import { GameMainState } from "../../../app/gameSlice";
+import { GameMainState } from "../../../app/gameSliceInterfaces";
 import { useSelector } from "react-redux";
 import { memo } from "react";
 import { MediaQueryContext } from "../../../App";

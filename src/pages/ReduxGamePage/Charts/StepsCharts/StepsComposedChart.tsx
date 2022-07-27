@@ -10,7 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { GameTimeState } from "../../../../app/gameSlice";
+import { GameTimeState } from "../../../../app/gameSliceInterfaces";
 import { MediaQueryContext } from "../../../../App";
 
 interface Props {

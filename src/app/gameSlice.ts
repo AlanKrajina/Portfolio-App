@@ -1,64 +1,27 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { WritableDraft } from "immer/dist/internal";
+import {
+  GameConditionals,
+  MemeState,
+  GameStatsState,
+  SingleGameState,
+  Game,
+} from "./gameSliceInterfaces";
 
-export interface GameConditionals {
-  isLoading: boolean;
-  isAppRunning: boolean;
-  isImageClicked: boolean;
-  isCopy: boolean;
-}
-
-export interface GameTimeState {
-  start: string;
-  end: string;
-}
-
-export interface MemeState {
-  id: string;
-  name: string;
-  url: string;
-  urlBack: string;
-  selected: boolean;
-}
-
-export interface GameStatsState {
-  stepCount: number;
-  gameTimes: GameTimeState[];
-  wrongMatches: number;
-}
-
-export interface SingleGameState {
-  gameData: MemeState[];
-  matchedImages: string[];
-  selectedImages: string[];
-  error: string;
-  gameStats: GameStatsState;
-  gameConditionals: GameConditionals;
-}
-
-export interface Game {
-  singleGame: SingleGameState;
-  gameCopies: SingleGameState[];
-}
-
-export interface GameMainState {
-  game: Game;
-}
-
-const gameConditionals: GameConditionals = {
+export const gameConditionals: GameConditionals = {
   isLoading: false,
   isAppRunning: false,
   isImageClicked: false,
   isCopy: false,
 };
 
-const gameStatsState: GameStatsState = {
+export const gameStatsState: GameStatsState = {
   stepCount: 0,
   gameTimes: [],
   wrongMatches: 0,
 };
 
-const singleGameState: SingleGameState = {
+export const singleGameState: SingleGameState = {
   gameData: [],
   matchedImages: [],
   selectedImages: [],
@@ -67,7 +30,7 @@ const singleGameState: SingleGameState = {
   gameConditionals: gameConditionals,
 };
 
-const initialState: Game = {
+export const initialState: Game = {
   singleGame: singleGameState,
   gameCopies: [],
 };

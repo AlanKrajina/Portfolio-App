@@ -18,7 +18,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
   useEffect(() => {
     setTimeout(function () {
       setLoading(false);
-    }, 2000);
+    }, 1200);
   }, []);
 
   return (

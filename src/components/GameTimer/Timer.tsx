@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
-import { styles } from "../../pages/ReduxGamePage/StatsComponents/statsComponentsStyles";
+import { styles } from "./timerStyles";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  GameMainState,
-  imageClicked,
-  updateGameTimes,
-} from "../../app/gameSlice";
+import { imageClicked, updateGameTimes } from "../../app/gameSlice";
+import { GameMainState } from "../../app/gameSliceInterfaces";
+
 import { AppDispatch } from "../../app/store";
 
 interface TimerProps {

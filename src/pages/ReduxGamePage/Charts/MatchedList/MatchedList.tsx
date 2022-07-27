@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SingleGameState } from "../../../../app/gameSlice";
+import { SingleGameState } from "../../../../app/gameSliceInterfaces";
 import { styles } from "../chartStyles";
 import { MediaQueryContext } from "../../../../App";
 

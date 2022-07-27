@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Layout from "../../layouts/Layout";
 import { styles } from "./aboutStyles";
-import DownloadPDF from "./DownloadPDF";
+import DownloadPDF from "../../components/DownloadPDF/DownloadPDF";
 import { MediaQueryContext } from "../../App";
 
 const reactPdf = require("react-pdf/dist/esm/entry.webpack5");

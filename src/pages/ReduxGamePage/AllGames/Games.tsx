@@ -1,10 +1,8 @@
 import React from "react";
 import { styles } from "./gamesStyles";
-import {
-  GameMainState,
-  updateCurrentStatistics,
-  appRunning,
-} from "../../../app/gameSlice";
+import { updateCurrentStatistics, appRunning } from "../../../app/gameSlice";
+import { GameMainState } from "../../../app/gameSliceInterfaces";
+
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../../app/store";
 

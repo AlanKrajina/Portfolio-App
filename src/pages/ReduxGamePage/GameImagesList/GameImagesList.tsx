@@ -2,13 +2,12 @@ import { styles } from "./gameImagesStyles";
 import React, { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  GameMainState,
   updateImagesState,
-  MemeState,
   appRunning,
   imageClicked,
   clearSelectedImages,
 } from "../../../app/gameSlice";
+import { GameMainState, MemeState } from "../../../app/gameSliceInterfaces";
 import { AppDispatch } from "../../../app/store";
 import { MediaQueryContext } from "../../../App";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import "../../../helpers/animations.css";
-import { styles } from "./skillsChartsStyles";
+import "../../../../helpers/animations.css";
+import { styles } from "../skillsChartsStyles";
 
 const Skills: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#e13c4c",
-                  width: "85%",
+                  width: "87%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -27,7 +27,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#ffdb43",
-                  width: "80%",
+                  width: "83%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -40,7 +40,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#3498db",
-                  width: "80%",
+                  width: "84%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -53,7 +53,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#2ecc71",
-                  width: "89%",
+                  width: "94%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -70,7 +70,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#a94034",
-                  width: "83%",
+                  width: "91%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -83,7 +83,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#ff8137",
-                  width: "78%",
+                  width: "81%",
                 }}
                 className="animated fadeInLeft"
               ></span>
@@ -96,7 +96,7 @@ const Skills: React.FC = () => {
                 style={{
                   ...styles.BarSpan,
                   backgroundColor: "#0cbfb3",
-                  width: "70%",
+                  width: "77%",
                 }}
                 className="animated fadeInLeft"
               ></span>

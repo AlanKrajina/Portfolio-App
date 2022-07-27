@@ -68,7 +68,7 @@ const NavItems = {
 const MobileFooter = {
   alignSelf: "center",
   display: "flex",
-  gap: "15px",
+  gap: "10px",
   zIndex: 21,
   padding: "0 0.5rem 0 0.5rem",
   backgroundColor: "black",
@@ -93,7 +93,7 @@ const Footer = {
 
 const MobileFooterIcons = {
   color: "#ffffff",
-  fontSize: "16px",
+  fontSize: "14px",
 };
 
 const FooterIcons = {

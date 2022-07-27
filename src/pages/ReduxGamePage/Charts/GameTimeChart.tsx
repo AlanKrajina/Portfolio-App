@@ -9,7 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { GameStatsState } from "../../../app/gameSlice";
+import { GameStatsState } from "../../../app/gameSliceInterfaces";
 import { styles } from "./chartStyles";
 import { MediaQueryContext } from "../../../App";
 

@@ -21,22 +21,6 @@ const MusicPlayer: React.FC = () => {
               top: "40px",
               right: "-20px",
             }
-        /*         isHalfScreen
-          ? {
-              ...styles.MusicPlayerDiv,
-              top: "70px",
-              right: "-20px",
-            }
-          : styles.MusicPlayerDiv */
-
-        /* 
-        isHalfScreen
-          ? styles.MusicPlayerDiv
-          : {
-              ...styles.MusicPlayerDiv,
-              top: isDesktop ? "40px" : "70px",
-              right: "-20px",
-            } */
       }
     >
       <div

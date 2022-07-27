@@ -1,6 +1,6 @@
 import React from "react";
-import "../../../helpers/animations.css";
-import { styles } from "./skillsChartsStyles";
+import "../../../../helpers/animations.css";
+import { styles } from "../skillsChartsStyles";
 
 const RecommendationAndInterview: React.FC = () => {
   return (

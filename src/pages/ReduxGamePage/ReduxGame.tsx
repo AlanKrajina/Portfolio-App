@@ -3,9 +3,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getImagesAndResetState,
-  GameMainState,
   unmountGameComponent,
 } from "../../app/gameSlice";
+import { GameMainState } from "../../app/gameSliceInterfaces";
+
 import { AppDispatch } from "../../app/store";
 import ReduxGameDashboard from "./Dashboard/ReduxGameDashboard";
 import ReduxGameStatistics from "./StatsComponents/ReduxGameStatistics";

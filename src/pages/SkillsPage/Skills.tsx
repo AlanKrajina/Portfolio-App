@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../layouts/Layout";
-import SkillsCharts from "./SkillsCharts/SkillsCharts";
+import ChartsAndRecommendations from "./ChartsAndRecommendations/ChartsAndRecommendations";
 import { styles } from "./skillsStyles";
 import SkillsText from "./SkillsText/SkillsText";
 
@@ -13,7 +13,7 @@ const Skills: React.FC = () => {
     >
       <div style={styles.SkillsDiv}>
         <SkillsText />
-        <SkillsCharts />
+        <ChartsAndRecommendations />
       </div>
     </Layout>
   );

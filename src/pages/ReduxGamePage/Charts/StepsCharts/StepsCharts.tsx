@@ -2,7 +2,10 @@ import React, { useContext } from "react";
 import { styles } from "../chartStyles";
 import StepsPieChart from "./StepsPieChart";
 import StepsBarChart from "./StepsBarChart";
-import { SingleGameState, GameStatsState } from "../../../../app/gameSlice";
+import {
+  SingleGameState,
+  GameStatsState,
+} from "../../../../app/gameSliceInterfaces";
 import StepsComposedChart from "./StepsComposedChart";
 import { MediaQueryContext } from "../../../../App";
 
