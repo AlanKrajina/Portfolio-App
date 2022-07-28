@@ -25,12 +25,14 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
           </p>
           <div
             id="section"
-            style={{
-              ...styles.MatchedListGallery,
-              gridTemplateColumns: "repeat(auto-fit, 7rem)",
-              margin: "auto",
-              width: "77%",
-            }}
+            style={
+              isDesktop
+                ? styles.MatchedListGallery
+                : {
+                    ...styles.MatchedListGallery,
+                    gridTemplateColumns: "repeat(auto-fit, 5rem)",
+                  }
+            }
           >
             {gameState.matchedImages.map((img) => {
               if (gameState.gameData.find((el) => el.name === img)) {
@@ -41,7 +43,16 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
                   <img
                     key={foundImg?.id}
                     src={foundImg?.url}
-                    style={styles.MatchedListImage}
+                    style={
+                      isDesktop
+                        ? styles.MatchedListImage
+                        : {
+                            ...styles.MatchedListImage,
+                            gridTemplateColumns: "repeat(auto-fit, 8em)",
+                            width: "5rem",
+                            height: "5rem",
+                          }
+                    }
                     alt={foundImg?.name}
                   />
                 );

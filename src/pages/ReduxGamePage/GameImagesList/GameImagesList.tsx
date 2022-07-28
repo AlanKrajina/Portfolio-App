@@ -53,8 +53,8 @@ const GameImagesList: React.FC = () => {
               ...styles.GameImagesGallery,
               maxWidth: "85vw",
               gridTemplateColumns: isDesktop
-                ? "repeat(auto-fit, 6rem)"
-                : "repeat(auto-fit, 5rem)",
+                ? "repeat(auto-fit, 7rem)"
+                : "repeat(auto-fit, 6rem)",
             }
       }
     >

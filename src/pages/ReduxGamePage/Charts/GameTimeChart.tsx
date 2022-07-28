@@ -57,8 +57,8 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
                 data={gameTimes}
                 margin={{
                   top: 0,
-                  right: 20,
-                  left: 20,
+                  right: 40,
+                  left: 0,
                   bottom: 0,
                 }}
               >

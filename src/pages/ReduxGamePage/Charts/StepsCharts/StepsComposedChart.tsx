@@ -49,7 +49,7 @@ const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
           top: 20,
           right: 20,
           bottom: 20,
-          left: 20,
+          left: 0,
         }}
       >
         <CartesianGrid stroke="#f5f5f5" />

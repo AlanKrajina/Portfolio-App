@@ -23,7 +23,7 @@ const ThreeChartsDiv = {
 
 const MainChartsDiv = {
   margin: "auto",
-  paddingTop: "1rem",
+  padding: "1rem 0 1rem 0",
 };
 
 const ChartsDiv = {
@@ -40,11 +40,10 @@ const MatchedListImage = {
 };
 
 const MatchedListGallery = {
-  width: "60%",
+  justifyContent: "center",
   display: "grid",
   gap: "0.5rem",
-  gridTemplateColumns: "repeat(auto-fit, 12rem)",
-  justifyContent: "center",
+  gridTemplateColumns: "repeat(auto-fit, 9rem)",
   margin: "auto",
 };
 
