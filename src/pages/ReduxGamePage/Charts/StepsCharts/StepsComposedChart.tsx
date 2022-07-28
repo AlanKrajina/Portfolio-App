@@ -18,7 +18,7 @@ interface Props {
 }
 
 const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
-  const { isLargeScreen } = useContext(MediaQueryContext);
+  const { isLargeScreen, isDesktop } = useContext(MediaQueryContext);
   const gameTimesSorted = gameTimes
     .map((el) => (parseInt(el.end) - parseInt(el.start)) / 1000)
     .sort((a, b) => b - a);
@@ -37,7 +37,10 @@ const StepsComposedChart: React.FC<Props> = ({ gameTimes }: Props) => {
   ];
 
   return (
-    <ResponsiveContainer width={isLargeScreen ? "20%" : "95%"} height={350}>
+    <ResponsiveContainer
+      width={isLargeScreen ? "20%" : "95%"}
+      height={isDesktop ? 350 : 200}
+    >
       <ComposedChart
         width={500}
         height={400}

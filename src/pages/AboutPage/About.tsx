@@ -16,8 +16,16 @@ const About: React.FC = () => {
       headerId="aboutTitle"
       headerTitle="About and CV"
     >
-      <div style={styles.MainDiv}>
-        <div style={styles.ParagraphDownloadDiv}>
+      <div
+        style={isDesktop ? styles.MainDiv : { ...styles.MainDiv, gap: "2rem" }}
+      >
+        <div
+          style={
+            isDesktop
+              ? styles.ParagraphDownloadDiv
+              : { ...styles.ParagraphDownloadDiv, fontSize: "0.7rem" }
+          }
+        >
           <p>
             Born and raised in Zagreb Croatia where I finished school of
             Electrical Engineering and college for Occupational Safety and

@@ -19,7 +19,7 @@ const ReduxGameStatistics: React.FC = () => {
       style={
         isDesktop
           ? styles.StatisticsMainDiv
-          : { ...styles.StatisticsMainDiv, padding: 0 }
+          : { ...styles.StatisticsMainDiv, padding: "1.5rem 0 0 0 " }
       }
     >
       <GameTimeChart gameStats={gameState.gameStats} />

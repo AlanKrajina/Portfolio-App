@@ -25,7 +25,6 @@ const ImagesGallery = {
 };
 
 const Link = {
-  fontSize: "18px",
   color: "#0077b5",
   textDecoration: "underline",
 };

@@ -23,6 +23,7 @@ const ThreeChartsDiv = {
 
 const MainChartsDiv = {
   margin: "auto",
+  paddingTop: "1rem",
 };
 
 const ChartsDiv = {

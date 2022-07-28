@@ -115,7 +115,7 @@ const ContactSection: React.FC = () => {
               ...styles.Section,
               marginLeft: 0,
               padding: "2rem",
-              fontSize: "initial",
+              fontSize: isDesktop ? "0.9rem" : "0.8rem",
             }
       }
     >
@@ -124,7 +124,7 @@ const ContactSection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.Title }
-            : { ...styles.Title, fontSize: "3rem", marginBottom: "1rem" }
+            : { ...styles.Title, fontSize: "2rem", marginBottom: "0.1rem" }
         }
       />
       <p id="contactSection" style={{ maxWidth: "60rem" }}>

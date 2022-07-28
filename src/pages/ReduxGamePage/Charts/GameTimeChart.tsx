@@ -39,7 +39,7 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
                 ? styles.Title
                 : {
                     ...styles.Title,
-                    fontSize: "1rem",
+                    fontSize: "0.8rem",
                     margin: "2rem 1rem 2rem 1rem",
                   }
             }
@@ -51,7 +51,7 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
           <div style={styles.GameChartDiv}>
             <ResponsiveContainer
               width={isDesktop ? "85%" : "100%"}
-              height={350}
+              height={isDesktop ? 350 : 150}
             >
               <BarChart
                 data={gameTimes}
@@ -64,14 +64,7 @@ const GameTimeChart: React.FC<Props> = ({ gameStats }: Props) => {
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" tickMargin={5} />
-                <YAxis
-                  label={{
-                    value: "sec",
-                    fill: "#08fdd8",
-                    position: { x: 5, y: 152 },
-                  }}
-                  tickMargin={5}
-                />
+                <YAxis tickMargin={5} />
                 <Tooltip cursor={{ fill: "transparent" }} />
                 <Legend />
                 <Bar dataKey="time" fill="#08fdd8" />

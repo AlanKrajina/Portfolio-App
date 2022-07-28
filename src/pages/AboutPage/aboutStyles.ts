@@ -1,7 +1,7 @@
 const Title = {
   fontSize: "4rem",
   color: "#08fdd8",
-  marginBottom: "3rem",
+  marginBottom: "1rem",
   fontWeight: "bold",
 };
 

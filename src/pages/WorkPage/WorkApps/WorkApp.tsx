@@ -23,20 +23,29 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
 
   return (
     <div style={styles.WorkAppDiv}>
-      <p style={styles.WorkAppTitle}>{workApp.name}</p>
+      <p style={isDesktop ? styles.WorkAppTitle : styles.MobileTitle}>
+        {workApp.name}
+      </p>
 
       <div style={styles.WorkAppsSectionDiv}>
         <div style={styles.WorkAppSummaryDiv}>
           {workApp.summary.map((summary) => {
             return (
-              <p style={styles.WorkAppParagraph} key={_.uniqueId()}>
+              <p
+                style={
+                  isDesktop
+                    ? styles.WorkAppParagraph
+                    : styles.MobileWorkAppParagraph
+                }
+                key={_.uniqueId()}
+              >
                 {summary}
               </p>
             );
           })}
 
           {workApp.youTubeSource !== "" ? (
-            <p style={styles.Link}>
+            <p style={isDesktop ? styles.Link : styles.MobileLink}>
               <a href={workApp.youTubeSource} target="_blank" rel="noreferrer">
                 YouTube Link
               </a>
@@ -46,7 +55,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
           )}
 
           {workApp.gitHubSource !== "" ? (
-            <p style={styles.Link}>
+            <p style={isDesktop ? styles.Link : styles.MobileLink}>
               <a href={workApp.gitHubSource} target="_blank" rel="noreferrer">
                 GitHub Link
               </a>
@@ -57,10 +66,18 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
         </div>
         {loading ? (
           <div
-            style={{
-              ...styles.WorkAppIFrameImgDiv,
-              paddingLeft: "20px 50px 20px 10vw",
-            }}
+            style={
+              isDesktop
+                ? {
+                    ...styles.WorkAppIFrameImgDiv,
+                    paddingLeft: "20px 50px 20px 10vw",
+                  }
+                : {
+                    ...styles.WorkAppIFrameImgDiv,
+                    paddingLeft: "20px 50px 20px 10vw",
+                    minHeight: "18rem",
+                  }
+            }
           >
             <div
               style={
@@ -74,17 +91,25 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
           </div>
         ) : (
           <div
-            style={{
-              ...styles.WorkAppIFrameImgDiv,
-              padding: "20px 50px 20px 0",
-            }}
+            style={
+              isDesktop
+                ? {
+                    ...styles.WorkAppIFrameImgDiv,
+                    padding: "20px 50px 20px 0",
+                  }
+                : {
+                    ...styles.WorkAppIFrameImgDiv,
+                    padding: "20px 50px 20px 0",
+                    minHeight: "18rem",
+                  }
+            }
           >
             {workApp.youTubeSource !== "" &&
             workApp.name !== "Hub App Asset Creation" ? (
               <iframe
                 src={workApp.youTubeSource}
-                width={isDesktop ? "600" : "300"}
-                height="300"
+                width={isDesktop ? "600" : "280"}
+                height={isDesktop ? "300" : "250"}
                 title={workApp.name}
                 className="animated fadeInLeft50"
               ></iframe>
@@ -93,7 +118,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 src={workApp.image}
                 alt="portfolioImage"
                 className="animated fadeInLeft50"
-                style={isDesktop ? { height: "300px" } : { height: "280px" }}
+                style={isDesktop ? { height: "300px" } : { height: "200px" }}
               />
             )}
           </div>

@@ -11,7 +11,7 @@ const COLORS = ["#0088FE", "rgb(251 101 121)"];
 const RADIAN = Math.PI / 180;
 
 const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
-  const { isLargeScreen } = useContext(MediaQueryContext);
+  const { isLargeScreen, isDesktop } = useContext(MediaQueryContext);
   const pieChartData = [
     { name: "Tries", value: stepCount },
     { name: "Wrong matches", value: wrongMatches },
@@ -44,7 +44,10 @@ const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
   };
 
   return (
-    <ResponsiveContainer width={isLargeScreen ? "25%" : "95%"} height={350}>
+    <ResponsiveContainer
+      width={isLargeScreen ? "25%" : "95%"}
+      height={isDesktop ? 350 : 200}
+    >
       <PieChart>
         <Pie
           data={pieChartData}
@@ -52,7 +55,7 @@ const StepsPieChart: React.FC<Props> = ({ wrongMatches, stepCount }: Props) => {
           cy="50%"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={120}
+          outerRadius={isDesktop ? 120 : 80}
           fill="#8884d8"
           dataKey="value"
         >

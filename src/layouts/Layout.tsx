@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({
   headerId,
   headerTitle,
 }) => {
-  const { isHalfScreen } = useContext(MediaQueryContext);
+  const { isHalfScreen, isDesktop } = useContext(MediaQueryContext);
 
   return (
     <div
@@ -33,7 +33,9 @@ const Layout: React.FC<LayoutProps> = ({
           : {
               ...styles.Layout,
               marginLeft: 0,
-              padding: "8rem 1rem 1rem 1rem",
+              padding: isDesktop
+                ? "8rem 1rem 1rem 1rem"
+                : "6rem 1rem 1rem 1rem",
             }
       }
     >

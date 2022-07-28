@@ -1,7 +1,7 @@
 const Title = {
   fontSize: "4rem",
   color: "#08fdd8",
-  marginBottom: "3rem",
+  marginBottom: "2rem",
   fontWeight: "bold",
 };
 
@@ -44,8 +44,19 @@ const WorkAppTitle = {
   paddingBottom: "2rem",
 };
 
+const MobileTitle = {
+  paddingBottom: "0.5rem",
+  fontSize: "1.2rem",
+};
+
 const WorkAppParagraph = {
   fontSize: "1rem",
+  paddingBottom: "0.2rem",
+  color: "#c9c8c8",
+};
+
+const MobileWorkAppParagraph = {
+  fontSize: "0.7rem",
   paddingBottom: "0.2rem",
   color: "#c9c8c8",
 };
@@ -65,6 +76,13 @@ const Link = {
   padding: "0.6rem 0 0 0",
 };
 
+const MobileLink = {
+  fontSize: "0.6rem",
+  color: "#0077b5",
+  textDecoration: "underline",
+  padding: "0.4rem 0 0 0",
+};
+
 export const styles = {
   Title: Title,
   WorkDiv: WorkDiv,
@@ -77,4 +95,7 @@ export const styles = {
   WorkAppParagraph: WorkAppParagraph,
   PacmanDiv: PacmanDiv,
   Link: Link,
+  MobileTitle: MobileTitle,
+  MobileWorkAppParagraph: MobileWorkAppParagraph,
+  MobileLink: MobileLink,
 };

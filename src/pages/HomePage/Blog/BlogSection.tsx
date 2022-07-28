@@ -34,7 +34,7 @@ const BlogSection: React.FC = () => {
               ...styles.Section,
               marginLeft: 0,
               padding: "2rem",
-              fontSize: "initial",
+              fontSize: isDesktop ? "0.9rem" : "0.8rem",
             }
       }
     >
@@ -43,7 +43,7 @@ const BlogSection: React.FC = () => {
         style={
           isDesktop
             ? { ...styles.Title }
-            : { ...styles.Title, fontSize: "3rem", marginBottom: "1rem" }
+            : { ...styles.Title, fontSize: "2rem", marginBottom: "0.1rem" }
         }
       />
       <p>
@@ -83,13 +83,35 @@ const BlogSection: React.FC = () => {
             <section
               className="animated fadeInLeft50"
               key={key}
-              style={{ ...styles.Blog, borderTop: `3px solid ${elem.color}` }}
+              style={
+                isDesktop
+                  ? { ...styles.Blog, borderTop: `3px solid ${elem.color}` }
+                  : {
+                      ...styles.Blog,
+                      borderTop: `3px solid ${elem.color}`,
+                      height: "9rem",
+                    }
+              }
             >
-              <p style={{ ...styles.BlogTechnology, color: elem.color }}>
+              <p
+                style={
+                  isDesktop
+                    ? { ...styles.BlogTechnology, color: elem.color }
+                    : {
+                        ...styles.BlogTechnology,
+                        color: elem.color,
+                        fontStyle: "smaller",
+                      }
+                }
+              >
                 {elem.technology}
               </p>
               <a href={elem.link} target="_blank" rel="noreferrer">
-                <p style={styles.BlogTitle}>{elem.title}</p>
+                <p
+                  style={isDesktop ? styles.BlogTitle : styles.MobileBlogTitle}
+                >
+                  {elem.title}
+                </p>
               </a>
               <p style={{ ...styles.BlogDate, color: "#cbc8c" }}>{elem.date}</p>
             </section>

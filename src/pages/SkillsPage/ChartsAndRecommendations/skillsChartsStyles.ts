@@ -29,6 +29,13 @@ const ListItem = {
 const Title = {
   display: "block",
   marginBottom: "15px",
+  fontSize: "1rem",
+};
+
+const MobileTitle = {
+  display: "block",
+  marginBottom: "15px",
+  fontSize: "0.8rem",
 };
 
 const BarDiv = {
@@ -73,13 +80,30 @@ const RITitle = {
   color: "#08fdd8",
 };
 
+const MobileRITitle = {
+  fontSize: "1.2rem",
+  color: "#08fdd8",
+};
+
 const RIText = {
   fontSize: "1rem",
   color: "#c9c8c8",
 };
 
+const MobileRIText = {
+  fontSize: "0.7rem",
+  color: "#c9c8c8",
+};
+
 const RILink = {
   fontSize: "0.8rem",
+  color: "#0077b5",
+  textDecoration: "underline",
+  padding: "0.6rem",
+};
+
+const MobileRILink = {
+  fontSize: "0.6rem",
   color: "#0077b5",
   textDecoration: "underline",
   padding: "0.6rem",
@@ -112,4 +136,8 @@ export const styles = {
   RITitle: RITitle,
   RIText: RIText,
   RILink: RILink,
+  MobileRITitle: MobileRITitle,
+  MobileRIText: MobileRIText,
+  MobileRILink: MobileRILink,
+  MobileTitle: MobileTitle,
 };

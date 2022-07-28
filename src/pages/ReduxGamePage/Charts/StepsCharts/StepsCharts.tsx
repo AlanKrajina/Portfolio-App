@@ -27,7 +27,7 @@ const StepsCharts: React.FC<Props> = ({ gameStats, gameState }: Props) => {
                 ? styles.ThreeChartsDiv
                 : {
                     ...styles.ThreeChartsDiv,
-                    fontSize: "1rem",
+                    fontSize: "0.8rem",
                     margin: "2rem 1rem 2rem 1rem",
                   }
             }

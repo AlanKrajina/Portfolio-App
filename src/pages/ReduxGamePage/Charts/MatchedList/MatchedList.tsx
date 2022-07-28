@@ -18,7 +18,7 @@ const MachedList: React.FC<Props> = ({ gameState }: Props) => {
             style={
               isDesktop
                 ? styles.Title
-                : { ...styles.Title, fontSize: "1rem", margin: "1rem" }
+                : { ...styles.Title, fontSize: "0.8rem", margin: "1rem" }
             }
           >
             List of all matched cards.

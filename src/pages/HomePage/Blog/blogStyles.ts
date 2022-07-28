@@ -44,6 +44,10 @@ const BlogTitle = {
   fontSize: "x-large",
 };
 
+const MobileBlogTitle = {
+  fontSize: "large",
+};
+
 const BlogDate = {
   fontSize: "x-small",
 };
@@ -56,4 +60,5 @@ export const styles = {
   BlogTechnology: BlogTechnology,
   BlogTitle: BlogTitle,
   BlogDate: BlogDate,
+  MobileBlogTitle: MobileBlogTitle,
 };
