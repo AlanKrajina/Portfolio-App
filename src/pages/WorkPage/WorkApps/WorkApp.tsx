@@ -75,7 +75,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 : {
                     ...styles.WorkAppIFrameImgDiv,
                     paddingLeft: "20px 50px 20px 10vw",
-                    minHeight: "18rem",
+                    minHeight: "17rem",
                   }
             }
           >
@@ -83,7 +83,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
               style={
                 isDesktop
                   ? styles.PacmanDiv
-                  : { ...styles.PacmanDiv, width: "10rem" }
+                  : { ...styles.PacmanDiv, width: "8rem" }
               }
             >
               <PacmanLoader color={"#08fdd8"} loading={loading} size={20} />
@@ -100,7 +100,7 @@ const WorkApp: React.FC<AppProps> = ({ workApp }) => {
                 : {
                     ...styles.WorkAppIFrameImgDiv,
                     padding: "20px 50px 20px 0",
-                    minHeight: "18rem",
+                    minHeight: "17rem",
                   }
             }
           >

@@ -12,7 +12,8 @@ import { AppDispatch } from "../../../app/store";
 import { MediaQueryContext } from "../../../App";
 
 const GameImagesList: React.FC = () => {
-  const { isHalfScreen, isLargeScreen } = useContext(MediaQueryContext);
+  const { isHalfScreen, isLargeScreen, isDesktop } =
+    useContext(MediaQueryContext);
   const dispatch = useDispatch<AppDispatch>();
   const gameState = useSelector(
     (state: GameMainState) => state.game.singleGame
@@ -51,7 +52,9 @@ const GameImagesList: React.FC = () => {
           : {
               ...styles.GameImagesGallery,
               maxWidth: "85vw",
-              gridTemplateColumns: "repeat(auto-fit, 6rem)",
+              gridTemplateColumns: isDesktop
+                ? "repeat(auto-fit, 6rem)"
+                : "repeat(auto-fit, 5rem)",
             }
       }
     >
@@ -71,7 +74,7 @@ const GameImagesList: React.FC = () => {
                   ? styles.GameImage
                   : {
                       ...styles.GameImage,
-                      height: "7rem",
+                      height: isDesktop ? "7rem" : "5rem",
                     }
               }
               alt={img.name}

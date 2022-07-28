@@ -4,9 +4,8 @@ const GameImagesGallery = {
   gridTemplateColumns: "repeat(auto-fit, 12rem)",
   justifyContent: "center",
   margin: "auto",
-  marginTop: "4vh",
   maxWidth: "85vw",
-  paddingBottom: "2rem",
+  paddingTop: "3rem",
 };
 
 const GameImage = {
