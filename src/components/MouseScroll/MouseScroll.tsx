@@ -1,8 +1,15 @@
+import React, { useContext } from "react";
 import "./MouseScroll.css";
+import { MediaQueryContext } from "../../App";
 
 const MouseScroll: React.FC = () => {
+  const { isDesktop } = useContext(MediaQueryContext);
+
   return (
-    <div className="mouse_scroll">
+    <div
+      className="mouse_scroll"
+      style={isDesktop ? undefined : { marginTop: "30vh" }}
+    >
       <div className="mouse">
         <div className="wheel"></div>
       </div>

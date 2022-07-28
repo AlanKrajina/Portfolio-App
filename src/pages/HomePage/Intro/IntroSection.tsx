@@ -54,7 +54,14 @@ const IntroSection: React.FC = () => {
               }
         }
       />
-      <div id="fourthSection" style={{ ...styles.IntroSection, top: "75vh" }} />
+      <div
+        id="fourthSection"
+        style={
+          isDesktop
+            ? { ...styles.IntroSection, top: "75vh" }
+            : { ...styles.IntroSection, top: "68vh" }
+        }
+      />
       <MouseScroll />
     </div>
   );
