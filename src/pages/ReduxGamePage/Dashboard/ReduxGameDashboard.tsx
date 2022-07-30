@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import Games from "../AllGames/Games";
 import { appRunning } from "../../../app/gameSlice";
 import { MediaQueryContext } from "../../../App";
+import Button from "../../../components/SharedButton/Button";
 
 interface DashboardProps {
   getImagesAndResetState: any;
@@ -51,20 +52,20 @@ const ReduxGameDashboard: React.FC<DashboardProps> = ({
       </p>
       <Timer time={time} setTime={setTime} />
       <div style={styles.DashboardButtonsDiv}>
-        <button
-          className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="button"
-          onClick={resetGame}
-        >
-          Reset Game
-        </button>
-        <button
-          className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="button"
-          onClick={checkStatistics}
-        >
-          {showStatistics ? "Close" : "Show"} Statistics
-        </button>
+        <Button
+          buttonFunction={resetGame}
+          buttonTitle={"Reset Game"}
+          styling={
+            "shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          }
+        />
+        <Button
+          buttonFunction={checkStatistics}
+          buttonTitle={showStatistics ? "Close Statistics" : "Show Statistics"}
+          styling={
+            "shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+          }
+        />
       </div>
       <Games
         setTime={setTime}

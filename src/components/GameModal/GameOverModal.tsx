@@ -3,6 +3,7 @@ import { GameMainState } from "../../app/gameSliceInterfaces";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../app/store";
+import Button from "../SharedButton/Button";
 
 interface Props {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -64,23 +65,24 @@ const GameOverModal: React.FC<Props> = ({
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse flex">
-              <button
-                type="button"
-                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm mr-1"
-                onClick={() => {
+              <Button
+                buttonFunction={() => {
                   setShowModal(false);
                   setShowStatistics((prevState) => !prevState);
                 }}
-              >
-                Open Statistics
-              </button>
-              <button
-                type="button"
-                className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                onClick={() => setShowModal(false)}
-              >
-                Close
-              </button>
+                buttonTitle={"Open Statistics"}
+                styling={
+                  "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm mr-1"
+                }
+              />
+
+              <Button
+                buttonFunction={() => setShowModal(false)}
+                buttonTitle={"Close"}
+                styling={
+                  "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                }
+              />
             </div>
           </div>
         </div>

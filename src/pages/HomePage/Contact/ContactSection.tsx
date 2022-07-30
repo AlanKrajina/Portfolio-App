@@ -7,6 +7,7 @@ import "../../../helpers/animations.css";
 import Globe from "../../../components/Globe/Globe";
 import useScrollTrigger from "../../../hooks/use-scrollTrigger";
 import { MediaQueryContext } from "../../../App";
+import Button from "../../../components/SharedButton/Button";
 
 interface EmailResponse {
   sent: boolean;
@@ -81,7 +82,7 @@ const ContactSection: React.FC = () => {
         type: ACTIONS.RESET_FORM,
         payload: "",
       });
-    }, 5000);
+    }, 4000);
   };
 
   const handleEmail = async () => {
@@ -219,13 +220,15 @@ const ContactSection: React.FC = () => {
                   {formState.name !== "" &&
                     formState.email !== "" &&
                     formState.message !== "" && (
-                      <button
-                        onClick={handleEmail}
-                        className="w-16	h-10 shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="button"
-                      >
-                        {emailLoading ? <div className="spinner" /> : "Send"}
-                      </button>
+                      <Button
+                        buttonFunction={handleEmail}
+                        buttonTitle={
+                          emailLoading ? <div className="spinner" /> : "Send"
+                        }
+                        styling={
+                          "w-16	h-10 shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        }
+                      />
                     )}
                 </div>
               </div>

@@ -10,7 +10,7 @@ const Section = {
 };
 
 const List = {
-  padding: "1rem",
+  padding: "0.7rem",
 };
 
 const Title = {

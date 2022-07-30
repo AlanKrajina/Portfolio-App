@@ -1,5 +1,6 @@
 import React from "react";
 import { saveAs } from "file-saver";
+import Button from "../SharedButton/Button";
 
 const DownloadPDF: React.FC = () => {
   const saveFile = () => {
@@ -7,13 +8,13 @@ const DownloadPDF: React.FC = () => {
   };
   return (
     <div className="flex justify-center">
-      <button
-        className="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 m-4 rounded"
-        type="button"
-        onClick={saveFile}
-      >
-        Download PDF
-      </button>
+      <Button
+        buttonFunction={saveFile}
+        buttonTitle={"Download PDF"}
+        styling={
+          "shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+        }
+      />
     </div>
   );
 };
