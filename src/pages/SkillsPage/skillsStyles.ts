@@ -9,6 +9,8 @@ const SkillsDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
   gap: "2rem",
+  minHeight: "80vh",
+  alignContent: "center",
 };
 
 export const styles = {

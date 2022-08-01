@@ -9,9 +9,10 @@ const MainDiv = {
   display: "flex",
   flexWrap: "wrap" as "wrap",
   gap: "5rem",
-  alignSelf: "center",
   justifyContent: "center",
   padding: "20px 20px 0 20px",
+  minHeight: "80vh",
+  alignContent: "center",
 };
 
 const ParagraphDownloadDiv = {
