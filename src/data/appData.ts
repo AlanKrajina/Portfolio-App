@@ -228,6 +228,35 @@ export const blogData: BlogDataState[] = [
     color: "#8B008B",
   },
   {
+    link: "https://medium.com/@alankrajina/object-oriented-programming-e0db97a84a56",
+    title: "Object Oriented Programming",
+    technology: "JavaScript",
+    date: "February 24, 2020",
+    color: "rgb(30 161 124)",
+  },
+  {
+    link: "https://medium.com/@alankrajina/sql-basics-3668181c8e6a",
+    title: "SQL Basics",
+    technology: "SQL",
+    date: "February 18, 2020",
+    color: "rgb(255 0 165)",
+  },
+  {
+    link: "https://medium.com/@alankrajina/what-are-the-differences-between-variables-created-using-let-var-or-const-707dc1a217e1",
+    title:
+      "What are the differences between variables created using let, var or const?",
+    technology: "JavaScript",
+    date: "February 10, 2020",
+    color: "rgb(86 255 0)",
+  },
+  {
+    link: "https://medium.com/@alankrajina/prototypal-inheritance-prototype-chain-ec893bd45562",
+    title: "Prototypal Inheritance & Prototype Chain",
+    technology: "JavaScript",
+    date: "February 1, 2020",
+    color: "rgb(255 94 0)",
+  },
+  {
     link: "https://alankrajina.github.io/visualcv_final_project",
     title: "VisualCV Final Project",
     technology: "React, Redux, Ruby on Rails",
@@ -253,7 +282,7 @@ export const blogData: BlogDataState[] = [
     title: "Projects Track App",
     technology: "Ruby, Sinatra",
     date: "August 4, 2019",
-    color: "#000080",
+    color: "rgb(31 31 255)",
   },
   {
     link: "https://alankrajina.github.io/cli_data_gem_project_blog",
