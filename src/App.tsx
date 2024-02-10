@@ -19,7 +19,7 @@ export const MediaQueryContext = React.createContext({
 const App: React.FC = () => {
   const isDesktop = useMediaQuery("(min-width: 430px)");
   const isHalfScreen = useMediaQuery("(min-width: 960px)");
-  const isLargeScreen = useMediaQuery("(min-width: 1400px)");
+  const isLargeScreen = useMediaQuery("(min-width: 1400px)"); // test
 
   return (
     <MediaQueryContext.Provider
